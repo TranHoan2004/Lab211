@@ -110,14 +110,6 @@ public class Manager {
         double total=0;
         System.out.println("ORDER LIST");
         System.out.printf("|++%s++|++%s++|++%s++|++%s++|\n","Product","Quantity","Price","Amount");
-//        for (Order obj: orderList) {            
-//            System.out.printf("%-16s%-12d%f$%f$",obj.getFruitName()
-//                    ,obj.getQuantity(),obj.getPrice()
-//                    ,(obj.getQuantity()*obj.getPrice()));
-//            total+=(obj.getQuantity()*obj.getPrice());            
-//        }
-//        System.out.println("");
-//        System.out.printf("Total: %f$\n", total);
         for (Order obj: orderList) {            
             System.out.printf("%-16s%-12d%-11.0f$%.0f$",obj.getFruitName()
                     ,obj.getQuantity(),obj.getPrice()
