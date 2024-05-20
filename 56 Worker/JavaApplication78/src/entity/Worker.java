@@ -12,10 +12,11 @@ public class Worker {
 
     private String id,
             name,
-            workLocation;
+            workLocation,
+            status;
     private int age;
     private double salary;
-
+    
     public Worker() {
     }
 
@@ -65,6 +66,14 @@ public class Worker {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override

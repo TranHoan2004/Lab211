@@ -4,9 +4,11 @@
  */
 package utils;
 
-import entity.Worker;
+import entity.Task;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -22,15 +24,16 @@ public class ValidationAndNormalizationTextUtil {
         return input.trim().replaceAll("\\s+", "");
     }
 
-    public static int checkInputInRange(String msg, String error, int min, int max) {
+    public static int getInt(String mess, String errorNumberFormat, String errorOutOfRange, int min, int max) {
         while (true) {
-            int input = Integer.parseInt(getStringByRegex(msg, "[0-9]+", error));
-            if (input < min || input > max) {
-                System.err.println("Out of range!");
+            int ret = Integer.parseInt(getStringByRegex(mess, "[0-9]+", errorNumberFormat));
+            if (ret < min || ret > max) {
+                System.err.println(errorOutOfRange);
             } else {
-                return input;
+                return ret;
             }
         }
+
     }
 
     public static double getDouble(String msg, String error, double min, double max) {
@@ -58,15 +61,6 @@ public class ValidationAndNormalizationTextUtil {
         }
     }
 
-    public static boolean checkItemExist(String id, ArrayList<Worker> listWorker) {
-        for (Worker person : listWorker) {
-            if (person.getId().equalsIgnoreCase(id)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public static boolean checkYN() {
         while (true) {
             String answer = getStringByRegex("Do you want to continue? (Y/N): ", "[a-zA-Z]", "Please enter a letter, not a number").toLowerCase();
@@ -78,6 +72,15 @@ public class ValidationAndNormalizationTextUtil {
                 System.err.println("Please only enter y/Y for yes or n/N for no");
             }
         }
+    }
+
+    public static Task findTaskByID(int id, ArrayList<Task> listWorker) {
+        for (Task person : listWorker) {
+            if (person.getID() == id) {
+                return person;
+            }
+        }
+        return null;
     }
 
 }

@@ -5,6 +5,8 @@
 package bo;
 
 import entity.Worker;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import utils.ValidationAndNormalizationTextUtil;
 
@@ -24,10 +26,7 @@ public class Manager {
         input = new Inputer();
     }
 
-    public boolean addWorker(Worker worker) throws Exception {
-        if (worker == null) {
-            throw new Exception("Worker cannot be null");
-        }
+    public void addWorker() {
         while (true) {
             input.callInputer(1);
             Worker w = input.getWorker();
@@ -40,12 +39,12 @@ public class Manager {
             } catch (Exception e) {
                 System.out.println("ID is existed, worker will not be added");
             }
+            System.out.println("Added successfully!");
             show(listOfWorker);
             if (!ValidationAndNormalizationTextUtil.checkYN()) {
                 break;
             }
         }
-        return true;
     }
 
     public void changeSalary(String status) {
@@ -57,6 +56,7 @@ public class Manager {
                     throw new Exception();
 
                 } else {
+
                     break;
                 }
             } catch (Exception e) {
@@ -87,41 +87,42 @@ public class Manager {
     }
 
     private void increaseSalary(double amount, String code) {
-        findWorkerInformationByID(code, listOfWorker, '+', amount);
-        String status = "UP";
-        display(listOfWorker, status);
+        findWorkerInformationByID(code, listOfWorker, "UP", amount);
+        display(listOfWorker);
     }
 
     private void decreaseSalary(double amount, String code) {
-        findWorkerInformationByID(code, listOfWorker, '-', amount);
-        String status = "DOWN";
-        display(listOfWorker, status);
+        findWorkerInformationByID(code, listOfWorker, "DOWN", amount);
+        display(listOfWorker);
     }
 
     public void getInformationSalary() {
-
+        display(listOfWorker);
     }
 
-    public void display(ArrayList<Worker> worker, String status) {
+    public void display(ArrayList<Worker> worker) {
+        LocalDate date = LocalDate.now();
         System.out.printf("""
                           -------------------- Display Information Salary -----------------------
                           %-15s%-15s%-15s%-15s%-15s%-15s
                           """, "Code", "Name", "Age", "Salary", "Status", "Date");
         for (Worker person : worker) {
-            System.out.printf("%-15s%-15s%-15d%-15.2f%s", person.getId(), person.getName(), person.getAge(), person.getSalary(), status);
+            System.out.printf("%-15s%-15s%-15d%-15.2f%-15s%s", person.getId(), person.getName(), person.getAge(), person.getSalary(), person.getStatus(), date);
             System.out.println();
         }
         System.out.println();
     }
 
-    public boolean findWorkerInformationByID(String id, ArrayList<Worker> worker, char type, double amount) {
+    public boolean findWorkerInformationByID(String id, ArrayList<Worker> worker, String type, double amount) {
         for (Worker person : listOfWorker) {
             if (id.equalsIgnoreCase(person.getId())) {
                 switch (type) {
-                    case '+':
+                    case "UP":
+                        person.setStatus(type);
                         person.setSalary(person.getSalary() + amount);
                         break;
-                    case '-':
+                    case "DOWN":
+                        person.setStatus(type);
                         person.setSalary(person.getSalary() - amount);
                         break;
                 }

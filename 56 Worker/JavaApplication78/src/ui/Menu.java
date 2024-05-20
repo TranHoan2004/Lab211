@@ -12,7 +12,7 @@ import utils.ValidationAndNormalizationTextUtil;
  * @author ADMIN
  */
 public class Menu {
-    public static void menu() throws Exception {
+    public void menu() {
         ManagerController managerController = new ManagerController();
         String menu = """
                       ======= Worker Managerment =======
@@ -28,20 +28,13 @@ public class Menu {
             System.out.print(menu);
             int choice = ValidationAndNormalizationTextUtil.checkInputInRange("Your choice: ", "Please enter an integer number from 1 to 5", 1, 5);
             switch (choice) {
-                case 1:
-                    managerController.addWorker();
-                    break;
-                case 2:
-                    managerController.upSalary();
-                    break;
-                case 3:
-                    managerController.downSalary();
-                    break;
-                case 4:
-                    managerController.getInformationSalary();
-                    break;
-                case 5:
+                case 1 -> managerController.addWorker();
+                case 2 -> managerController.upSalary();
+                case 3 -> managerController.downSalary();
+                case 4 -> managerController.getInformation();
+                case 5 -> {
                     return;
+                }
             }
         }
     }

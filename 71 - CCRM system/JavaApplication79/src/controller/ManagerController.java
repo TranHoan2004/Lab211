@@ -5,35 +5,24 @@
 package controller;
 
 import bo.Manager;
-import entity.Worker;
-import utils.ValidationAndNormalizationTextUtil;
 
 /**
  *
  * @author ADMIN
  */
 public class ManagerController {
-
     private Manager manager;
-    private Worker worker;
 
     public ManagerController() {
         manager = new Manager();
-        worker = new Worker();
     }
-
-    public void addWorker() {
-        manager.addWorker();
+    public void addTask() {
+        manager.addTask();
     }
-
-    public void upSalary() {
-        manager.changeSalary("up");
+    public void deleteTask() {
+        manager.deleteTask();
     }
-
-    public void downSalary() {
-        manager.changeSalary("down");
-    }
-    public void getInformation() {
-        manager.getInformationSalary();
+    public void display() {
+        manager.show();
     }
 }
