@@ -9,23 +9,34 @@ package entity;
  * @author ADMIN
  */
 public class Account {
+
     private String userName,
             password,
             name,
-            phone, 
+            phone,
             emailAddress,
-            dob;
+            dob,
+            address;
 
     public Account() {
     }
 
-    public Account(String userName, String password, String name, String phone, String emailAddress, String dob) {
+    public Account(String userName, String password, String name, String phone, String emailAddress, String dob, String address) {
         this.userName = userName;
         this.password = password;
         this.name = name;
         this.phone = phone;
         this.emailAddress = emailAddress;
         this.dob = dob;
+        this.address = address;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getUserName() {
@@ -75,5 +86,5 @@ public class Account {
     public void setDob(String dob) {
         this.dob = dob;
     }
-    
+
 }

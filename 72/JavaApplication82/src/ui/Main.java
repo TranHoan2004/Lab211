@@ -4,6 +4,7 @@
  */
 package ui;
 
+import controller.ManagerController;
 import utils.Validation;
 
 /**
@@ -17,6 +18,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ManagerController managerController = new ManagerController();
         String menu = """
                       ======================== Login Program ========================
                       1. Add User
@@ -27,16 +29,15 @@ public class Main {
             System.out.println(menu);
             int choice = Validation.getInt("Please choice one option: ", "Must be an integer number", "Please enter an integer number rom 1 to 3", 1, 3);
             switch (choice) {
-                case 1:
-                    
-                    break;
-                case 2:
-                    
-                    break;
-                case 3:
-                    return;                
+                case 1 ->
+                    managerController.addAccount();
+                case 2 -> 
+                    managerController.login();
+                case 3 -> {
+                    return;
+                }
             }
         }
     }
-    
+
 }

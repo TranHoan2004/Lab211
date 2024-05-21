@@ -27,17 +27,12 @@ public class Main {
             int choice = Validation.getInt("Your choice: ", "[0-9]",
                     "Please enter an integer number from 1 to 4", 1, 4);
             switch (choice) {
-                case 1:
-                    managerController.addTask();
-                    break;
-                case 2:
-                    managerController.deleteTask();
-                    break;
-                case 3:
-                    managerController.display();
-                    break;
-                case 4:
+                case 1 -> managerController.addTask();
+                case 2 -> managerController.deleteTask();
+                case 3 -> managerController.display();
+                case 4 -> {
                     return;
+                }
             }
         }
     }

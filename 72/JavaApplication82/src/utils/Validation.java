@@ -4,7 +4,14 @@
  */
 package utils;
 
+import entity.Account;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
+import java.util.Base64;
 
 /**
  *
@@ -20,7 +27,7 @@ public class Validation {
         return input.trim().replaceAll("\\s+", "");
     }
 
-    public static boolean pressYNtoContinue(String mess) {
+    public static boolean pressYNtoContinue() {
         String input = getStringByRegex("Do you want to continue (Y/N): ", "[YNyn]", "[YNyn]");
         return input.toLowerCase().equalsIgnoreCase("y");
     }
@@ -55,5 +62,62 @@ public class Validation {
         String regex = "^[A-Za-z](.*)([@]{1})(.{2,})(\\.)(.{2,})";//phai bat dau bang chu cai
         String email = getStringByRegex(mess, "Please enter email with format <account name>@<domain>", regex);
         return email;
+    }
+
+    public static String getPhone(int minLength, String mess) {
+        String regex = "[0-9 ]+";
+        while (true) {
+            String phoneNum = getStringByRegex(mess, "Please enter number only!!", regex).replaceAll("\\s+", "");
+            if (phoneNum.length() == minLength) {
+                return phoneNum;
+            } else {
+                System.err.println("Phone number must have 10 characters");
+            }
+        }
+    }
+
+    public static String checkInputDate(String message) {
+        Scanner sc = new Scanner(System.in);
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        while (true) {
+            System.out.print(message);
+            try {
+                String result = sc.nextLine().trim();
+                Date date = format.parse(result);
+                if (result.equalsIgnoreCase(format.format(date))) {
+                    return result;
+                } else {
+                    System.err.println("Invalid date. Please re-enter.");
+                }
+            } catch (ParseException ex) {
+                System.err.println("Invalid date format. Please re-enter.");
+            }
+        }
+    }
+
+    public static boolean checkUsername(String userAccount, Account account) {
+        return account.getUserName().equalsIgnoreCase(userAccount);
+    }
+
+    public static boolean checkPassword(String password, Account account) {
+        return account.getPassword().equalsIgnoreCase(password);
+    }
+
+    public static boolean checkYN() {
+        String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
+        return input.toLowerCase().equalsIgnoreCase("y");
+    }
+
+    public static String MD5Encryption(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(password.getBytes());
+            byte[] hashBytes = md.digest();
+            String base64Hash = Base64.getEncoder().encodeToString(hashBytes);
+            return base64Hash;
+        } catch (NoSuchAlgorithmException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 }
