@@ -46,20 +46,21 @@ public class LinkedList {
         if (isEmpty()) {
             return;
         }
-        Node newNode = new Node(x);
-        if (head == tail) {
-            head = tail = null;
-        }
-        else if (newNode == head) {
+        if (head.infor.equals(x)) {
             head = head.next;
+            if (head == null) {
+                tail = null;
+            }
         } else {
             Node p = head;
-            while (!isNull(p) && p.next != newNode) {
+            while (p.next != null && !p.next.infor.equals(x)) {
                 p = p.next;
             }
-            p.next = newNode.next;
-            if (isNull(p.next)) {
-                tail = p;
+            if (p.next != null) {
+                p.next = p.next.next;
+                if (p.next == null) {
+                    tail = p;
+                }
             }
         }
     }

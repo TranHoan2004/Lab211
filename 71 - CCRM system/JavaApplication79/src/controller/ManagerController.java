@@ -5,24 +5,37 @@
 package controller;
 
 import bo.Manager;
+import utils.Validation;
 
 /**
  *
  * @author ADMIN
  */
 public class ManagerController {
+
     private Manager manager;
 
     public ManagerController() {
         manager = new Manager();
     }
+
     public void addTask() {
-        manager.addTask();
+        while (true) {
+            manager.addTask();
+            System.out.println("Add successully");
+            display();
+            if (!Validation.checkYN()) {
+                break;
+            }
+        }
     }
+
     public void deleteTask() {
         manager.deleteTask();
+        display();
     }
+
     public void display() {
-        manager.show();
+        manager.displayTask();
     }
 }

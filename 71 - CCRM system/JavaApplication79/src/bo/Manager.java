@@ -7,7 +7,7 @@ package bo;
 import entity.Node;
 import entity.Task;
 import java.util.ArrayList;
-import utils.ValidationAndNormalizationTextUtil;
+import utils.Validation;
 
 /**
  *
@@ -19,6 +19,7 @@ public class Manager {
     private Task task;
     private ArrayList<Task> listOfTask;
     private LinkedList list;
+
     public Manager() {
         input = new Inputer();
         listOfTask = new ArrayList<>();
@@ -27,16 +28,10 @@ public class Manager {
 
     public void addTask() {
         System.out.println("---------- Add Task ----------");
-        while (true) {
-            input.callInputer();
-            task = input.getInormation();
-            list.addLast(new Task(task.getRequirementName(), task.getAssignee(), task.getReviewer(), task.getDate(),
-                    task.getPlanFrom(), task.getPlanTo(), task.getTaskTypeID(), task.getID()));            
-            if (!ValidationAndNormalizationTextUtil.checkYN()) {
-                break;
-            }
-        }
-        show();
+        input.callInputer();
+        task = input.getInformation();
+        list.addLast(new Task(task.getRequirementName(), task.getAssignee(), task.getReviewer(), task.getDate(),
+                task.getPlanFrom(), task.getPlanTo(), task.getTaskTypeID(), task.getID()));
     }
 
     public void deleteTask() {
@@ -44,9 +39,8 @@ public class Manager {
             System.out.println("List is empty, cannot be deleted");
             return;
         }
-        int id = input.getID(list.size());
-        list.remove(ValidationAndNormalizationTextUtil.findTaskByID(id, listOfTask));
-        show();
+        int id = Validation.getInt("ID: ", "Must be a positive number greater than 0", "Out of range",1, list.size());
+        list.remove(Validation.findTaskByID(id, listOfTask));
     }
 
     public void displayTask() {
@@ -60,20 +54,9 @@ public class Manager {
                 "Assigne",
                 "Reviewer");
         listOfTask = list.traversal();
-        for (Task task: listOfTask) {
-            System.out.println();
-            System.out.printf("%-15d%-15s%-15s%-15s%-15.2f%-15s%s",
-                task.getID(),
-                task.getRequirementName(),
-                task.getType(task.getTaskTypeID()),
-                task.getDate(),
-                task.getTime(),
-                task.getAssignee(),
-                task.getReviewer());            
+        for (Task task : listOfTask) {
+            task.display();
         }
         System.out.println();
-    }
-    public void show() {
-        displayTask();
     }
 }

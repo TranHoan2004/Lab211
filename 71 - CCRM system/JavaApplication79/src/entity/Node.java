@@ -9,6 +9,7 @@ package entity;
  * @author ADMIN
  */
 public class Node {
+
     public Task infor;
     public Node next;
 
@@ -16,6 +17,7 @@ public class Node {
         this.infor = infor;
         this.next = next;
     }
+
     public Node(Task infor) {
         this.infor = infor;
         this.next = null;

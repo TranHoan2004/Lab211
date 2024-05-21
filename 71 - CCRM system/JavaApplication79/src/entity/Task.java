@@ -118,10 +118,16 @@ public class Task {
         return null;
     }
 
-    @Override
-    public String toString() {
-        return "Task{" + "requirementName=" + requirementName + ", assignee=" + assignee + ", reviewer=" + reviewer + ", date=" + date + ", planFrom=" + planFrom + ", planTo=" + planTo
-                + ", taskTypeID=" + taskTypeID + '}';
+    public void display() {
+        System.out.println();
+        System.out.printf("%-15d%-15s%-15s%-15s%-15.2f%-15s%s",
+                this.getID(),
+                this.getRequirementName(),
+                this.getType(this.getTaskTypeID()),
+                this.getDate(),
+                this.getTime(),
+                this.getAssignee(),
+                this.getReviewer());
     }
 
 }

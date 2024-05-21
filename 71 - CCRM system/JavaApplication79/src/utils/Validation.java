@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  *
  * @author ADMIN
  */
-public class ValidationAndNormalizationTextUtil {
+public class Validation {
 
     public static String removeUnneccessaryBlank(String input) {
         return input.trim().replaceAll("\\s+", " ");
