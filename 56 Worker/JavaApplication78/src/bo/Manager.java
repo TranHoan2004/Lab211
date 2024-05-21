@@ -5,10 +5,8 @@
 package bo;
 
 import entity.Worker;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import utils.ValidationAndNormalizationTextUtil;
+import utils.ValidationAndNormalization;
 
 /**
  *
@@ -25,52 +23,45 @@ public class Manager {
         listOfWorker = new ArrayList<>();
         input = new Inputer();
     }
-
+    public ArrayList<Worker> getSalaryInformation() {
+        return listOfWorker;
+    }
     public void addWorker() {
-        while (true) {
-            input.callInputer(1);
-            Worker w = input.getWorker();
-            try {
-                if (ValidationAndNormalizationTextUtil.checkItemExist(w.getId(), listOfWorker)) {
-                    throw new Exception();
-                } else {
-                    listOfWorker.add(new Worker(w.getId(), w.getName(), w.getWorkLocation(), w.getAge(), w.getSalary()));
-                }
-            } catch (Exception e) {
-                System.out.println("ID is existed, worker will not be added");
+        input.callInputer();
+        Worker w = input.getWorker();
+        try {
+            if (ValidationAndNormalization.checkItemExist(w.getId(), listOfWorker)) {
+                throw new Exception();
+            } else {
+                listOfWorker.add(new Worker(w.getId(), w.getName(), w.getWorkLocation(), w.getAge(), w.getSalary()));
+                System.out.println("Added successfully!");
+                show(listOfWorker);
             }
-            System.out.println("Added successfully!");
-            show(listOfWorker);
-            if (!ValidationAndNormalizationTextUtil.checkYN()) {
-                break;
-            }
+        } catch (Exception e) {
+            System.out.println("ID is existed, worker will not be added");
         }
     }
 
     public void changeSalary(String status) {
-        String code = null;
         while (true) {
+            String code = ValidationAndNormalization.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Not null or code must begin with an upper case and followinging by a digit");
             try {
-                code = input.getCode();
-                if (!ValidationAndNormalizationTextUtil.checkItemExist(code, listOfWorker)) {
+                if (!ValidationAndNormalization.checkItemExist(code, listOfWorker)) {
                     throw new Exception();
-
                 } else {
-
+                    worker = ValidationAndNormalization.findWorkerByID(code, listOfWorker);
                     break;
                 }
             } catch (Exception e) {
                 System.out.println("ID is not existed");
             }
         }
-        double amount = input.callInputer(2);
+        double amount = ValidationAndNormalization.getDouble("Enter Amount: ", "Must be a positive number", 0, Double.MAX_VALUE);
         switch (status) {
-            case "up":
-                increaseSalary(amount, code);
-                break;
-            case "down":
-                decreaseSalary(amount, code);
-                break;
+            case "up" ->
+                increaseSalary(worker, amount);
+            case "down" ->
+                decreaseSalary(worker, amount);
         }
     }
 
@@ -80,54 +71,29 @@ public class Manager {
                           %-15s%-15s%-15s%-15s%-15s
                           """, "Code", "Name", "Age", "Salary", "Work Location");
         for (Worker person : worker) {
-            System.out.printf("%-15s%-15s%-15d%-15.2f%s", person.getId(), person.getName(), person.getAge(), person.getSalary(), person.getWorkLocation());
-            System.out.println();
+            person.displayWorkerInformation();
         }
-        System.out.println();
     }
 
-    private void increaseSalary(double amount, String code) {
-        findWorkerInformationByID(code, listOfWorker, "UP", amount);
+    private void increaseSalary(Worker worker, double amount) {
+        worker.setStatus("UP");
+        worker.setSalary(worker.getSalary() + amount);
         display(listOfWorker);
     }
 
-    private void decreaseSalary(double amount, String code) {
-        findWorkerInformationByID(code, listOfWorker, "DOWN", amount);
-        display(listOfWorker);
-    }
-
-    public void getInformationSalary() {
+    private void decreaseSalary(Worker worker, double amount) {
+        worker.setStatus("DOWN");
+        worker.setSalary(worker.getSalary() - amount);
         display(listOfWorker);
     }
 
     public void display(ArrayList<Worker> worker) {
-        LocalDate date = LocalDate.now();
         System.out.printf("""
                           -------------------- Display Information Salary -----------------------
                           %-15s%-15s%-15s%-15s%-15s%-15s
                           """, "Code", "Name", "Age", "Salary", "Status", "Date");
         for (Worker person : worker) {
-            System.out.printf("%-15s%-15s%-15d%-15.2f%-15s%s", person.getId(), person.getName(), person.getAge(), person.getSalary(), person.getStatus(), date);
-            System.out.println();
+            person.displaySalary();
         }
-        System.out.println();
-    }
-
-    public boolean findWorkerInformationByID(String id, ArrayList<Worker> worker, String type, double amount) {
-        for (Worker person : listOfWorker) {
-            if (id.equalsIgnoreCase(person.getId())) {
-                switch (type) {
-                    case "UP":
-                        person.setStatus(type);
-                        person.setSalary(person.getSalary() + amount);
-                        break;
-                    case "DOWN":
-                        person.setStatus(type);
-                        person.setSalary(person.getSalary() - amount);
-                        break;
-                }
-            }
-        }
-        return false;
     }
 }

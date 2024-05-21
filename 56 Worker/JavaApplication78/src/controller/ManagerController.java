@@ -6,7 +6,8 @@ package controller;
 
 import bo.Manager;
 import entity.Worker;
-import utils.ValidationAndNormalizationTextUtil;
+import java.util.ArrayList;
+import utils.ValidationAndNormalization;
 
 /**
  *
@@ -16,14 +17,21 @@ public class ManagerController {
 
     private Manager manager;
     private Worker worker;
+    private ArrayList<Worker> listOfWorker;
 
     public ManagerController() {
         manager = new Manager();
         worker = new Worker();
+        listOfWorker = new ArrayList();
     }
 
     public void addWorker() {
-        manager.addWorker();
+        while (true) {
+            manager.addWorker();
+            if (!ValidationAndNormalization.checkYN()) {
+                break;
+            }
+        }        
     }
 
     public void upSalary() {
@@ -34,6 +42,7 @@ public class ManagerController {
         manager.changeSalary("down");
     }
     public void getInformation() {
-        manager.getInformationSalary();
+        listOfWorker = manager.getSalaryInformation();
+        manager.display(listOfWorker);
     }
 }

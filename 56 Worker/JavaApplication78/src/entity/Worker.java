@@ -4,6 +4,8 @@
  */
 package entity;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author ADMIN
@@ -16,7 +18,7 @@ public class Worker {
             status;
     private int age;
     private double salary;
-    
+
     public Worker() {
     }
 
@@ -76,8 +78,17 @@ public class Worker {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "Worker{" + "id=" + id + ", name=" + name + ", workLocation=" + workLocation + ", age=" + age + ", salary=" + salary + '}';
+    public void displayWorkerInformation() {
+        LocalDate date = LocalDate.now();
+        System.out.printf("%-15s%-15s%-15d%-15.2f%s", this.getId(), this.getName(), this.getAge(),
+                this.getSalary(), this.getWorkLocation());
+        System.out.println();
+    }
+
+    public void displaySalary() {
+        LocalDate date = LocalDate.now();
+        System.out.printf("%-15s%-15s%-15d%-15.2f%-15s%s", this.getId(), this.getName(), this.getAge(),
+                this.getSalary(), this.getStatus(), date);
+        System.out.println();
     }
 }

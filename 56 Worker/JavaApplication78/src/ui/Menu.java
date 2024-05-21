@@ -5,7 +5,7 @@
 package ui;
 
 import controller.ManagerController;
-import utils.ValidationAndNormalizationTextUtil;
+import utils.ValidationAndNormalization;
 
 /**
  *
@@ -26,7 +26,7 @@ public class Menu {
         
         while (true) {
             System.out.print(menu);
-            int choice = ValidationAndNormalizationTextUtil.checkInputInRange("Your choice: ", "Please enter an integer number from 1 to 5", 1, 5);
+            int choice = ValidationAndNormalization.checkInputInRange("Your choice: ", "Please enter an integer number from 1 to 5", 1, 5);
             switch (choice) {
                 case 1 -> managerController.addWorker();
                 case 2 -> managerController.upSalary();

@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author ADMIN
  */
-public class ValidationAndNormalizationTextUtil {
+public class ValidationAndNormalization {
 
     public static String removeUnneccessaryBlank(String input) {
         return input.trim().replaceAll("\\s+", " ");
@@ -79,5 +79,12 @@ public class ValidationAndNormalizationTextUtil {
             }
         }
     }
-
+    public static Worker findWorkerByID(String id, ArrayList<Worker> worker) {
+        for (Worker person : worker) {
+            if (id.equalsIgnoreCase(person.getId())) {
+                return person;
+            }
+        }
+        return null;
+    }
 }
