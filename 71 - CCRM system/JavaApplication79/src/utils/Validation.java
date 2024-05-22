@@ -62,16 +62,8 @@ public class Validation {
     }
 
     public static boolean checkYN() {
-        while (true) {
-            String answer = getStringByRegex("Do you want to continue? (Y/N): ", "[a-zA-Z]", "Please enter a letter, not a number").toLowerCase();
-            if (answer.equalsIgnoreCase("y")) {
-                return true;
-            } else if (answer.equalsIgnoreCase("n")) {
-                return false;
-            } else {
-                System.err.println("Please only enter y/Y for yes or n/N for no");
-            }
-        }
+        String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
+        return input.toLowerCase().equalsIgnoreCase("y"); 
     }
 
     public static Task findTaskByID(int id, ArrayList<Task> listWorker) {
