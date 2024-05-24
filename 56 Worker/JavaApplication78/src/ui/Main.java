@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         ManagerController managerController = new ManagerController();
         String menu = """
-                      ======= Worker Managerment =======
+                      ========================== Worker Managerment ==========================
                           1. Add Worker
                           2. Up salary
                           3. Down salary
@@ -45,8 +45,18 @@ public class Main {
                     managerController.show();
                     System.out.println("Added successfully!");
                 }
-                case 2 -> managerController.changeSalary("UP");
-                case 3 -> managerController.changeSalary("DOWN");
+                case 2 -> {
+                    System.out.println("--------------------------- ADD SALARY ---------------------------");
+                    managerController.increaseSalary();
+                }
+                case 3 -> {   
+                    System.out.println("--------------------------- DECREASE SALARY ---------------------------");                    
+                    try {
+                        managerController.decreareSalary();
+                    } catch (Exception e) {
+                        System.out.println("Amount is greater than salary, cannot be decreased");
+                    }
+                }
                 case 4 -> {
                     System.out.printf("""
                                             -------------------- Display Information Salary -----------------------

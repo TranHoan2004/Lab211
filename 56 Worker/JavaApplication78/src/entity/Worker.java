@@ -10,12 +10,12 @@ package entity;
  */
 public class Worker {
 
-    private String id,
-            name,
-            workLocation;
+    private String id;
+    private String name;
+    private String workLocation;
     private int age;
     private double salary;
-    
+
     public Worker() {
     }
 
@@ -67,11 +67,7 @@ public class Worker {
         this.salary = salary;
     }
 
-    @Override
     public String toString() {
-        System.out.printf("%-15s%-15s%-15d%-15.2f%s",this.getId(),this.getName(),this.getAge(),this.getSalary(),this.getWorkLocation());
-        System.out.println();
-        return null;
+        return String.format("%-15s%-15s%-15d%-15.2f%s", this.getId(), this.getName(), this.getAge(), this.getSalary(), this.getWorkLocation());
     }
-    
 }

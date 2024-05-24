@@ -16,10 +16,14 @@ import utils.Validation;
 public class Manager {
 
     private final ArrayList<Worker> listOfWorker = new ArrayList<>();
-    private final ArrayList<History> history = new ArrayList<>();
+    private final ArrayList<History> listOfHistory = new ArrayList<>();
 
     public ArrayList<Worker> getList() {
         return listOfWorker;
+    }
+
+    public ArrayList<History> getHistory() {
+        return listOfHistory;
     }
 
     public boolean createWorker(Worker work) {
@@ -31,19 +35,33 @@ public class Manager {
         return true;
     }
 
-    public ArrayList<History> increaseSalary(double amount, Worker w1) {
+    public void increaseSalary(double amount, Worker w1) {
         w1.setSalary(w1.getSalary() + amount);
-        history.add(new History("UP", w1.getId(), w1.getName(), w1.getWorkLocation(), w1.getAge(), w1.getSalary()));
-        return history;
+        listOfHistory.add(new History("UP", w1.getId(), w1.getName(), w1.getWorkLocation(), w1.getAge(), w1.getSalary()));
     }
 
-    public ArrayList<History> decreaseSalary(double amount, Worker w1) {
+    public boolean decreaseSalary(double amount, Worker w1) {
         w1.setSalary(w1.getSalary() - amount);
-        history.add(new History("DOWN", w1.getId(), w1.getName(), w1.getWorkLocation(), w1.getAge(), w1.getSalary()));
-        return history;
+        listOfHistory.add(new History("DOWN", w1.getId(), w1.getName(), w1.getWorkLocation(), w1.getAge(), w1.getSalary()));
+        return true;
     }
 
-    public ArrayList<History> getHistory() {
-        return history;
+    public Worker findByID(ArrayList<Worker> listOfWorker) {
+        while (true) {
+            try {
+                String code = Validation.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Not null or code must begin with an upper case and followinging by a digit");
+                for (Worker person : listOfWorker) {
+                    if (code.equalsIgnoreCase(person.getId())) {
+                        return person;
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("ID is not existed");
+            }
+        }
+    }
+
+    public boolean checkAmount(double amount, double salary) {
+        return amount <= salary;
     }
 }

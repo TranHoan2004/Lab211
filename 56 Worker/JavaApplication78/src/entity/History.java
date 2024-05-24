@@ -41,9 +41,10 @@ public final class History extends Worker {
         this.date = date1;
     }
 
-    public void displaySalaryInformation(Worker person) {        
-        System.out.printf("%-15s%-15s%-15d%-15.2f%-15s%s", getId(), getName(), getAge(), getSalary(), getStatus(), getDate());
-        System.out.println();
+    public String displaySalaryInformation() {        
+//        System.out.printf("%-15s%-15s%-15d%-15.2f%-15s%s", getId(), getName(), getAge(), getSalary(), getStatus(), getDate());
+//        System.out.println();
+        return String.format("%-15s%-15s%-15d%-15.2f%-15s%s", this.getId(), this.getName(), this.getAge(), this.getSalary(), this.getStatus(), this.getDate());
     }    
 
 }

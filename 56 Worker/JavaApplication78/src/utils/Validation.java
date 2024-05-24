@@ -46,10 +46,9 @@ public class Validation {
 
     public static String getStringByRegex(String msg, String regex, String err) {
         Scanner sc = new Scanner(System.in);
-        String string = null;
         while (true) {
             System.out.print(msg);
-            string = sc.nextLine();
+            String string = sc.nextLine();
             if (string.matches(regex)) {
                 return string;
             } else {
@@ -68,31 +67,8 @@ public class Validation {
     }
 
     public static boolean checkYN() {
-        while (true) {
-            String answer = getStringByRegex("Do you want to continue? (Y/N): ", "[a-zA-Z]", "Please enter a letter, not a number").toLowerCase();
-            if (answer.equalsIgnoreCase("y")) {
-                return true;
-            } else if (answer.equalsIgnoreCase("n")) {
-                return false;
-            } else {
-                System.err.println("Please only enter y/Y for yes or n/N for no");
-            }
-        }
+        String input = getStringByRegex("Do you want to continue (Y/N): ", "[YNyn]", "Y/N only!");
+        return input.toLowerCase().equalsIgnoreCase("y"); 
     }
 
-    public static Worker findByID(ArrayList<Worker> listOfWorker) {
-        while (true) {
-            try {
-                String code = Validation.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Not null or code must begin with an upper case and followinging by a digit");
-                for (Worker person : listOfWorker) {
-                    if (code.equalsIgnoreCase(person.getId())) {
-                        return person;
-                    }
-                }
-                throw new Exception();
-            } catch (Exception e) {
-                System.out.println("ID is not existed");
-            }
-        }
-    }
 }

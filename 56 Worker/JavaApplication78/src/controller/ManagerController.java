@@ -17,13 +17,7 @@ import utils.Validation;
  */
 public class ManagerController {
 
-    private ArrayList<Worker> listOfWorker = new ArrayList<>();
-    private final ArrayList<History> history = new ArrayList<>();
     private final Manager manager = new Manager();
-
-    public ManagerController() {
-        listOfWorker = manager.getList();
-    }
 
     public void addWorker() throws Exception {
         Inputer input = new Inputer();
@@ -34,29 +28,37 @@ public class ManagerController {
     }
 
     public void show() {
-        for (Worker person : listOfWorker) {
-            person.toString();
+//        ArrayList<Worker> listOfWorker = manager.getList();
+        for (Worker person : manager.getList()) {
+            System.out.println(person.toString());
         }
         System.out.println();
     }
 
-    public ArrayList<History> changeSalary(String type) {
-        Worker w1 = Validation.findByID(listOfWorker);
+    public Worker getList() {
+//        ArrayList<Worker> listOfWorker = manager.getList();
+        Worker w1 = manager.findByID(manager.getList());
+        return w1;
+    }
+
+    public void increaseSalary() {
+        Worker w = getList();
         double amount = Validation.getDouble("Amount: ", "Must be a number", 1, Double.MAX_VALUE);
-        switch (type) {
-            case "UP" ->
-                manager.increaseSalary(amount, w1);
-            case "DOWN" ->
-                manager.decreaseSalary(amount, w1);
+        manager.increaseSalary(amount, w);
+    }
+
+    public void decreareSalary() throws Exception {
+        Worker w = getList();
+        double amount = Validation.getDouble("Amount: ", "Must be a number", 1, Double.MAX_VALUE);
+        if (!manager.checkAmount(amount, amount)) {
+            throw new Exception();
         }
-        return history;
+        manager.decreaseSalary(amount, w);         
     }
 
     public void display() {
-        ArrayList<History> his = manager.getHistory();
-        his.forEach(person -> {
-            person.displaySalaryInformation(person);
+        manager.getHistory().forEach(person -> {
+            System.out.println(person.displaySalaryInformation());
         });
-        System.out.println();
     }
 }
