@@ -6,9 +6,7 @@ package controller;
 
 import bo.Inputer;
 import bo.Manager;
-import entity.History;
 import entity.Worker;
-import java.util.ArrayList;
 import utils.Validation;
 
 /**
@@ -41,16 +39,18 @@ public class ManagerController {
         return w1;
     }
 
-    public void increaseSalary() {
+    public void increaseSalary() throws Exception {
         Worker w = getList();
+        if (w == null) {
+            throw new Exception();
+        }
         double amount = Validation.getDouble("Amount: ", "Must be a number", 1, Double.MAX_VALUE);
         manager.increaseSalary(amount, w);
     }
 
-    public void decreareSalary() throws Exception {
-        Worker w = getList();
+    public void decreareSalary(Worker w) throws Exception {
         double amount = Validation.getDouble("Amount: ", "Must be a number", 1, Double.MAX_VALUE);
-        if (!manager.checkAmount(amount, amount)) {
+        if (!manager.checkAmount(amount, w.getSalary())) {
             throw new Exception();
         }
         manager.decreaseSalary(amount, w);         

@@ -5,6 +5,7 @@
 package ui;
 
 import controller.ManagerController;
+import entity.Worker;
 import utils.Validation;
 
 /**
@@ -28,16 +29,13 @@ public class Main {
             int choice = Validation.checkInputInRange("Your choice: ", "Please enter an integer number from 1 to 5", 1, 5);
             switch (choice) {
                 case 1 -> {
-                    while (true) {
+                    do {
                         try {
                             managerController.addWorker();
                         } catch (Exception e) {
                             System.out.println("ID is existed, worker will not be added");
-                        } 
-                        if (!Validation.checkYN()) {
-                            break;
                         }
-                    }                   
+                    } while (Validation.checkYN());
                     System.out.printf("""
                                             -------------------- Display Worker Information -----------------------
                                             %-15s%-15s%-15s%-15s%-15s
@@ -46,13 +44,22 @@ public class Main {
                     System.out.println("Added successfully!");
                 }
                 case 2 -> {
-                    System.out.println("--------------------------- ADD SALARY ---------------------------");
-                    managerController.increaseSalary();
-                }
-                case 3 -> {   
-                    System.out.println("--------------------------- DECREASE SALARY ---------------------------");                    
+                    System.out.println("--------------------------- INCREASE SALARY ---------------------------");                    
                     try {
-                        managerController.decreareSalary();
+                        managerController.increaseSalary();
+                    } catch (Exception e) {
+                        System.out.println("List is null, cannot change salary");
+                    }
+                }
+                case 3 -> {
+                    System.out.println("--------------------------- DECREASE SALARY ---------------------------");
+                    Worker list = managerController.getList();
+                    if (list == null) {
+                        System.out.println("Cannot change salary because there is no workers in the list");
+                        return;
+                    }
+                    try {
+                        managerController.decreareSalary(list);
                     } catch (Exception e) {
                         System.out.println("Amount is greater than salary, cannot be decreased");
                     }
