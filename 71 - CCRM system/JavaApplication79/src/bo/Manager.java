@@ -16,47 +16,24 @@ import utils.Validation;
 public class Manager {
 
     private Inputer input;
-    private Task task;
-    private ArrayList<Task> listOfTask;
     private LinkedList list;
 
     public Manager() {
         input = new Inputer();
-        listOfTask = new ArrayList<>();
         list = new LinkedList();
     }
 
     public void addTask() {
-        System.out.println("---------- Add Task ----------");
-        input.callInputer();
-        task = input.getInformation();
-        list.addLast(new Task(task.getRequirementName(), task.getAssignee(), task.getReviewer(), task.getDate(),
-                task.getPlanFrom(), task.getPlanTo(), task.getTaskTypeID(), task.getID()));
+        Task task = new Task();
+        task = input.inputTaskInformation(); 
+        list.addLast(task);
     }
 
     public void deleteTask() {
-        if (list.isEmpty()) {
-            System.out.println("List is empty, cannot be deleted");
-            return;
-        }
         int id = Validation.getInt("ID: ", "Must be a positive number greater than 0", "Out of range",1, list.size());
-        list.remove(Validation.findTaskByID(id, listOfTask));
+        list.remove(Validation.findTaskByID(id, list));
     }
-
-    public void displayTask() {
-        System.out.println("---------------------------- TASK ----------------------------");
-        System.out.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s",
-                "ID",
-                "Name",
-                "Task Type",
-                "Date",
-                "Time",
-                "Assigne",
-                "Reviewer");
-        listOfTask = list.traversal();
-        for (Task task : listOfTask) {
-            task.display();
-        }
-        System.out.println();
+    public LinkedList getList() {
+        return list;
     }
 }

@@ -4,7 +4,9 @@
  */
 package controller;
 
+import bo.LinkedList;
 import bo.Manager;
+import entity.Task;
 import utils.Validation;
 
 /**
@@ -14,20 +16,18 @@ import utils.Validation;
 public class ManagerController {
 
     private Manager manager;
+    private LinkedList listOfTask;
 
     public ManagerController() {
         manager = new Manager();
+        listOfTask = new LinkedList();
     }
 
-    public void addTask() {
-        while (true) {
-            manager.addTask();
-            System.out.println("Add successully");
-            display();
-            if (!Validation.checkYN()) {
-                break;
-            }
-        }
+    public LinkedList addTask() {
+        manager.addTask();
+        listOfTask = manager.getList();
+        display();
+        return listOfTask;
     }
 
     public void deleteTask() {
@@ -36,6 +36,18 @@ public class ManagerController {
     }
 
     public void display() {
-        manager.displayTask();
+        System.out.println("---------------------------- TASK ----------------------------");
+        System.out.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s",
+                "ID",
+                "Name",
+                "Task Type",
+                "Date",
+                "Time",
+                "Assigne",
+                "Reviewer");
+        for (Task task : listOfTask.traversal()) {
+            task.display();
+        }
+        System.out.println();
     }
 }

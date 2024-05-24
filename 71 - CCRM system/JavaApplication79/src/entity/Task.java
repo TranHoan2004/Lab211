@@ -59,51 +59,17 @@ public class Task {
     public void setReviewer(String reviewer) {
         this.reviewer = reviewer;
     }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public double getPlanFrom() {
-        return planFrom;
-    }
-
-    public void setPlanFrom(double planFrom) {
-        this.planFrom = planFrom;
-    }
-
-    public double getPlanTo() {
-        return planTo;
-    }
-
-    public void setPlanTo(double planTo) {
-        this.planTo = planTo;
-    }
-
-    public int getTaskTypeID() {
-        return taskTypeID;
-    }
-
-    public void setTaskTypeID(int taskTypeID) {
-        this.taskTypeID = taskTypeID;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID() {
-        this.ID += 1;
-    }
-
-    public double getTime() {
-        return getPlanTo() - getPlanFrom();
-    }
-
+    public String getDate() {return date;}
+    public void setDate(String date) {this.date = date;}
+    public double getPlanFrom() {return planFrom;}
+    public void setPlanFrom(double planFrom) {this.planFrom = planFrom;}
+    public double getPlanTo() {return planTo;}
+    public void setPlanTo(double planTo) {this.planTo = planTo;}
+    public int getTaskTypeID() {return taskTypeID;}
+    public void setTaskTypeID(int taskTypeID) {this.taskTypeID = taskTypeID;}
+    public int getID() {return ID;}
+    public void setID() {this.ID += 1;}
+    public double getTime() {return getPlanTo() - getPlanFrom();}
     public String getType(int type) {
         switch (type) {
             case 1:
@@ -117,7 +83,6 @@ public class Task {
         }
         return null;
     }
-
     public void display() {
         System.out.println();
         System.out.printf("%-15d%-15s%-15s%-15s%-15.2f%-15s%s",
@@ -129,5 +94,4 @@ public class Task {
                 this.getAssignee(),
                 this.getReviewer());
     }
-
 }

@@ -4,10 +4,12 @@
  */
 package controller;
 
+import bo.Inputer;
 import bo.Manager;
+import entity.History;
 import entity.Worker;
 import java.util.ArrayList;
-import utils.ValidationAndNormalization;
+import utils.Validation;
 
 /**
  *
@@ -15,34 +17,47 @@ import utils.ValidationAndNormalization;
  */
 public class ManagerController {
 
-    private Manager manager;
-    private Worker worker;
-    private ArrayList<Worker> listOfWorker;
+    private ArrayList<Worker> listOfWorker = new ArrayList<>();
+    private ArrayList<History> history = new ArrayList<>();
+    private Manager manager = new Manager();
+    private History h = new History();
 
     public ManagerController() {
-        manager = new Manager();
-        worker = new Worker();
-        listOfWorker = new ArrayList();
+        listOfWorker = manager.getList();
     }
 
-    public void addWorker() {
-        while (true) {
-            manager.addWorker();
-            if (!ValidationAndNormalization.checkYN()) {
-                break;
-            }
-        }        
+    public void addWorker() throws Exception {
+        Inputer input = new Inputer();
+        Worker work = input.inputWorker();
+        if (!manager.createWorker(work)) {
+            throw new Exception();
+        }
     }
 
-    public void upSalary() {
-        manager.changeSalary("up");
+    public void show() {
+        for (Worker person : listOfWorker) {
+            person.toString();
+        }
+        System.out.println();
     }
 
-    public void downSalary() {
-        manager.changeSalary("down");
+    public ArrayList<History> changeSalary(String type) {
+        Worker w1 = Validation.findByID(listOfWorker);
+        double amount = Validation.getDouble("Amount: ", "Must be a number", 1, Double.MAX_VALUE);
+        switch (type) {
+            case "UP" ->
+                manager.increaseSalary(amount, w1);
+            case "DOWN" ->
+                manager.decreaseSalary(amount, w1);
+        }
+        return history;
     }
-    public void getInformation() {
-        listOfWorker = manager.getSalaryInformation();
-        manager.display(listOfWorker);
+
+    public void display() {
+        ArrayList<History> his = manager.getHistory();
+        his.forEach(person -> {
+            person.displaySalaryInformation(person);
+        });
+        System.out.println();
     }
 }

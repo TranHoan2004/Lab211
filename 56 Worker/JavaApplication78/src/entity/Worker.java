@@ -4,7 +4,7 @@
  */
 package entity;
 
-import java.time.LocalDate;
+import utils.Validation;
 
 /**
  *
@@ -14,11 +14,10 @@ public class Worker {
 
     private String id,
             name,
-            workLocation,
-            status;
+            workLocation;
     private int age;
     private double salary;
-
+    
     public Worker() {
     }
 
@@ -70,25 +69,11 @@ public class Worker {
         this.salary = salary;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void displayWorkerInformation() {
-        LocalDate date = LocalDate.now();
-        System.out.printf("%-15s%-15s%-15d%-15.2f%s", this.getId(), this.getName(), this.getAge(),
-                this.getSalary(), this.getWorkLocation());
+    @Override
+    public String toString() {
+        System.out.printf("%-15s%-15s%-15d%-15.2f%s",this.getId(),this.getName(),this.getAge(),this.getSalary(),this.getWorkLocation());
         System.out.println();
+        return null;
     }
-
-    public void displaySalary() {
-        LocalDate date = LocalDate.now();
-        System.out.printf("%-15s%-15s%-15d%-15.2f%-15s%s", this.getId(), this.getName(), this.getAge(),
-                this.getSalary(), this.getStatus(), date);
-        System.out.println();
-    }
+    
 }

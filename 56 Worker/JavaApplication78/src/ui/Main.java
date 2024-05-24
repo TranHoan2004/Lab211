@@ -5,13 +5,17 @@
 package ui;
 
 import controller.ManagerController;
-import utils.ValidationAndNormalization;
+import entity.History;
+import entity.Worker;
+import java.util.ArrayList;
+import utils.Validation;
 
 /**
  *
  * @author ADMIN
  */
 public class Main {
+
     public static void main(String[] args) {
         ManagerController managerController = new ManagerController();
         String menu = """
@@ -20,18 +24,39 @@ public class Main {
                           2. Up salary
                           3. Down salary
                           4. Display Information salary
-                          5. Exit
-                      
+                          5. Exit                      
                       """;
-        
         while (true) {
             System.out.print(menu);
-            int choice = ValidationAndNormalization.checkInputInRange("Your choice: ", "Please enter an integer number from 1 to 5", 1, 5);
+            int choice = Validation.checkInputInRange("Your choice: ", "Please enter an integer number from 1 to 5", 1, 5);
             switch (choice) {
-                case 1 -> managerController.addWorker();
-                case 2 -> managerController.upSalary();
-                case 3 -> managerController.downSalary();
-                case 4 -> managerController.getInformation();
+                case 1 -> {
+                    while (true) {
+                        try {
+                            managerController.addWorker();
+                        } catch (Exception e) {
+                            System.out.println("ID is existed, worker will not be added");
+                        } 
+                        if (!Validation.checkYN()) {
+                            break;
+                        }
+                    }                   
+                    System.out.printf("""
+                                            -------------------- Display Worker Information -----------------------
+                                            %-15s%-15s%-15s%-15s%-15s
+                                            """, "Code", "Name", "Age", "Salary", "Work Location");
+                    managerController.show();
+                    System.out.println("Added successfully!");
+                }
+                case 2 -> managerController.changeSalary("UP");
+                case 3 -> managerController.changeSalary("DOWN");
+                case 4 -> {
+                    System.out.printf("""
+                                            -------------------- Display Information Salary -----------------------
+                                            %-15s%-15s%-15s%-15s%-15s%-15s
+                                            """, "Code", "Name", "Age", "Salary", "Status", "Date");
+                    managerController.display();
+                }
                 case 5 -> {
                     return;
                 }

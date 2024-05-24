@@ -21,7 +21,7 @@ public class Inputer {
         return task;
     }
     
-    private void inputTaskInformation() {
+    public Task inputTaskInformation() {
         task.setRequirementName(Validation.getStringByRegex("Requirement Name: ", "^([A-Z][a-z]+\\\s)*[A-Z][a-z]+$",
                 "Each word in name of task must begin with an upper case letter and following by lower case letters"));
         task.setTaskTypeID(Validation.getInt("Task Type: ", "Must be a positive number greater than 0",
@@ -34,9 +34,7 @@ public class Inputer {
         task.setReviewer(Validation.getStringByRegex("Reviewer: ", "^([A-Z][a-z]+\\\s)*[A-Z][a-z]+$",
                 "Each word in name of task must begin with an upper case letter and following by lower case letters"));
         task.setID();
+        return task;
     }
     
-    public void callInputer() {
-        inputTaskInformation();
-    }
 }

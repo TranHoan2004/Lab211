@@ -4,6 +4,7 @@
  */
 package ui;
 
+import bo.LinkedList;
 import controller.ManagerController;
 import utils.Validation;
 
@@ -15,6 +16,7 @@ public class Main {
 
     public static void main(String[] args) {
         ManagerController managerController = new ManagerController();
+        LinkedList linkedList = new LinkedList();
         String menu = """
                       ========== Task program ==========
                          1. Add Task
@@ -27,9 +29,26 @@ public class Main {
             int choice = Validation.getInt("Your choice: ", "[0-9]",
                     "Please enter an integer number from 1 to 4", 1, 4);
             switch (choice) {
-                case 1 -> managerController.addTask();
-                case 2 -> managerController.deleteTask();
-                case 3 -> managerController.display();
+                case 1 -> {
+                    System.out.println("---------- Add Task ----------");
+                    while (true) {
+                        linkedList = managerController.addTask();
+                        System.out.println("Add successully");
+                        if (!Validation.checkYN()) {
+                            break;
+                        }
+                    }
+                }
+                case 2 -> {
+                    if (linkedList.isEmpty()) {
+                        System.out.println("List is empty, cannot be deleted");
+                        return;
+                    } else {
+                        managerController.deleteTask();
+                    }                    
+                }
+                case 3 ->
+                    managerController.display();
                 case 4 -> {
                     return;
                 }

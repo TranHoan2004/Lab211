@@ -4,6 +4,7 @@
  */
 package utils;
 
+import bo.LinkedList;
 import entity.Task;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -66,8 +67,17 @@ public class Validation {
         return input.toLowerCase().equalsIgnoreCase("y"); 
     }
 
-    public static Task findTaskByID(int id, ArrayList<Task> listWorker) {
-        for (Task person : listWorker) {
+    public static boolean checkItemExist(int id, LinkedList listWorker) {
+        for (Task person : listWorker.traversal()) {
+            if (person.getID()==id) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static Task findTaskByID(int id, LinkedList listWorker) {
+        for (Task person : listWorker.traversal()) {
             if (person.getID() == id) {
                 return person;
             }

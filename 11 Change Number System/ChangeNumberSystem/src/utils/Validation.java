@@ -4,33 +4,19 @@
  */
 package utils;
 
-import entity.Worker;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  *
  * @author ADMIN
  */
-public class ValidationAndNormalization {
-
+public class Validation {
     public static String removeUnneccessaryBlank(String input) {
         return input.trim().replaceAll("\\s+", " ");
     }
 
     public static String removeAllBlank(String input) {
         return input.trim().replaceAll("\\s+", "");
-    }
-
-    public static int checkInputInRange(String msg, String error, int min, int max) {
-        while (true) {
-            int input = Integer.parseInt(getStringByRegex(msg, "[0-9]+", error));
-            if (input < min || input > max) {
-                System.err.println("Out of range!");
-            } else {
-                return input;
-            }
-        }
     }
 
     public static double getDouble(String msg, String error, double min, double max) {
@@ -58,25 +44,9 @@ public class ValidationAndNormalization {
         }
     }
 
-    public static boolean checkItemExist(String id, ArrayList<Worker> listWorker) {
-        for (Worker person : listWorker) {
-            if (person.getId().equalsIgnoreCase(id)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public static boolean checkYN() {
-        String input = getStringByRegex("Do you want to continue (Y/N): ", "[YNyn]", "[YNyn]");
+	String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
         return input.toLowerCase().equalsIgnoreCase("y");
     }
-    public static Worker findWorkerByID(String id, ArrayList<Worker> worker) {
-        for (Worker person : worker) {
-            if (id.equalsIgnoreCase(person.getId())) {
-                return person;
-            }
-        }
-        return null;
-    }
+
 }
