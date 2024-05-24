@@ -4,8 +4,6 @@
  */
 package entity;
 
-import utils.Validation;
-
 /**
  *
  * @author ADMIN

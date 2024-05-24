@@ -10,7 +10,7 @@ import java.time.LocalDate;
  *
  * @author ADMIN
  */
-public class History extends Worker {
+public final class History extends Worker {
 
     private String status;
     private LocalDate date;
@@ -37,8 +37,8 @@ public class History extends Worker {
     }
 
     public void setDate() {
-        LocalDate date = LocalDate.now();
-        this.date = date;
+        LocalDate date1 = LocalDate.now();
+        this.date = date1;
     }
 
     public void displaySalaryInformation(Worker person) {        

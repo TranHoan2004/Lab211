@@ -6,7 +6,6 @@ package bo;
 
 import entity.History;
 import entity.Worker;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import utils.Validation;
 
@@ -16,8 +15,8 @@ import utils.Validation;
  */
 public class Manager {
 
-    private ArrayList<Worker> listOfWorker = new ArrayList<>();
-    private ArrayList<History> history = new ArrayList<>();
+    private final ArrayList<Worker> listOfWorker = new ArrayList<>();
+    private final ArrayList<History> history = new ArrayList<>();
 
     public ArrayList<Worker> getList() {
         return listOfWorker;

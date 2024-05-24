@@ -18,9 +18,8 @@ import utils.Validation;
 public class ManagerController {
 
     private ArrayList<Worker> listOfWorker = new ArrayList<>();
-    private ArrayList<History> history = new ArrayList<>();
-    private Manager manager = new Manager();
-    private History h = new History();
+    private final ArrayList<History> history = new ArrayList<>();
+    private final Manager manager = new Manager();
 
     public ManagerController() {
         listOfWorker = manager.getList();

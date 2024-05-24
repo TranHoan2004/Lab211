@@ -5,9 +5,6 @@
 package ui;
 
 import controller.ManagerController;
-import entity.History;
-import entity.Worker;
-import java.util.ArrayList;
 import utils.Validation;
 
 /**

@@ -81,10 +81,9 @@ public class Validation {
     }
 
     public static Worker findByID(ArrayList<Worker> listOfWorker) {
-        String code;
         while (true) {
             try {
-                code = Validation.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Not null or code must begin with an upper case and followinging by a digit");
+                String code = Validation.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Not null or code must begin with an upper case and followinging by a digit");
                 for (Worker person : listOfWorker) {
                     if (code.equalsIgnoreCase(person.getId())) {
                         return person;
