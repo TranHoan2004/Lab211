@@ -6,9 +6,13 @@ package utils;
 
 import bo.LinkedList;
 import entity.Task;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -75,13 +79,21 @@ public class Validation {
         return false;
     }
 
-    public static boolean dateValidator(String date) {
-        try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate.parse(date, formatter);
-        } catch (DateTimeParseException e) {
-            return false;
+    public static String checkInputDate() {
+        while (true) {
+            try {
+                String result = getStringByRegex("Date: ", "^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$"
+                , "Wrong format");
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                Date date = format.parse(result);
+                if (result.equalsIgnoreCase(format.format(date))) {
+                    return result;
+                } else {
+                    System.err.println("Re-input");
+                }
+            } catch (NumberFormatException | ParseException ex) {
+                System.err.println("Re-input");
+            }
         }
-        return true;
     }
 }

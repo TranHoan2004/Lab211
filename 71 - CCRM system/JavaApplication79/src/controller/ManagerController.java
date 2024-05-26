@@ -23,11 +23,11 @@ public class ManagerController {
 
     public void addTask() throws Exception, UnsupportedOperationException {
         Inputer input = new Inputer();
-        if (input.inputTaskInformation()) {
-            throw new UnsupportedOperationException();
+        if (!input.inputTaskInformation()) {
+            throw new Exception("Plan to is smaller than Plan from");
         }
-        if (manager.addTask(input.getInformation())) {
-            throw new Exception();
+        if (!manager.addTask(input.getInformation())) {
+            throw new Exception("Add new task failed because ID is existed");
         }
     }
 

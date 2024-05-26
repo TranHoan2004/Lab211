@@ -16,7 +16,6 @@ public class Main {
 
     public static void main(String[] args) {
         ManagerController managerController = new ManagerController();
-        LinkedList linkedList = new LinkedList();
         String menu = """
                       ========== Task program ==========
                          1. Add Task
@@ -35,10 +34,8 @@ public class Main {
                         try {
                             managerController.addTask();
                             System.out.println("Add successully");
-                        } catch (UnsupportedOperationException e) {
-                            System.err.println("Date is invalid");
                         } catch (Exception e) {
-                            System.out.println("Add new task failed because ID is existed");
+                            e.printStackTrace();
                         }
                     } while (Validation.checkYN());
                     break;
