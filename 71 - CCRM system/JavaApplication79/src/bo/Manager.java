@@ -4,9 +4,7 @@
  */
 package bo;
 
-import entity.Node;
 import entity.Task;
-import java.util.ArrayList;
 import utils.Validation;
 
 /**
@@ -15,25 +13,40 @@ import utils.Validation;
  */
 public class Manager {
 
-    private Inputer input;
-    private LinkedList list;
+    private final LinkedList list;
 
     public Manager() {
-        input = new Inputer();
         list = new LinkedList();
     }
 
-    public void addTask() {
-        Task task = new Task();
-        task = input.inputTaskInformation(); 
-        list.addLast(task);
-    }
-
-    public void deleteTask() {
-        int id = Validation.getInt("ID: ", "Must be a positive number greater than 0", "Out of range",1, list.size());
-        list.remove(Validation.findTaskByID(id, list));
-    }
     public LinkedList getList() {
         return list;
+    }
+
+    public boolean addTask(Task task) {
+        if (Validation.checkIdExist(task.getID(), list)) {
+            return false;
+        }
+        list.addLast(task);
+        return true;
+    }
+
+    public boolean deleteTask(int id) {
+        for (Task task : list.traversal()) {
+            if (!Validation.checkIdExist(task.getID(), list)) {
+                return false;
+            }
+        }
+        list.remove(findTaskByID(id));
+        return true;
+    }
+
+    public Task findTaskByID(int id) {
+        for (Task person : list.traversal()) {
+            if (person.getID() == id) {
+                return person;
+            }
+        }
+        return null;
     }
 }

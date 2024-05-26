@@ -5,12 +5,13 @@
 package entity;
 
 import java.util.Date;
+import utils.Validation;
 
 /**
  *
  * @author ADMIN
  */
-public class Task {
+public final class Task {
 
     private String requirementName,
             assignee,
@@ -25,7 +26,7 @@ public class Task {
 
     }
 
-    public Task(String requirementName, String assignee, String reviewer, String date, double planFrom, double planTo, int taskTypeID, int ID) {
+    public Task(String requirementName, String assignee, String reviewer, String date, double planFrom, double planTo, int taskTypeID) {
         this.requirementName = requirementName;
         this.assignee = assignee;
         this.reviewer = reviewer;
@@ -33,7 +34,7 @@ public class Task {
         this.planFrom = planFrom;
         this.planTo = planTo;
         this.taskTypeID = taskTypeID;
-        this.ID = ID;
+        setID();
     }
 
     public String getRequirementName() {
@@ -59,33 +60,72 @@ public class Task {
     public void setReviewer(String reviewer) {
         this.reviewer = reviewer;
     }
-    public String getDate() {return date;}
-    public void setDate(String date) {this.date = date;}
-    public double getPlanFrom() {return planFrom;}
-    public void setPlanFrom(double planFrom) {this.planFrom = planFrom;}
-    public double getPlanTo() {return planTo;}
-    public void setPlanTo(double planTo) {this.planTo = planTo;}
-    public int getTaskTypeID() {return taskTypeID;}
-    public void setTaskTypeID(int taskTypeID) {this.taskTypeID = taskTypeID;}
-    public int getID() {return ID;}
-    public void setID() {this.ID += 1;}
-    public double getTime() {return getPlanTo() - getPlanFrom();}
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public double getPlanFrom() {
+        return planFrom;
+    }
+
+    public void setPlanFrom(double planFrom) {
+        this.planFrom = planFrom;
+    }
+
+    public double getPlanTo() {
+        return planTo;
+    }
+
+    public void setPlanTo(double planTo) {
+        this.planTo = planTo;
+    }
+
+    public int getTaskTypeID() {
+        return taskTypeID;
+    }
+
+    public void setTaskTypeID(int taskTypeID) {
+        this.taskTypeID = taskTypeID;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID() {
+        this.ID += 1;
+    }
+
+    public double getTime() {
+        return getPlanTo() - getPlanFrom();
+    }
+
     public String getType(int type) {
         switch (type) {
-            case 1:
+            case 1 -> {
                 return "Code";
-            case 2:
+            }
+            case 2 -> {
                 return "Test";
-            case 3:
+            }
+            case 3 -> {
                 return "Design";
-            case 4:
+            }
+            case 4 -> {
                 return "Review";
+            }
         }
         return null;
     }
-    public void display() {
+
+    public String display() {
         System.out.println();
-        System.out.printf("%-15d%-15s%-15s%-15s%-15.2f%-15s%s",
+        return String.format("%-15d%-15s%-15s%-15s%-15.2f%-15s%s",
                 this.getID(),
                 this.getRequirementName(),
                 this.getType(this.getTaskTypeID()),

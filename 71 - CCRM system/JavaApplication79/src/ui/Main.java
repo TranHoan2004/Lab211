@@ -31,24 +31,40 @@ public class Main {
             switch (choice) {
                 case 1 -> {
                     System.out.println("---------- Add Task ----------");
-                    while (true) {
-                        linkedList = managerController.addTask();
-                        System.out.println("Add successully");
-                        if (!Validation.checkYN()) {
-                            break;
+                    do {
+                        try {
+                            managerController.addTask();
+                            System.out.println("Add successully");
+                        } catch (UnsupportedOperationException e) {
+                            System.err.println("Date is invalid");
+                        } catch (Exception e) {
+                            System.out.println("Add new task failed because ID is existed");
                         }
-                    }
+                    } while (Validation.checkYN());
+                    break;
                 }
-                case 2 -> {
-                    if (linkedList.isEmpty()) {
-                        System.out.println("List is empty, cannot be deleted");
-                        return;
-                    } else {
+                case 2 -> { 
+                    System.out.println("---------- Delete Task ----------");
+                    try {
                         managerController.deleteTask();
-                    }                    
+                    } catch (Exception e) {
+                        System.err.println("List is empty, cannot be deleted");
+                    }        
+                    break;
                 }
-                case 3 ->
+                case 3 -> {
+                    System.out.println("---------------------------- TASK ----------------------------");
+                    System.out.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s",
+                            "ID",
+                            "Name",
+                            "Task Type",
+                            "Date",
+                            "Time",
+                            "Assigne",
+                            "Reviewer");
                     managerController.display();
+                    break;
+                }
                 case 4 -> {
                     return;
                 }

@@ -6,10 +6,10 @@ package utils;
 
 import bo.LinkedList;
 import entity.Task;
-import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  *
@@ -50,10 +50,9 @@ public class Validation {
 
     public static String getStringByRegex(String msg, String regex, String err) {
         Scanner sc = new Scanner(System.in);
-        String string = null;
         while (true) {
             System.out.print(msg);
-            string = sc.nextLine();
+            String string = sc.nextLine();
             if (string.matches(regex)) {
                 return string;
             } else {
@@ -64,25 +63,25 @@ public class Validation {
 
     public static boolean checkYN() {
         String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
-        return input.toLowerCase().equalsIgnoreCase("y"); 
+        return input.toLowerCase().equalsIgnoreCase("y");
     }
 
-    public static boolean checkItemExist(int id, LinkedList listWorker) {
+    public static boolean checkIdExist(int id, LinkedList listWorker) {
         for (Task person : listWorker.traversal()) {
-            if (person.getID()==id) {
+            if (person.getID() == id) {
                 return true;
             }
         }
         return false;
     }
-    
-    public static Task findTaskByID(int id, LinkedList listWorker) {
-        for (Task person : listWorker.traversal()) {
-            if (person.getID() == id) {
-                return person;
-            }
-        }
-        return null;
-    }
 
+    public static boolean dateValidator(String date) {
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate.parse(date, formatter);
+        } catch (DateTimeParseException e) {
+            return false;
+        }
+        return true;
+    }
 }

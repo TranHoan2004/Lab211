@@ -4,7 +4,7 @@
  */
 package controller;
 
-import bo.LinkedList;
+import bo.Inputer;
 import bo.Manager;
 import entity.Task;
 import utils.Validation;
@@ -15,38 +15,34 @@ import utils.Validation;
  */
 public class ManagerController {
 
-    private Manager manager;
-    private LinkedList listOfTask;
+    private final Manager manager;
 
     public ManagerController() {
         manager = new Manager();
-        listOfTask = new LinkedList();
     }
 
-    public LinkedList addTask() {
-        manager.addTask();
-        listOfTask = manager.getList();
-        display();
-        return listOfTask;
+    public void addTask() throws Exception, UnsupportedOperationException {
+        Inputer input = new Inputer();
+        if (input.inputTaskInformation()) {
+            throw new UnsupportedOperationException();
+        }
+        if (manager.addTask(input.getInformation())) {
+            throw new Exception();
+        }
     }
 
-    public void deleteTask() {
-        manager.deleteTask();
-        display();
+    public void deleteTask() throws Exception{
+        if (manager.getList().isEmpty()) {
+            throw new Exception();
+        } else {
+            int id = Validation.getInt("ID: ", "Must be a positive number greater than 0", "Out of range", 1, manager.getList().size());
+            manager.deleteTask(id);
+        }        
     }
 
     public void display() {
-        System.out.println("---------------------------- TASK ----------------------------");
-        System.out.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s",
-                "ID",
-                "Name",
-                "Task Type",
-                "Date",
-                "Time",
-                "Assigne",
-                "Reviewer");
-        for (Task task : listOfTask.traversal()) {
-            task.display();
+        for (Task task : manager.getList().traversal()) {
+            System.out.println(task.display());
         }
         System.out.println();
     }
