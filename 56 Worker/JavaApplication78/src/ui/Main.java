@@ -5,8 +5,6 @@
 package ui;
 
 import controller.ManagerController;
-import entity.Worker;
-import java.util.ArrayList;
 import utils.Validation;
 
 /**
@@ -34,7 +32,7 @@ public class Main {
                         try {
                             managerController.addWorker();
                         } catch (Exception e) {
-                            System.out.println("ID is existed, worker will not be added");
+                            System.err.println("ID is existed, worker will not be added");
                         }
                     } while (Validation.checkYN());
                     System.out.printf("""
@@ -48,11 +46,11 @@ public class Main {
                     System.out.println("--------------------------- INCREASE SALARY ---------------------------");
                     while (true) {
                         try {
-                            managerController.increaseSalary();
+                            managerController.changeSalary(choice);
                             System.out.println("Successfully!");
                             break;
                         } catch (Exception e) {
-                            System.out.println("ID is not existed");
+                            System.err.println("ID is not existed");
                         }
                     }
                 }
@@ -60,11 +58,11 @@ public class Main {
                     System.out.println("--------------------------- DECREASE SALARY ---------------------------");
                     while (true) {
                         try {
-                            managerController.decreareSalary();
+                            managerController.changeSalary(choice);
                             System.out.println("Successfully!");
                             break;
                         } catch (Exception e) {
-                            System.out.println("Amount is greater than salary, cannot be decreased");
+                            System.err.println("Amount is greater than salary or id is not existed, cannot be decreased");
                         }
                     }
                 }

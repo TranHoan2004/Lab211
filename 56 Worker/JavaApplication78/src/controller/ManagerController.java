@@ -7,7 +7,6 @@ package controller;
 import bo.Inputer;
 import bo.Manager;
 import entity.Worker;
-import java.util.ArrayList;
 import utils.Validation;
 
 /**
@@ -32,32 +31,22 @@ public class ManagerController {
         }
         System.out.println();
     }
-
-    public Worker getWorker() {
-        Worker w = manager.findByID(manager.getList());
-        return w;
-    }
-
-    public void increaseSalary() throws Exception {
-        Worker w = getWorker();
-        if (w == null) {
-            throw new Exception();
-        }
+    
+    public void changeSalary(int type) throws Exception {
+        String code = Validation.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Not null or code must begin with an upper case and followinging by a digit");
         double amount = Validation.getDouble("Amount: ", "Must be a number", 1, Double.MAX_VALUE);
-        manager.increaseSalary(amount, w);
-    }
-
-    public void decreareSalary() throws Exception {
-        Worker w = getWorker();
-        if (w == null) {
-            System.out.println("Cannot change salary because there is no workers in the list");
-            return;
+        switch (type) {
+            case 2 -> {
+                if (!manager.increaseSalary(amount, code, type)) {
+                    throw new Exception();
+                }
+            }
+            case 3 -> {
+                if (!manager.decreaseSalary(amount, code, type)) {
+                    throw new Exception();
+                }
+            }
         }
-        double amount = Validation.getDouble("Amount: ", "Must be a number", 1, Double.MAX_VALUE);
-        if (!manager.checkAmount(amount, w.getSalary())) {
-            throw new Exception();
-        }
-        manager.decreaseSalary(amount, w);
     }
 
     public void display() {
