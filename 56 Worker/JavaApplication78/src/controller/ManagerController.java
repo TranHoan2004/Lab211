@@ -33,13 +33,9 @@ public class ManagerController {
         System.out.println();
     }
 
-    public Worker getWorker() throws Exception {
-//        try {
-            Worker w = manager.findByID(manager.getList());
-            return w;
-//        } catch (Exception e) {
-//            throw new Exception("ID is not existed");
-//        }
+    public Worker getWorker() {
+        Worker w = manager.findByID(manager.getList());
+        return w;
     }
 
     public void increaseSalary() throws Exception {
