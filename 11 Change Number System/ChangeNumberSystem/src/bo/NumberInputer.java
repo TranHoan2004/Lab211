@@ -15,4 +15,5 @@ public class NumberInputer {
         double number = Validation.getDouble("Enter number: ", "Only numbers", Double.MIN_VALUE, Double.MAX_VALUE);
         return number;
     }
+    
 }

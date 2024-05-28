@@ -4,7 +4,8 @@
  */
 package ui;
 
-import java.util.Stack;
+import controller.ManagerController;
+import utils.Validation;
 
 /**
  *
@@ -17,26 +18,38 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        String binaryString = "1011.01001100110011001101";
-        double decimalValue = binaryToDecimal(binaryString);
-        System.out.println("Giá trị thập phân của " + binaryString + " là " + decimalValue);
-    }
-        public static double binaryToDecimal(String binary) {
-        Stack<Double> stack = new Stack<>();
-        int len = binary.length();
-
-        for (int i = 0; i < len; i++) {
-            char c = binary.charAt(i);
-            if (c == '1') {
-                stack.push(Math.pow(2, -(i + 1)));
+        ManagerController managerController = new ManagerController();
+        int type;
+        String title ="""
+                     =============== Change number system ===============                     
+                     """;
+        String menu = """
+                      1. Binary
+                      2. Decimal
+                      3. Hexadecimal
+                      """;
+        while (true) {
+            System.out.println(title);
+            System.out.println(menu);
+            int choice = Validation.getInt("Enter base number input: ", "Enter a number from 1 to 3", 1, 3);
+            switch (choice) {
+                case 1:
+                    System.out.println("menu");
+                    type = Validation.getInt("Enter base number output: ", "Enter a number from 1 to 3", 1, 3);
+                    managerController.convertBinary(type); 
+                    break;
+                case 2:
+                    System.out.println("menu");
+                    type = Validation.getInt("Enter base number output: ", "Enter a number from 1 to 3", 1, 3);
+                    managerController.convertDec(type); 
+                    break;
+                case 3:
+                    System.out.println("menu");
+                    type = Validation.getInt("Enter base number output: ", "Enter a number from 1 to 3", 1, 3);
+                    managerController.convertHex(type); 
+                    break;                
             }
+            
         }
-
-        double result = 0.0;
-        while (!stack.isEmpty()) {
-            result += stack.pop();
-        }
-
-        return result;
     }
 }

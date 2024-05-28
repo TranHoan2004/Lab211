@@ -7,6 +7,7 @@ package controller;
 import bo.Inputer;
 import bo.Manager;
 import entity.Worker;
+import java.util.ArrayList;
 import utils.Validation;
 
 /**
@@ -26,21 +27,23 @@ public class ManagerController {
     }
 
     public void show() {
-//        ArrayList<Worker> listOfWorker = manager.getList();
         for (Worker person : manager.getList()) {
             System.out.println(person.toString());
         }
         System.out.println();
     }
 
-    public Worker getList() {
-//        ArrayList<Worker> listOfWorker = manager.getList();
-        Worker w1 = manager.findByID(manager.getList());
-        return w1;
+    public Worker getWorker() throws Exception {
+//        try {
+            Worker w = manager.findByID(manager.getList());
+            return w;
+//        } catch (Exception e) {
+//            throw new Exception("ID is not existed");
+//        }
     }
 
     public void increaseSalary() throws Exception {
-        Worker w = getList();
+        Worker w = getWorker();
         if (w == null) {
             throw new Exception();
         }
@@ -48,12 +51,17 @@ public class ManagerController {
         manager.increaseSalary(amount, w);
     }
 
-    public void decreareSalary(Worker w) throws Exception {
+    public void decreareSalary() throws Exception {
+        Worker w = getWorker();
+        if (w == null) {
+            System.out.println("Cannot change salary because there is no workers in the list");
+            return;
+        }
         double amount = Validation.getDouble("Amount: ", "Must be a number", 1, Double.MAX_VALUE);
         if (!manager.checkAmount(amount, w.getSalary())) {
             throw new Exception();
         }
-        manager.decreaseSalary(amount, w);         
+        manager.decreaseSalary(amount, w);
     }
 
     public void display() {

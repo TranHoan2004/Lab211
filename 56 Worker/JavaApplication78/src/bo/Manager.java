@@ -47,18 +47,13 @@ public class Manager {
     }
 
     public Worker findByID(ArrayList<Worker> listOfWorker) {
-        while (true) {
-            try {
-                String code = Validation.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Not null or code must begin with an upper case and followinging by a digit");
-                for (Worker person : listOfWorker) {
-                    if (code.equalsIgnoreCase(person.getId())) {
-                        return person;
-                    }
-                }
-            } catch (Exception e) {
-                System.out.println("ID is not existed");
+        String code = Validation.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Not null or code must begin with an upper case and followinging by a digit");
+        for (Worker person : listOfWorker) {
+            if (code.equalsIgnoreCase(person.getId())) {
+                return person;
             }
         }
+        return null;
     }
 
     public boolean checkAmount(double amount, double salary) {

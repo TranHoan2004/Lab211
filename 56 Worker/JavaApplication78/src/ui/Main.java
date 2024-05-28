@@ -6,6 +6,7 @@ package ui;
 
 import controller.ManagerController;
 import entity.Worker;
+import java.util.ArrayList;
 import utils.Validation;
 
 /**
@@ -44,24 +45,27 @@ public class Main {
                     System.out.println("Added successfully!");
                 }
                 case 2 -> {
-                    System.out.println("--------------------------- INCREASE SALARY ---------------------------");                    
-                    try {
-                        managerController.increaseSalary();
-                    } catch (Exception e) {
-                        System.out.println("List is null, cannot change salary");
+                    System.out.println("--------------------------- INCREASE SALARY ---------------------------");
+                    while (true) {
+                        try {
+                            managerController.increaseSalary();
+                            System.out.println("Successfully!");
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("ID is not existed");
+                        }
                     }
                 }
                 case 3 -> {
                     System.out.println("--------------------------- DECREASE SALARY ---------------------------");
-                    Worker list = managerController.getList();
-                    if (list == null) {
-                        System.out.println("Cannot change salary because there is no workers in the list");
-                        return;
-                    }
-                    try {
-                        managerController.decreareSalary(list);
-                    } catch (Exception e) {
-                        System.out.println("Amount is greater than salary, cannot be decreased");
+                    while (true) {
+                        try {
+                            managerController.decreareSalary();
+                            System.out.println("Successfully!");
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("Amount is greater than salary, cannot be decreased");
+                        }
                     }
                 }
                 case 4 -> {
