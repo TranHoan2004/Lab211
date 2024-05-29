@@ -87,4 +87,9 @@ public class Account {
         this.dob = dob;
     }
 
+    @Override
+    public String toString() {
+        return "Account{" + "userName=" + userName + ", password=" + password + ", name=" + name + ", phone=" + phone + ", emailAddress=" + emailAddress + ", dob=" + dob + ", address=" + address + '}';
+    }
+
 }

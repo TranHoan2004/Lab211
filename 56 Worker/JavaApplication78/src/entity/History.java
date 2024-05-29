@@ -18,18 +18,6 @@ public final class History extends Worker {
     public enum Status {
         UP, DOWN;
 
-        public int GetStatus() {
-            switch (this) {
-                case UP -> {
-                    return 2;
-                }
-                case DOWN -> {
-                    return 3;
-                }
-            }
-            throw new IndexOutOfBoundsException("Invalid value!");
-        }
-
         public static Status getStatusByInt(int type) {
             switch (type) {
                 case 2 -> {
@@ -38,7 +26,8 @@ public final class History extends Worker {
                 case 3 -> {
                     return DOWN;
                 }
-                default -> throw new AssertionError();
+                default ->
+                    throw new AssertionError();
             }
         }
     }
@@ -70,8 +59,6 @@ public final class History extends Worker {
     }
 
     public String displaySalaryInformation() {
-//        System.out.printf("%-15s%-15s%-15d%-15.2f%-15s%s", getId(), getName(), getAge(), getSalary(), getStatus(), getDate());
-//        System.out.println();
         return String.format("%-15s%-15s%-15d%-15.2f%-15s%s", this.getId(), this.getName(), this.getAge(), this.getSalary(), this.getStatus(), this.getDate());
     }
 

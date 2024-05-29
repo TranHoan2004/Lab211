@@ -23,7 +23,7 @@ public class Input {
         return account;
     }
 
-    private void inputAccountInformation() {
+    public void inputAccountInformation() {
         account.setUserName(Validation.getStringByRegex("Account: ", "Not null or empty", "[A-Za-z]+"));
         String password = Validation.getStringByRegex("Password: ", "Not null or empty", "^[a-zA-Z0-9@#$%^&+=.]+$");
         account.setPassword(Validation.MD5Encryption(password)); 
@@ -31,11 +31,7 @@ public class Input {
         account.setPhone(Validation.getPhone(10, "Phone: "));
         account.setEmailAddress(Validation.getEmail("Email: "));
         account.setAddress(Validation.getStringByRegex("Address: ", "Must have a name of street or city", "^[a-zA-Z0-9 ,./-]+$"));
-        account.setDob(Validation.checkInputDate("DOB: "));
-    }
-
-    public void callInput() {
-        inputAccountInformation();
+        account.setDob(Validation.checkInputDate()); 
     }
 
 }

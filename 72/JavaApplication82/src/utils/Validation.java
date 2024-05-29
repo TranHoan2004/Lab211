@@ -76,25 +76,6 @@ public class Validation {
         }
     }
 
-    public static String checkInputDate(String message) {
-        Scanner sc = new Scanner(System.in);
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        while (true) {
-            System.out.print(message);
-            try {
-                String result = sc.nextLine().trim();
-                Date date = format.parse(result);
-                if (result.equalsIgnoreCase(format.format(date))) {
-                    return result;
-                } else {
-                    System.err.println("Invalid date. Please re-enter.");
-                }
-            } catch (ParseException ex) {
-                System.err.println("Invalid date format. Please re-enter.");
-            }
-        }
-    }
-
     public static boolean checkUsername(String userAccount, Account account) {
         return account.getUserName().equalsIgnoreCase(userAccount);
     }
@@ -109,15 +90,34 @@ public class Validation {
     }
 
     public static String MD5Encryption(String password) {
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            md.update(password.getBytes());
-            byte[] hashBytes = md.digest();
-            String base64Hash = Base64.getEncoder().encodeToString(hashBytes);
-            return base64Hash;
-        } catch (NoSuchAlgorithmException ex) {
-            ex.printStackTrace();
+        while (true) {
+            try {
+                MessageDigest md = MessageDigest.getInstance("MD5");
+                md.update(password.getBytes());
+                byte[] hashBytes = md.digest();
+                String base64Hash = Base64.getEncoder().encodeToString(hashBytes);
+                return base64Hash;
+            } catch (NoSuchAlgorithmException ex) {
+                ex.printStackTrace();
+            }
+            return null;
+        }        
+    }
+
+    public static String checkInputDate() {
+        while (true) {
+            try {
+                String result = getStringByRegex("Date: ", "Wrong format", "^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$");
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                Date date = format.parse(result);
+                if (result.equalsIgnoreCase(format.format(date))) {
+                    return result;
+                } else {
+                    System.err.println("Re-input");
+                }
+            } catch (NumberFormatException | ParseException ex) {
+                System.err.println("Re-input");
+            }
         }
-        return null;
     }
 }

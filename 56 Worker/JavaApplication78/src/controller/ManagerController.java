@@ -32,17 +32,17 @@ public class ManagerController {
         System.out.println();
     }
     
-    public void changeSalary(int type) throws Exception {
+    public void changeSalary(int choice) throws Exception {
         String code = Validation.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Not null or code must begin with an upper case and followinging by a digit");
         double amount = Validation.getDouble("Amount: ", "Must be a number", 1, Double.MAX_VALUE);
-        switch (type) {
+        switch (choice) {
             case 2 -> {
-                if (!manager.increaseSalary(amount, code, type)) {
+                if (!manager.increaseSalary(amount, code, choice)) {
                     throw new Exception();
                 }
             }
             case 3 -> {
-                if (!manager.decreaseSalary(amount, code, type)) {
+                if (!manager.decreaseSalary(amount, code, choice)) {
                     throw new Exception();
                 }
             }

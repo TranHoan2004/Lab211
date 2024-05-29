@@ -5,6 +5,7 @@
 package ui;
 
 import controller.ManagerController;
+import entity.Account;
 import utils.Validation;
 
 /**
@@ -29,15 +30,47 @@ public class Main {
             System.out.println(menu);
             int choice = Validation.getInt("Please choice one option: ", "Must be an integer number", "Please enter an integer number rom 1 to 3", 1, 3);
             switch (choice) {
-                case 1 ->
-                    managerController.addAccount();
-                case 2 -> 
-                    managerController.login();
+                case 1 -> {
+                    System.out.println("------------------------- Add User -------------------------");
+                    while (true) {
+                        try {
+                            managerController.addAccount();
+                            break;
+                        } catch (Exception e) {
+                            System.err.println(e.getMessage());
+                        }
+                    }
+                }
+                case 2 -> {
+                    System.out.println("------------------------- Login -------------------------");
+                    Account acc = null;
+                    while (true) {
+                        try {
+                            acc = managerController.login();
+                            break;
+                        } catch (NullPointerException p) {
+                            System.err.println("There is no account in this device, cannot be login");
+                        } catch (Exception e) {
+                            System.err.println("Password is incorrect");
+                        }
+                    }
+                    while (true) {
+                        System.out.print("Hi " + acc.getName() + ", do you want change password now? ");
+                        if (!Validation.checkYN()) {
+                            return;
+                        }
+                        try {
+                            managerController.changePassword();
+                            break;
+                        } catch (Exception e) {
+                            System.err.println(e.getMessage());
+                        }
+                    } 
+                }            
                 case 3 -> {
                     return;
                 }
             }
         }
     }
-
 }
