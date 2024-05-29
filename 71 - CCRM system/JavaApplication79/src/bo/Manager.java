@@ -5,7 +5,7 @@
 package bo;
 
 import entity.Task;
-import utils.Validation;
+import java.util.LinkedList;
 
 /**
  *
@@ -13,41 +13,43 @@ import utils.Validation;
  */
 public class Manager {
 
-    private final LinkedList list;
+    private final LinkedList<Task> list;
 
     public Manager() {
-        list = new LinkedList();
+        list = new LinkedList<>();
     }
-
-    public LinkedList getList() {
+    
+    public LinkedList<Task> getList() {
         return list;
     }
 
     public boolean addTask(Task task) {
-        if (Validation.checkIdExist(task.getID(), list)) {
-            return false;
-        }
-        list.addLast(task);
+        list.add(task);
         return true;
     }
 
     public boolean deleteTask(int id) {
-        for (Task task : list.traversal()) {
-            if (!Validation.checkIdExist(task.getID(), list)) {
-                return false;
-            }
+        for (Task task : list) {
+            if (checkIdExist(task.getID())) {
+                list.remove(findTaskByID(id));
+                return true;
+            }            
         }
-        list.remove(findTaskByID(id));
-        return true;
+        return false;
     }
 
     public Task findTaskByID(int id) {
-        for (Task person : list.traversal()) {
+        for (Task person : list) {
             if (person.getID() == id) {
                 return person;
             }
         }
         return null;
     }
-    
+    public boolean checkIdExist(int id) {
+        for (Task person: list) {
+            return (person.getID() == id);
+        }
+        return false;
+    }
 }

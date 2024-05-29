@@ -12,18 +12,13 @@ import utils.Validation;
  * @author ADMIN
  */
 public class Inputer {
-
-    private Task task;
-
+    private static int counter = 0;
     public Inputer() {
-        task = new Task();
+
     }
 
-    public Task getInformation() {
-        return task;
-    }
-
-    public boolean inputTaskInformation() throws UnsupportedOperationException {
+    public Task inputTaskInformation() throws Exception {
+        Task task = new Task();
         task.setRequirementName(Validation.getStringByRegex("Requirement Name: ", "^([A-Z][a-z]+\\\s)*[A-Z][a-z]+$",
                 "Each word in name of task must begin with an upper case letter and following by lower case letters"));
         task.setTaskTypeID(Validation.getInt("Task Type: ", "Must be a positive number greater than 0",
@@ -32,14 +27,14 @@ public class Inputer {
         task.setPlanFrom(Validation.getDouble("From: ", "Must be a number greater than 0", 1, 24));
         double time = Validation.getDouble("To: ", "Must be a number greater than 0", 1, 24);
         if (time <= task.getPlanFrom()) {
-            return false;
+            throw new Exception("Time out is smaller than time in, cannot be setted up");
         }
         task.setPlanTo(time);
         task.setAssignee(Validation.getStringByRegex("Assignee: ", "^[A-Z][a-z]+$", "Please enter a word"));
         task.setReviewer(Validation.getStringByRegex("Reviewer: ", "^([A-Z][a-z]+\\\s)*[A-Z][a-z]+$",
                 "Each word in name of task must begin with an upper case letter and following by lower case letters"));
-        task.setID();
-        return true;
+        task.setID(++counter);
+        return task;
     }
 
 }

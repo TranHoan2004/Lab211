@@ -4,15 +4,11 @@
  */
 package utils;
 
-import bo.LinkedList;
 import entity.Task;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.time.format.ResolverStyle;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -68,15 +64,6 @@ public class Validation {
     public static boolean checkYN() {
         String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
         return input.toLowerCase().equalsIgnoreCase("y");
-    }
-
-    public static boolean checkIdExist(int id, LinkedList listWorker) {
-        for (Task person : listWorker.traversal()) {
-            if (person.getID() == id) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public static String checkInputDate() {

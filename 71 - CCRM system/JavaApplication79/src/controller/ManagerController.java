@@ -21,19 +21,17 @@ public class ManagerController {
         manager = new Manager();
     }
 
-    public void addTask() throws Exception, UnsupportedOperationException {
+    public void addTask() throws Exception {
         Inputer input = new Inputer();
-        if (!input.inputTaskInformation()) {
-            throw new Exception("Plan to is smaller than Plan from");
-        }
-        if (!manager.addTask(input.getInformation())) {
+        Task task = input.inputTaskInformation();
+        if (!manager.addTask(task)) {
             throw new Exception("Add new task failed because ID is existed");
         }
     }
 
     public void deleteTask() throws Exception{
         if (manager.getList().isEmpty()) {
-            throw new Exception();
+            throw new Exception("List is empty, cannot be deleted");
         } else {
             int id = Validation.getInt("ID: ", "Must be a positive number greater than 0", "Out of range", 1, manager.getList().size());
             manager.deleteTask(id);
@@ -41,7 +39,7 @@ public class ManagerController {
     }
 
     public void display() {
-        for (Task task : manager.getList().traversal()) {
+        for (Task task : manager.getList()) {
             System.out.println(task.display());
         }
         System.out.println();

@@ -20,10 +20,10 @@ public final class Task {
     private double planFrom,
             planTo;
     private int taskTypeID,
-            ID = 0;
+            ID;
 
     public Task() {
-
+        
     }
 
     public Task(String requirementName, String assignee, String reviewer, String date, double planFrom, double planTo, int taskTypeID) {
@@ -34,7 +34,6 @@ public final class Task {
         this.planFrom = planFrom;
         this.planTo = planTo;
         this.taskTypeID = taskTypeID;
-        setID();
     }
 
     public String getRequirementName() {
@@ -97,8 +96,8 @@ public final class Task {
         return ID;
     }
 
-    public void setID() {
-        this.ID += 1;
+    public void setID(int id) {
+        this.ID = id;
     }
 
     public double getTime() {

@@ -4,7 +4,6 @@
  */
 package ui;
 
-import bo.LinkedList;
 import controller.ManagerController;
 import utils.Validation;
 
@@ -35,18 +34,18 @@ public class Main {
                             managerController.addTask();
                             System.out.println("Add successully");
                         } catch (Exception e) {
-                            e.printStackTrace();
+                            System.err.println(e.getMessage());
                         }
                     } while (Validation.checkYN());
                     break;
                 }
-                case 2 -> { 
+                case 2 -> {
                     System.out.println("---------- Delete Task ----------");
                     try {
                         managerController.deleteTask();
                     } catch (Exception e) {
-                        System.err.println("List is empty, cannot be deleted");
-                    }        
+                        System.err.println(e.getMessage());
+                    }
                     break;
                 }
                 case 3 -> {
