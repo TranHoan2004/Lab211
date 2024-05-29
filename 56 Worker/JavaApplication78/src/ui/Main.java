@@ -32,7 +32,7 @@ public class Main {
                         try {
                             managerController.addWorker();
                         } catch (Exception e) {
-                            System.err.println("ID is existed, worker will not be added");
+                            System.err.println(e.getMessage());
                         }
                     } while (Validation.checkYN());
                     System.out.printf("""
@@ -50,7 +50,7 @@ public class Main {
                             System.out.println("Successfully!");
                             break;
                         } catch (Exception e) {
-                            System.err.println("ID is not existed");
+                            System.err.println(e.getMessage());
                         }
                     }
                 }
@@ -62,7 +62,7 @@ public class Main {
                             System.out.println("Successfully!");
                             break;
                         } catch (Exception e) {
-                            System.err.println("Amount is greater than salary or id is not existed, cannot be decreased");
+                            System.err.println(e.getMessage());
                         }
                     }
                 }
