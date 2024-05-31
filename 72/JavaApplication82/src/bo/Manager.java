@@ -5,10 +5,7 @@
 package bo;
 
 import entity.Account;
-import java.util.ArrayList;
 import utils.Validation;
-import static utils.Validation.getStringByRegex;
-
 /**
  *
  * @author ADMIN

@@ -69,5 +69,4 @@ public class Manager {
     public boolean checkAmount(double amount, double salary) {
         return amount <= salary;
     }
-    
 }

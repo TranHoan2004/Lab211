@@ -5,6 +5,8 @@
 package ui;
 
 import controller.ManagerController;
+import entity.History;
+import entity.Worker;
 import utils.Validation;
 
 /**
@@ -27,23 +29,29 @@ public class Main {
             System.out.print(menu);
             int choice = Validation.checkInputInRange("Your choice: ", "Please enter an integer number from 1 to 5", 1, 5);
             switch (choice) {
-                case 1 -> {
-                    do {
-                        try {
-                            managerController.addWorker();
-                        } catch (Exception e) {
-                            System.err.println(e.getMessage());
-                        }
-                    } while (Validation.checkYN());
+                case 1:
+                    try {
+                        if (!managerController.addWorker()) {
+                            throw new Exception();
+                        } 
+                    } catch (Exception e) {
+                        System.err.println("ID is existed, worker will not be added");
+                    }
                     System.out.printf("""
                                             -------------------- Display Worker Information -----------------------
                                             %-15s%-15s%-15s%-15s%-15s
                                             """, "Code", "Name", "Age", "Salary", "Work Location");
-                    managerController.show();
-                    System.out.println("Added successfully!");
-                }
-                case 2 -> {
-                    System.out.println("--------------------------- INCREASE SALARY ---------------------------");
+                    for (Worker w : managerController.getList()) { 
+                        System.out.println(w.toString());
+                    }
+                    System.out.println("Added successfully!");              
+                    break;                           
+                case 2: case 3:  
+                    if (managerController.getList().isEmpty()) {
+                        System.err.println("List of worker is null, cannot be change");
+                        break;
+                    }
+                    System.out.println("--------------------------- CHANGE SALARY ---------------------------");
                     while (true) {
                         try {
                             managerController.changeSalary(choice);
@@ -53,29 +61,19 @@ public class Main {
                             System.err.println(e.getMessage());
                         }
                     }
-                }
-                case 3 -> {
-                    System.out.println("--------------------------- DECREASE SALARY ---------------------------");
-                    while (true) {
-                        try {
-                            managerController.changeSalary(choice);
-                            System.out.println("Successfully!");
-                            break;
-                        } catch (Exception e) {
-                            System.err.println(e.getMessage());
-                        }
-                    }
-                }
-                case 4 -> {
+                    break;
+                case 4: {
                     System.out.printf("""
                                             -------------------- Display Information Salary -----------------------
                                             %-15s%-15s%-15s%-15s%-15s%-15s
                                             """, "Code", "Name", "Age", "Salary", "Status", "Date");
-                    managerController.display();
+                    for (History w : managerController.getHistory()) {
+                        System.out.println(w.displaySalaryInformation());
+                    }
+                    break;
                 }
-                case 5 -> {
-                    return;
-                }
+                case 5:
+                    return;                
             }
         }
     }

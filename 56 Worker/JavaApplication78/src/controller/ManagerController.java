@@ -6,7 +6,9 @@ package controller;
 
 import bo.Inputer;
 import bo.Manager;
+import entity.History;
 import entity.Worker;
+import java.util.ArrayList;
 import utils.Validation;
 
 /**
@@ -16,22 +18,25 @@ import utils.Validation;
 public class ManagerController {
 
     private final Manager manager = new Manager();
-
-    public void addWorker() throws Exception {
-        Inputer input = new Inputer();
-        Worker work = input.inputWorker();
-        if (!manager.createWorker(work)) {
-            throw new Exception("ID is existed, worker will not be added");
-        }
-    }
-
-    public void show() {
-        for (Worker person : manager.getList()) {
-            System.out.println(person.toString());
-        }
-        System.out.println();
-    }
     
+    public ArrayList<Worker> getList() {
+        return manager.getList();
+    }
+
+    public ArrayList<History> getHistory() {
+        return manager.getHistory();
+    }
+    public boolean addWorker() throws Exception {
+        do {
+            Inputer input = new Inputer();
+            Worker work = input.inputWorker();
+            if (!manager.createWorker(work)) {
+                return false;
+            }
+        } while (Validation.checkYN());
+        return true;
+    }
+
     public void changeSalary(int choice) throws Exception {
         String code = Validation.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Not null or code must begin with an upper case and followinging by a digit");
         double amount = Validation.getDouble("Amount: ", "Must be a number", 1, Double.MAX_VALUE);
@@ -47,11 +52,5 @@ public class ManagerController {
                 }
             }
         }
-    }
-
-    public void display() {
-        manager.getHistory().forEach(person -> {
-            System.out.println(person.displaySalaryInformation());
-        });
     }
 }

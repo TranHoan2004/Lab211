@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Manager;
+package util;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -15,11 +15,10 @@ public class Validation {
     private static Scanner sc = new Scanner(System.in);
     
     public static int checkInputChoice(String msg, int min, int max, String err) {
-        int n=0;
         while (true) {
             try {
                 System.out.print(msg);
-                n=Integer.parseInt(sc.nextLine().trim());
+                int n=Integer.parseInt(sc.nextLine().trim());
                 if (n<min || n>max) throw new NumberFormatException();
                 return n;
             } catch (NumberFormatException e) {
@@ -28,7 +27,7 @@ public class Validation {
         }
     }
     
-    public static double checkInput(String msg, String err) {
+    public static double getDouble(String msg, String err) {
         double n=0;
         while (true) {
             try {

@@ -4,12 +4,31 @@
  */
 package gui;
 
+import controller.ManagerController;
+
 /**
  *
  * @author ADMIN
  */
 public class Main {
+
     public static void main(String[] args) {
-        Menu.calculatorProgram();
+        ManagerController managerController = new ManagerController();
+        Menu menu = new Menu();
+        while (true) {
+            int choice = menu.calculatorProgram();
+            switch (choice) {
+                case 1:
+                    System.out.println("----- Normal Calculator -----");
+                    managerController.typeA();
+                    break;
+                case 2:
+                    System.out.println("----- BMI Calculator -----");
+                    managerController.typeB();
+                    break;
+                case 3:
+                    return;
+            }
+        }
     }
 }

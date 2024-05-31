@@ -2,28 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Object;
+package entity;
 
 /**
  *
  * @author ADMIN
  */
-public class Fruit {
+public class Order {
     private String fruitID;
     private String fruitName;
-    private double price;
     private int quantity;
-    private String origin;
+    private double price;
 
-    public Fruit() {
+    public Order() {
     }
 
-    public Fruit(String fruitID, String fruitName, double price, int quantity, String origin) {
+    public Order(String fruitID, String fruitName, int quantity, double price) {
         this.fruitID = fruitID;
         this.fruitName = fruitName;
-        this.price = price;
         this.quantity = quantity;
-        this.origin=origin;
+        this.price = price;
     }
 
     public String getFruitID() {
@@ -42,14 +40,6 @@ public class Fruit {
         this.fruitName = fruitName;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public int getQuantity() {
         return quantity;
     }
@@ -58,18 +48,14 @@ public class Fruit {
         this.quantity = quantity;
     }
 
-    public String getOrigin() {
-        return origin;
+    public double getPrice() {
+        return price;
     }
 
-    public void setOrigin(String origin) {
-        this.origin = origin;
+    public void setPrice(double price) {
+        this.price = price;
     }
-
-    @Override
-    public String toString() {
-        return "Fruit{" + "fruitID=" + fruitID + ", fruitName=" + fruitName + ", price=" + price + ", quantity=" + quantity+'}';
-    }
+    
     
     
 }

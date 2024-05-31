@@ -22,7 +22,7 @@ public class ManagerController {
         manager = new Manager();
     }
 
-    public void addAccount() throws Exception {
+    public Account addAccount() throws Exception {
         Input input = new Input();
         input.inputAccountInformation();
         Account account = input.getAccount();
@@ -30,12 +30,11 @@ public class ManagerController {
         if (!manager.addUser(account)) {
             throw new Exception("Add account failed");
         }
+        Account acc = manager.getAccount();
+        return acc;
     }
 
-    public Account login() throws Exception, NullPointerException {
-        if (manager.getAccount() == null) {
-            throw new NullPointerException();
-        }
+    public Account login() throws Exception {
         String userAccount = getStringByRegex("Account: ", "Wrong account name", "[A-Za-z]+");
         String encryptedPass = Validation.MD5Encryption(getStringByRegex("Password: ", "Not null or empty", "^[a-zA-Z0-9@#$%^&+=.]+$"));
         if (!manager.login(userAccount, encryptedPass)) {
@@ -51,6 +50,7 @@ public class ManagerController {
                 throw new Exception("Password is incorrect");
             }
             manager.resetPassword(getNewPassword());
+            return;
         }
     }
 
