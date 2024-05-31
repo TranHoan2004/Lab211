@@ -7,6 +7,7 @@ package controller;
 import bo.Inputer;
 import bo.Manager;
 import entity.Task;
+import java.util.LinkedList;
 import utils.Validation;
 
 /**
@@ -22,26 +23,25 @@ public class ManagerController {
     }
 
     public void addTask() throws Exception {
-        Inputer input = new Inputer();
-        Task task = input.inputTaskInformation();
-        if (!manager.addTask(task)) {
-            throw new Exception("Add new task failed because ID is existed");
-        }
+        do {
+            Inputer input = new Inputer();
+            Task task = input.inputTaskInformation();
+            if (!manager.addTask(task)) {
+                throw new Exception("Add new task failed because ID is existed");
+            }
+        } while (Validation.checkYN());
     }
 
-    public void deleteTask() throws Exception{
+    public void deleteTask() throws Exception {
         if (manager.getList().isEmpty()) {
             throw new Exception("List is empty, cannot be deleted");
         } else {
             int id = Validation.getInt("ID: ", "Must be a positive number greater than 0", "Out of range", 1, manager.getList().size());
             manager.deleteTask(id);
-        }        
+        }
     }
 
-    public void display() {
-        for (Task task : manager.getList()) {
-            System.out.println(task.display());
-        }
-        System.out.println();
+    public LinkedList<Task> getList() {
+        return manager.getList();
     }
 }
