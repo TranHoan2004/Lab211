@@ -4,54 +4,56 @@
  */
 package bo;
 
-import util.Validation;
-
 /**
  *
  * @author ADMIN
  */
 public class Manager {
 
-    public double normalCalculator(double a, double b, String operator) {
-        double ketQua = 1;
-        while (true) {
-            switch (operator) {
-                case "+":
-                    ketQua = a + b;
-                    return ketQua;
-                case "-":
-                    ketQua = a - b;
-                    return ketQua;
-                case "*":
-                    ketQua = a * b;
-                    return ketQua;
-                case "/":
-                    ketQua = a / b;
-                    return ketQua;
-                case "^":
-                    ketQua = Math.pow(a, b);
-                    return ketQua;
-                case "=":
-                    ketQua = a;
-                    return ketQua;
-            }
-        }
+    private double answer;
+    private double bmi;
+
+    public double getAnswer() {
+        return answer;
     }
 
-    public void bmiCalculator(double weight, double height) {
-        double BMI = 0;
-        BMI = weight / (height * height / 10000);
-        if (BMI < 19) {
-            System.out.println("BMI Status: UNDER_STANDARD");
-        } else if (BMI >= 19 && BMI <= 25) {
-            System.out.println("BMI Status: STANDARD");
-        } else if (BMI >= 25 && BMI <= 30) {
-            System.out.println("BMI Status: OVERWEIGHT");
-        } else if (BMI >= 30 && BMI <= 40) {
-            System.out.println("BMI Status: FAT - SHOULD LOSE WEIGHT IMMEDIATELY");
-        } else if (BMI > 40) {
-            System.out.println("BMI Status: VERY FAT - SHOULD LOSE WEIGHT IMMEDIATELY");
+    public double getBMI() {
+        return bmi;
+    }
+
+    public boolean normalCalculator(double a, double b, String operator) {
+        switch (operator) {
+            case "+":
+                answer = a + b;
+                break;
+            case "-":
+                answer = a - b;
+                break;
+            case "*":
+                answer = a * b;
+                break;
+            case "/":
+                if (checkDiv(b)) {
+                    return false;
+                }
+                answer = a / b;
+                break;
+            case "^":
+                answer = Math.pow(a, b);
+                break;
+            case "=":
+                answer = a;
+                break;
         }
-        System.out.println("");
+        return true;
+    }
+
+    public boolean bmiCalculator(double weight, double height) {
+        bmi = weight / (height * height / 10000);
+        return true;
+    }
+
+    public boolean checkDiv(double b) {
+        return b == 0;
     }
 }

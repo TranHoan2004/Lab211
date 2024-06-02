@@ -12,52 +12,61 @@ import java.util.Scanner;
  * @author ADMIN
  */
 public class Validation {
-    private static Scanner sc = new Scanner(System.in);
-    
-    public static int checkInputChoice(String msg, int min, int max, String err) {
+
+    public static String removeUnneccessaryBlank(String input) {
+        return input.trim().replaceAll("\\s+", " ");
+    }
+
+    public static String removeAllBlank(String input) {
+        return input.trim().replaceAll("\\s+", "");
+    }
+
+    public static String getStringByRegex(String msg, String regex, String err) {
+        Scanner sc = new Scanner(System.in);
         while (true) {
-            try {
-                System.out.print(msg);
-                int n=Integer.parseInt(sc.nextLine().trim());
-                if (n<min || n>max) throw new NumberFormatException();
-                return n;
-            } catch (NumberFormatException e) {
-                System.out.println(err);
+            System.out.print(msg);
+            String string = sc.nextLine();
+            if (string.matches(regex)) {
+                return string;
+            } else {
+                System.err.println(err);
             }
         }
     }
-    
+
+    public static int getInt(String msg, int min, int max, String err) {
+        while (true) {
+            try {
+                int n = Integer.parseInt(getStringByRegex(msg, "[0-9]+", err));
+                if (n < min || n > max) {
+                    throw new NumberFormatException();
+                }
+                return n;
+            } catch (NumberFormatException e) {
+                System.err.println("Out of range");
+            }
+        }
+    }
+
     public static double getDouble(String msg, String err) {
-        double n=0;
         while (true) {
-            try {
-                System.out.print(msg);
-                n=Double.parseDouble(sc.nextLine().trim());
-                return n;
-            } catch (NumberFormatException e) {
-                System.out.println(err);
+            double input = Double.parseDouble(getStringByRegex(msg, "[0-9]*\\.?[0-9]+", err));
+            if (input <= 0 || input > Double.MAX_VALUE) {
+                System.err.println("Out of range!");
+            } else {
+                return input;
             }
         }
     }
-    
+
     public static String checkOperator(String msg, String err) {
-        String op;
         while (true) {
-            try {
-                System.out.print(msg);
-                op=sc.nextLine().trim();
-                if (op.isEmpty()){
-                    System.out.println("Operator should not be empty!");
-                }
-                else if (op.equalsIgnoreCase("+") || op.equalsIgnoreCase("-") 
-                        || op.equalsIgnoreCase("*") || op.equalsIgnoreCase("/") 
-                        || op.equalsIgnoreCase("^") || op.equalsIgnoreCase("=")) {
-                    return op;
-                }
-                else System.out.println(err);
-            } catch (InputMismatchException e) {
-                System.out.println(err);
-            }            
+            String op = getStringByRegex(msg, "^[+*/=-]{1}$", err);
+            if (op.equalsIgnoreCase("+") || op.equalsIgnoreCase("-")
+                    || op.equalsIgnoreCase("*") || op.equalsIgnoreCase("/")
+                    || op.equalsIgnoreCase("^") || op.equalsIgnoreCase("=")) {
+                return op;
+            }
         }
     }
 }

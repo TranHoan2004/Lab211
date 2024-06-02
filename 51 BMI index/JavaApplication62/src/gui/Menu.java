@@ -12,12 +12,18 @@ import util.Validation;
  */
 public class Menu {
 
-    public int calculatorProgram() {
+    private int choice;
+
+    public void printMenu() {
         String menu = "\n========= Calculator Program =========\n"
                 + "1. Normal Calculator\n"
                 + "2. BMI Calculator\n"
                 + "3. Exit\n";
         System.out.println(menu);
-        return Validation.checkInputChoice("Please choice one option: ", 1, 3, "Please enter a number from 1 -> 3");
+        choice = Validation.getInt("Please choice one option: ", 1, 3, "Please enter a number from 1 -> 3");
+    }
+
+    public int getChoice() {
+        return choice;
     }
 }

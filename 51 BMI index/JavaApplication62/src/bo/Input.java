@@ -13,11 +13,11 @@ import util.Validation;
 public class Input {
 
     public double getA() {
-        double a = Validation.getDouble("Enter number: ", "Please enter a number");
+        double a = Validation.getDouble("Enter number a: ", "Please enter a number");
         return a;
     }
     public double getB() {
-        double b = Validation.getDouble("Enter number: ", "Please enter a number");
+        double b = Validation.getDouble("Enter number b: ", "Please enter a number");
         return b;
     }
 }

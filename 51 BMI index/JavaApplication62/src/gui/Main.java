@@ -5,6 +5,7 @@
 package gui;
 
 import controller.ManagerController;
+import java.io.PrintWriter;
 
 /**
  *
@@ -16,15 +17,37 @@ public class Main {
         ManagerController managerController = new ManagerController();
         Menu menu = new Menu();
         while (true) {
-            int choice = menu.calculatorProgram();
-            switch (choice) {
+            menu.printMenu();
+            switch (menu.getChoice()) {
                 case 1:
                     System.out.println("----- Normal Calculator -----");
-                    managerController.typeA();
+                    try {
+                        managerController.typeA();
+                        System.out.println("Answer: " + managerController.getAnswer());
+                        System.out.println("Successfully!");
+                    } catch (Exception e) {
+                        System.err.println(e.getMessage());
+                    }
                     break;
                 case 2:
                     System.out.println("----- BMI Calculator -----");
-                    managerController.typeB();
+                    try {
+                        managerController.typeB();
+                        double bmi = managerController.getBMI();
+                        if (bmi < 19) {
+                            System.out.println("BMI Status: UNDER_STANDARD");
+                        } else if (bmi >= 19 && bmi <= 25) {
+                            System.out.println("BMI Status: STANDARD");
+                        } else if (bmi >= 25 && bmi <= 30) {
+                            System.out.println("BMI Status: OVERWEIGHT");
+                        } else if (bmi >= 30 && bmi <= 40) {
+                            System.out.println("BMI Status: FAT - SHOULD LOSE WEIGHT IMMEDIATELY");
+                        } else if (bmi > 40) {
+                            System.out.println("BMI Status: VERY FAT - SHOULD LOSE WEIGHT IMMEDIATELY");
+                        }
+                    } catch (Exception e) {
+                        System.err.println(e.getMessage());
+                    }
                     break;
                 case 3:
                     return;
