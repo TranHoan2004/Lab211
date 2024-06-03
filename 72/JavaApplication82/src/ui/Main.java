@@ -33,29 +33,26 @@ public class Main {
             switch (choice) {
                 case 1 -> {
                     System.out.println("------------------------- Add User -------------------------");
-                    while (true) {
-                        try {
-                            acc = managerController.addAccount();
-                            break;
-                        } catch (Exception e) {
-                            System.err.println(e.getMessage());
-                        }
+                    try {
+                        managerController.addAccount();
+                    } catch (Exception e) {
+                        System.err.println(e.getMessage());
                     }
                 }
                 case 2 -> {
-                    if (acc == null) {
+                    if (managerController.getAccount() == null) {
                         System.err.println("There is no account in this device, cannot be login");
                         break;
                     }
                     System.out.println("------------------------- Login -------------------------");
                     while (true) {
                         try {
-                            acc = managerController.login();
+                            managerController.login();
+                            System.out.print("Hi " + managerController.getAccount().getName() + ", do you want change password now? ");
+                            if (!Validation.checkYN()) {
+                                break;
+                            }
                             while (true) {
-                                System.out.print("Hi " + acc.getName() + ", do you want change password now? ");
-                                if (!Validation.checkYN()) {
-                                    break;
-                                }
                                 try {
                                     managerController.changePassword();
                                     break;
