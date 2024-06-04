@@ -31,8 +31,7 @@ public class Manager {
         if (Validation.checkItemExist(work.getId(), listOfWorker)) {
             return false;
         }
-        listOfWorker.add(work);
-        return true;
+        return listOfWorker.add(work);
     }
 
     public boolean increaseSalary(double amount, String code, int type) {
@@ -41,9 +40,7 @@ public class Manager {
             return false;
         }
         w.setSalary(w.getSalary() + amount);
-        listOfHistory.add(new History(Status.getStatusByInt(type), w.getId(), w.getName(), w.getWorkLocation(),
-                w.getAge(), w.getSalary()));
-        return true;
+        return addHistory(w, type);
     }
 
     public boolean decreaseSalary(double amount, String code, int type) {
@@ -52,9 +49,12 @@ public class Manager {
             return false;
         }
         w1.setSalary(w1.getSalary() - amount);
-        listOfHistory.add(new History(Status.getStatusByInt(type), w1.getId(), w1.getName(),
+        return addHistory(w1, type);
+    }
+
+    public boolean addHistory(Worker w1, int type) {
+        return listOfHistory.add(new History(Status.getStatusByInt(type), w1.getId(), w1.getName(),
                 w1.getWorkLocation(), w1.getAge(), w1.getSalary()));
-        return true;
     }
 
     public Worker findByID(String code) {
