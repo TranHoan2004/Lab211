@@ -4,7 +4,7 @@
  */
 package gui;
 
-import Manager.Validation;
+import utils.Validation;
 import java.util.Locale;
 /**
  *
@@ -22,9 +22,9 @@ public class Menu {
             System.out.println("3. Exit");
             choice=Validation.checkInputChoice(1, 3, english);
             switch (choice) {
-                case 1: Manager.Manager.login(vietnamese);
+                case 1: controller.Manager.login(vietnamese);
                     break;
-                case 2: Manager.Manager.login(english);
+                case 2: controller.Manager.login(english);
                     break;
                 case 3:
                     return;
