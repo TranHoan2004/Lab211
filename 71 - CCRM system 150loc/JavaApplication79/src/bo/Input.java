@@ -24,7 +24,7 @@ public class Input {
                 "Each word in name of task must begin with an upper case letter and following by lower case letters"));
         task.setTaskTypeID(Validation.getInt("Task Type: ", "Must be a positive number greater than 0",
                 "Out of range", 1, 4));
-        task.setDate(Validation.checkInputDate());
+        task.setDate(Validation.getDate());
         task.setPlanFrom(Validation.getDouble("From: ", "Must be a number greater than 0", 1, 24));
         double time = Validation.getDouble("To: ", "Must be a number greater than 0", 1, 24);
         if (time <= task.getPlanFrom()) {

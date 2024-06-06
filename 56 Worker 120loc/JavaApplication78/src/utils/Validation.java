@@ -18,10 +18,6 @@ public class Validation {
         return input.trim().replaceAll("\\s+", " ");
     }
 
-    public static String removeAllBlank(String input) {
-        return input.trim().replaceAll("\\s+", "");
-    }
-
     public static int checkInputInRange(String msg, String error, int min, int max) {
         while (true) {
             int input = Integer.parseInt(getStringByRegex(msg, "[0-9]+", error));
@@ -48,8 +44,11 @@ public class Validation {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.print(msg);
-            String string = sc.nextLine();
-            if (string.matches(regex)) {
+            String string = removeUnneccessaryBlank(sc.nextLine()); 
+            if ("".equals(string)) {
+                System.err.println("Not null!");
+            }
+            else if (string.matches(regex)) {
                 return string;
             } else {
                 System.err.println(err);
@@ -57,18 +56,8 @@ public class Validation {
         }
     }
 
-    public static boolean checkItemExist(String id, ArrayList<Worker> listWorker) {
-        for (Worker person : listWorker) {
-            if (person.getId().equalsIgnoreCase(id)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public static boolean checkYN() {
         String input = getStringByRegex("Do you want to continue (Y/N): ", "[YNyn]", "Y/N only!");
         return input.toLowerCase().equalsIgnoreCase("y"); 
     }
-
 }

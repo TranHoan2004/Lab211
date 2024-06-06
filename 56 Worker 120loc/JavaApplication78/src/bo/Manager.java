@@ -28,35 +28,30 @@ public class Manager {
     }
 
     public boolean createWorker(Worker work) {
-        if (!Validation.checkItemExist(work.getId(), listOfWorker)) {
+        if (!isExist(work.getId(), listOfWorker)) {
             return listOfWorker.add(work);
         }
         return false;
     }
 
     public boolean increaseSalary(double amount, String code) {
-        Worker w = findByID(code);
-        if (w == null) {
+        Worker worker = findByID(code);
+        if (worker == null) {
             return false;
         }
-        w.setSalary(w.getSalary() + amount);
+        worker.setSalary(worker.getSalary() + amount);
         Status status = Status.UP;
-        return addHistory(w, status);
+        return listOfHistory.add(new History(status, worker)); 
     }
 
     public boolean decreaseSalary(double amount, String code) {
-        Worker w1 = findByID(code);
-        if (w1 == null || (amount > w1.getSalary())) {
+        Worker worker = findByID(code);
+        if (worker == null || (amount > worker.getSalary())) {
             return false;
         }
-        w1.setSalary(w1.getSalary() - amount);
+        worker.setSalary(worker.getSalary() - amount);
         Status status = Status.DOWN;        
-        return addHistory(w1, status);
-    }
-
-    public boolean addHistory(Worker w1, Status status) {
-        History his = new History(status, w1);
-        return listOfHistory.add(his);
+        return listOfHistory.add(new History(status, worker)); 
     }
 
     public Worker findByID(String code) {
@@ -66,5 +61,14 @@ public class Manager {
             }
         }
         return null;
+    }
+    
+    public boolean isExist(String id, ArrayList<Worker> listWorker) {
+        for (Worker person : listWorker) {
+            if (person.getId().equalsIgnoreCase(id)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

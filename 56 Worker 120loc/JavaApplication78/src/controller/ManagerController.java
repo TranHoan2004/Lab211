@@ -4,7 +4,7 @@
  */
 package controller;
 
-import bo.Inputer;
+import bo.Input;
 import bo.Manager;
 import entity.History;
 import entity.Worker;
@@ -29,7 +29,7 @@ public class ManagerController {
 
     public void addWorker() throws Exception {
         do {
-            Inputer input = new Inputer();
+            Input input = new Input();
             Worker work = input.getWorker();
             if (!manager.createWorker(work)) {
                 throw new Exception("ID is existed, worker will not be added");

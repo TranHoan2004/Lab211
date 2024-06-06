@@ -46,11 +46,13 @@ public class Validation {
 
     public static String getStringByRegex(String mess, String error, String regex) {
         Scanner scan = new Scanner(System.in);
-        String output = null;
         while (true) {
             System.out.print(mess);
-            output = scan.nextLine();
-            if (output.matches(regex)) {
+            String output = scan.nextLine();
+            if (output == "") {
+                System.err.println("Not null!");
+            }
+            else if (output.matches(regex)) {
                 return output;
             } else {
                 System.err.println(error);
@@ -104,7 +106,7 @@ public class Validation {
         }        
     }
 
-    public static String checkInputDate() {
+    public static String getDate() {
         while (true) {
             try {
                 String result = getStringByRegex("Date: ", "Wrong format", "^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$");

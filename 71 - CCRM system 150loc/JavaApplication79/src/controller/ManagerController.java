@@ -30,7 +30,10 @@ public class ManagerController {
         } while (Validation.checkYN());
     }
 
-    public void deleteTask() {
+    public void deleteTask() throws Exception{
+        if (manager.getList().isEmpty()) {
+            throw new Exception("There is no task in the list, cannot be deleted");
+        }
         int id = Validation.getInt("ID: ", "Must be a positive number greater than 0", "Out of range", 1, manager.getList().size());
         manager.deleteTask(id);
     }

@@ -19,10 +19,6 @@ public class Validation {
         return input.trim().replaceAll("\\s+", " ");
     }
 
-//    public static String removeAllBlank(String input) {
-//        return input.trim().replaceAll("\\s+", "");
-//    }
-
     public static int getInt(String mess, String errorNumberFormat, String errorOutOfRange, int min, int max) {
         while (true) {
             int ret = Integer.parseInt(getStringByRegex(mess, "[0-9]+", errorNumberFormat));
@@ -51,7 +47,10 @@ public class Validation {
         while (true) {
             System.out.print(msg);
             String string = removeUnneccessaryBlank(sc.nextLine());  
-            if (string.matches(regex)) {
+            if ("".equals(string)) {
+                System.err.println("Not null!");
+            }
+            else if (string.matches(regex)) {
                 return string;
             } else {
                 System.err.println(err);
@@ -64,7 +63,7 @@ public class Validation {
         return input.toLowerCase().equalsIgnoreCase("y");
     }
 
-    public static String checkInputDate() {
+    public static String getDate() {
         while (true) {
             try {
                 String result = getStringByRegex("Date: ", "^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$"

@@ -19,12 +19,8 @@ public class Manager {
         return account;
     }
 
-    public boolean addUser(Account acc) {
-        if (acc == null) {
-            return false;
-        }
-        account = acc;
-        return true;
+    public void addUser(Account account) {
+        this.account = account;
     }
 
     public boolean login(String userAccount, String encryptedPass) {

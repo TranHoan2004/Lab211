@@ -22,36 +22,34 @@ public class ManagerController {
         this.manager = new Manager();
     }
 
-    public void addAccount() throws Exception {
+    public void addAccount() {
         Input input = new Input();
-        while (true) {
-            input.inputAccountInformation();
-            Account account = input.getAccount();
-            manager.addUser(account);
-            if (!manager.addUser(account)) {
-                throw new Exception("Add account failed");
-            }
-            break;
-        }
+        Account account = input.getAccountInformation();
+        manager.addUser(account);
     }
 
     public void login() throws Exception {
+        if (getAccount() == null) {
+            throw new Exception("There is no account in this device, cannot be login");
+        }
         String userAccount = getStringByRegex("Account: ", "Wrong account name", "[A-Za-z]+");
         String encryptedPass = Validation.MD5Encryption(getStringByRegex("Password: ", "Not null or empty", "^[a-zA-Z0-9@#$%^&+=.]+$"));
         if (!manager.login(userAccount, encryptedPass)) {
-            throw new Exception();
+            throw new Exception("Password is incorrect");
         }
     }
 
     public void changePassword() throws Exception {
-        String encryptedPass = Validation.MD5Encryption(getStringByRegex("Old password: ", "Not null or empty", "^[a-zA-Z0-9@#$%^&+=.]+$"));
-        if (!manager.checkPassMatchesAccount(encryptedPass)) {
-            throw new Exception("Password is incorrect");
-        }
-        String newPass = Validation.getStringByRegex("New password: ", "Not null or empty", "^[a-zA-Z0-9@#$%^&+=.]+$");
-        String rewritePass = Validation.getStringByRegex("Re-new password: ", "Not null or empty", "^[a-zA-Z0-9@#$%^&+=.]+$");
-        if (!manager.resetPassword(newPass, rewritePass)) {
-            throw new Exception("Re-new password is incorrect");
+        while (true) {
+            String encryptedPass = Validation.MD5Encryption(getStringByRegex("Old password: ", "Not null", "^[a-zA-Z0-9@#$%^&+=.]+$"));
+            if (!manager.checkPassMatchesAccount(encryptedPass)) {
+                throw new Exception("Password is incorrect");
+            }
+            String newPass = Validation.getStringByRegex("New password: ", "Not null or empty", "^[a-zA-Z0-9@#$%^&+=.]+$");
+            String rewritePass = Validation.getStringByRegex("Re-new password: ", "Not null or empty", "^[a-zA-Z0-9@#$%^&+=.]+$");
+            if (!manager.resetPassword(newPass, rewritePass)) {
+                throw new Exception("Re-new password is incorrect");
+            }
         }
     }
 

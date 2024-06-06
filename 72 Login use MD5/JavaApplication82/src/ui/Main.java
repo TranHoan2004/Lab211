@@ -5,7 +5,6 @@
 package ui;
 
 import controller.ManagerController;
-import entity.Account;
 import utils.Validation;
 
 /**
@@ -20,7 +19,6 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         ManagerController managerController = new ManagerController();
-        Account acc = null;
         String menu = """
                       ======================== Login Program ========================
                       1. Add User
@@ -29,15 +27,12 @@ public class Main {
                       """;
         while (true) {
             System.out.println(menu);
-            int choice = Validation.getInt("Please choice one option: ", "Must be an integer number", "Please enter an integer number rom 1 to 3", 1, 3);
+            int choice = Validation.getInt("Please choice one option: ", "Must be an integer number",
+                    "Please enter an integer number rom 1 to 3", 1, 3);
             switch (choice) {
                 case 1 -> {
                     System.out.println("------------------------- Add User -------------------------");
-                    try {
-                        managerController.addAccount();
-                    } catch (Exception e) {
-                        System.err.println(e.getMessage());
-                    }
+                    managerController.addAccount();
                 }
                 case 2 -> {
                     if (managerController.getAccount() == null) {
@@ -45,26 +40,21 @@ public class Main {
                         break;
                     }
                     System.out.println("------------------------- Login -------------------------");
-                    while (true) {
+                    do {
                         try {
                             managerController.login();
-                            System.out.print("Hi " + managerController.getAccount().getName() + ", do you want change password now? ");
-                            if (!Validation.checkYN()) {
-                                break;
-                            }
-                            while (true) {
-                                try {
-                                    managerController.changePassword();
-                                    break;
-                                } catch (Exception e) {
-                                    System.err.println(e.getMessage());
-                                }
-                            }
+
+                        } catch (Exception e) {
+                            System.err.println(e.getMessage());
+                        }
+                        System.out.print("Hi " + managerController.getAccount().getName() + ", do you want change password now? ");
+                        try {
+                            managerController.changePassword();
                             break;
                         } catch (Exception e) {
-                            System.err.println("Password is incorrect");
+                            System.err.println(e.getMessage());
                         }
-                    }
+                    } while (Validation.checkYN());
                 }
                 case 3 -> {
                     return;

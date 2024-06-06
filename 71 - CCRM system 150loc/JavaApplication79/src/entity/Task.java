@@ -124,7 +124,6 @@ public final class Task {
     }
 
     public String display() {
-        System.out.println();
         return String.format("%-15d%-15s%-15s%-15s%-15.2f%-15s%s",
                 this.getID(),
                 this.getRequirementName(),
