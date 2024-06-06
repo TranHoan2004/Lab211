@@ -34,26 +34,28 @@ public class Manager {
         return false;
     }
 
-    public boolean increaseSalary(double amount, String code, int type) {
+    public boolean increaseSalary(double amount, String code) {
         Worker w = findByID(code);
         if (w == null) {
             return false;
         }
         w.setSalary(w.getSalary() + amount);
-        return addHistory(w, type);
+        Status status = Status.UP;
+        return addHistory(w, status);
     }
 
-    public boolean decreaseSalary(double amount, String code, int type) {
+    public boolean decreaseSalary(double amount, String code) {
         Worker w1 = findByID(code);
         if (w1 == null || (amount > w1.getSalary())) {
             return false;
         }
         w1.setSalary(w1.getSalary() - amount);
-        return addHistory(w1, type);
+        Status status = Status.DOWN;        
+        return addHistory(w1, status);
     }
 
-    public boolean addHistory(Worker w1, int type) {
-        History his = new History(Status.getStatusByInt(type), w1);
+    public boolean addHistory(Worker w1, Status status) {
+        History his = new History(status, w1);
         return listOfHistory.add(his);
     }
 

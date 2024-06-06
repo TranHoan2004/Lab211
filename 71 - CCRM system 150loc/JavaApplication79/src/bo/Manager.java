@@ -16,40 +16,23 @@ public class Manager {
     private final LinkedList<Task> list;
 
     public Manager() {
-        list = new LinkedList<>();
+        this.list = new LinkedList<>();
     }
-    
+
     public LinkedList<Task> getList() {
         return list;
     }
 
-    public boolean addTask(Task task) {
+    public void addTask(Task task) {
         list.add(task);
-        return true;
     }
 
-    public boolean deleteTask(int id) {
+    public void deleteTask(int id) {
         for (Task task : list) {
-            if (checkIdExist(task.getID())) {
-                list.remove(findTaskByID(id));
-                return true;
-            }            
-        }
-        return false;
-    }
-
-    public Task findTaskByID(int id) {
-        for (Task person : list) {
-            if (person.getID() == id) {
-                return person;
+            if (task.getID() == id) {
+                list.remove(task);
+                return;
             }
         }
-        return null;
-    }
-    public boolean checkIdExist(int id) {
-        for (Task person: list) {
-            return (person.getID() == id);
-        }
-        return false;
     }
 }

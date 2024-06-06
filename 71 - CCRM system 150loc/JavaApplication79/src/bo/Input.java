@@ -11,15 +11,14 @@ import utils.Validation;
  *
  * @author ADMIN
  */
-public class Inputer {
+public class Input {
 
     private static int counter = 0;
 
-    public Inputer() {
-
+    public Input() {
     }
 
-    public Task inputTaskInformation() throws Exception {
+    public Task getTaskInformation() throws Exception {
         Task task = new Task();
         task.setRequirementName(Validation.getStringByRegex("Requirement Name: ", "^([A-Z][a-z]+\\\s)*[A-Z][a-z]+$",
                 "Each word in name of task must begin with an upper case letter and following by lower case letters"));

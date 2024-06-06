@@ -19,7 +19,7 @@ public class Inputer {
         worker = new Worker();
     }
 
-    public Worker inputWorker() {
+    public Worker getWorker() {
         worker.setId(Validation.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Not null or code must begin with an upper case and followinging by a digit"));
         worker.setName(Validation.getStringByRegex("Enter Name: ", "^[A-Z][a-z]*$", "Not null or name must have the first character is upper case"));
         worker.setAge(Validation.checkInputInRange("Enter Age: ", "Age must be in range from 18 to 50", 18, 50));

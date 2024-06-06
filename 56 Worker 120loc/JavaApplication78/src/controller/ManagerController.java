@@ -30,7 +30,7 @@ public class ManagerController {
     public void addWorker() throws Exception {
         do {
             Inputer input = new Inputer();
-            Worker work = input.inputWorker();
+            Worker work = input.getWorker();
             if (!manager.createWorker(work)) {
                 throw new Exception("ID is existed, worker will not be added");
             }
@@ -42,12 +42,12 @@ public class ManagerController {
         double amount = Validation.getDouble("Amount: ", "Must be a number", 1, Double.MAX_VALUE);
         switch (choice) {
             case 2 -> {
-                if (!manager.increaseSalary(amount, code, choice)) {
+                if (!manager.increaseSalary(amount, code)) {
                     throw new Exception("ID is not existed");
                 }
             }
             case 3 -> {
-                if (!manager.decreaseSalary(amount, code, choice)) {
+                if (!manager.decreaseSalary(amount, code)) {
                     throw new Exception("Amount is greater than salary or id is not existed, cannot be decreased");
                 }
             }

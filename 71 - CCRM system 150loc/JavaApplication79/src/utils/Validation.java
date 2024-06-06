@@ -4,11 +4,9 @@
  */
 package utils;
 
-import entity.Task;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -21,9 +19,9 @@ public class Validation {
         return input.trim().replaceAll("\\s+", " ");
     }
 
-    public static String removeAllBlank(String input) {
-        return input.trim().replaceAll("\\s+", "");
-    }
+//    public static String removeAllBlank(String input) {
+//        return input.trim().replaceAll("\\s+", "");
+//    }
 
     public static int getInt(String mess, String errorNumberFormat, String errorOutOfRange, int min, int max) {
         while (true) {
@@ -52,7 +50,7 @@ public class Validation {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.print(msg);
-            String string = sc.nextLine();
+            String string = removeUnneccessaryBlank(sc.nextLine());  
             if (string.matches(regex)) {
                 return string;
             } else {
@@ -62,7 +60,7 @@ public class Validation {
     }
 
     public static boolean checkYN() {
-        String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
+        String input = removeUnneccessaryBlank(getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]")); 
         return input.toLowerCase().equalsIgnoreCase("y");
     }
 

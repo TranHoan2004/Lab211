@@ -25,7 +25,7 @@ public class Main {
                       """;
         while (true) {
             System.out.println(menu);
-            int choice = Validation.getInt("Your choice: ", "[0-9]","Please enter an integer number from 1 to 4", 1, 4);
+            int choice = Validation.getInt("Your choice: ", "[0-9]", "Please enter an integer number from 1 to 4", 1, 4);
             switch (choice) {
                 case 1 -> {
                     System.out.println("---------- Add Task ----------");
@@ -43,11 +43,7 @@ public class Main {
                         break;
                     }
                     System.out.println("---------- Delete Task ----------");
-                    try {
-                        managerController.deleteTask();
-                    } catch (Exception e) {
-                        System.err.println(e.getMessage());
-                    }
+                    managerController.deleteTask();
                     break;
                 }
                 case 3 -> {
@@ -57,7 +53,6 @@ public class Main {
                             "Reviewer");
                     for (Task task : managerController.getList()) {
                         System.out.println(task.display());
-                        System.out.println();
                     }
                     break;
                 }

@@ -23,7 +23,7 @@ public final class Task {
             ID;
 
     public Task() {
-        
+
     }
 
     public Task(String requirementName, String assignee, String reviewer, String date, double planFrom, double planTo, int taskTypeID) {
@@ -84,8 +84,23 @@ public final class Task {
         this.planTo = planTo;
     }
 
-    public int getTaskTypeID() {
-        return taskTypeID;
+    public Type getTaskTypeID() {
+        switch (taskTypeID) {
+            case 1 -> {
+                return Type.Code;
+            }
+            case 2 -> {
+                return Type.Design;
+            }
+            case 3 -> {
+                return Type.Review;
+            }
+            case 4 -> {
+                return Type.Test;
+            }
+            default ->
+                throw new AssertionError();
+        }
     }
 
     public void setTaskTypeID(int taskTypeID) {
@@ -104,22 +119,8 @@ public final class Task {
         return getPlanTo() - getPlanFrom();
     }
 
-    public String getType(int type) {
-        switch (type) {
-            case 1 -> {
-                return "Code";
-            }
-            case 2 -> {
-                return "Test";
-            }
-            case 3 -> {
-                return "Design";
-            }
-            case 4 -> {
-                return "Review";
-            }
-        }
-        return null;
+    public enum Type {
+        Code, Test, Design, Review
     }
 
     public String display() {
@@ -127,7 +128,7 @@ public final class Task {
         return String.format("%-15d%-15s%-15s%-15s%-15.2f%-15s%s",
                 this.getID(),
                 this.getRequirementName(),
-                this.getType(this.getTaskTypeID()),
+                this.getTaskTypeID(),
                 this.getDate(),
                 this.getTime(),
                 this.getAssignee(),

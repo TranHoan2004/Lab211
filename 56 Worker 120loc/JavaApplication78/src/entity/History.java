@@ -18,19 +18,6 @@ public final class History {
 
     public enum Status {
         UP, DOWN;
-
-        public static Status getStatusByInt(int type) {
-            switch (type) {
-                case 2 -> {
-                    return UP;
-                }
-                case 3 -> {
-                    return DOWN;
-                }
-                default ->
-                    throw new AssertionError();
-            }
-        }
     }
 
     public History(Status status, Worker worker) {
