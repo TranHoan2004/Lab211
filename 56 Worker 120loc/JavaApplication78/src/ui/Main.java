@@ -30,25 +30,23 @@ public class Main {
             int choice = Validation.checkInputInRange("Your choice: ", "Please enter an integer number from 1 to 5", 1, 5);
             switch (choice) {
                 case 1 -> {
-                    try {
-                        managerController.addWorker();
-                        System.out.printf("""
+                    do {
+                        try {
+                            managerController.addWorker();
+                            System.out.printf("""
                                                           -------------------- Display Worker Information -----------------------
                                                           %-15s%-15s%-15s%-15s%-15s
                                                           """, "Code", "Name", "Age", "Salary", "Work Location");
-                        for (Worker w : managerController.getList()) {
-                            System.out.println(w.toString());
+                            for (Worker w : managerController.getList()) {
+                                System.out.println(w.toString());
+                            }
+                            System.out.println("Added successfully!");
+                        } catch (Exception e) {
+                            System.err.println(e.getMessage());
                         }
-                        System.out.println("Added successfully!");
-                    } catch (Exception e) {
-                        System.err.println(e.getMessage());
-                    }
+                    } while (Validation.checkYN());
                 }
-                case 2, 3 -> {
-                    if (managerController.getList().isEmpty()) {
-                        System.err.println("List of worker is null, cannot be changed");
-                        break;
-                    }
+                case 2, 3 -> {                    
                     System.out.println("--------------------------- CHANGE SALARY ---------------------------");
                     while (true) {
                         try {

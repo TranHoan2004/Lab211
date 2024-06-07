@@ -13,17 +13,16 @@ import utils.Validation;
  */
 public final class Task {
 
-    private String requirementName,
-            assignee,
-            reviewer,
-            date;
-    private double planFrom,
-            planTo;
-    private int taskTypeID,
-            ID;
+    private String requirementName;
+    private String assignee;
+    private String reviewer;
+    private String date;
+    private double planFrom;
+    private double planTo;
+    private int taskTypeID;
+    private int ID;
 
     public Task() {
-
     }
 
     public Task(String requirementName, String assignee, String reviewer, String date, double planFrom, double planTo, int taskTypeID) {
@@ -34,6 +33,29 @@ public final class Task {
         this.planFrom = planFrom;
         this.planTo = planTo;
         this.taskTypeID = taskTypeID;
+    }
+
+    public enum Type {
+        Code, Test, Design, Review
+    }
+
+    public Type getTaskTypeID() {
+        switch (this.taskTypeID) {
+            case 1 -> {
+                return Type.Code;
+            }
+            case 2 -> {
+                return Type.Design;
+            }
+            case 3 -> {
+                return Type.Review;
+            }
+            case 4 -> {
+                return Type.Test;
+            }
+            default ->
+                throw new AssertionError();
+        }
     }
 
     public String getRequirementName() {
@@ -80,27 +102,11 @@ public final class Task {
         return planTo;
     }
 
-    public void setPlanTo(double planTo) {
-        this.planTo = planTo;
-    }
-
-    public Type getTaskTypeID() {
-        switch (taskTypeID) {
-            case 1 -> {
-                return Type.Code;
-            }
-            case 2 -> {
-                return Type.Design;
-            }
-            case 3 -> {
-                return Type.Review;
-            }
-            case 4 -> {
-                return Type.Test;
-            }
-            default ->
-                throw new AssertionError();
+    public void setPlanTo(double planTo) throws Exception {
+        if (planTo <= this.getPlanFrom()) {
+            throw new Exception("Time out is smaller than time in, cannot be setted up");
         }
+        this.planTo = planTo;
     }
 
     public void setTaskTypeID(int taskTypeID) {
@@ -117,10 +123,6 @@ public final class Task {
 
     public double getTime() {
         return getPlanTo() - getPlanFrom();
-    }
-
-    public enum Type {
-        Code, Test, Design, Review
     }
 
     public String display() {

@@ -19,18 +19,20 @@ public class ManagerController {
     private final Manager manager;
 
     public ManagerController() {
-        manager = new Manager();
+        this.manager = new Manager();
     }
 
     public void addTask() throws Exception {
-        do {
-            Input input = new Input();
-            Task task = input.getTaskInformation();
+        Input input = new Input();
+        Task task = input.getTaskInformation();
+        try {
             manager.addTask(task);
-        } while (Validation.checkYN());
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
-    public void deleteTask() throws Exception{
+    public void deleteTask() throws Exception {
         if (manager.getList().isEmpty()) {
             throw new Exception("There is no task in the list, cannot be deleted");
         }

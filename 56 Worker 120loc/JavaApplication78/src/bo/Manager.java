@@ -40,8 +40,7 @@ public class Manager {
             return false;
         }
         worker.setSalary(worker.getSalary() + amount);
-        Status status = Status.UP;
-        return listOfHistory.add(new History(status, worker)); 
+        return listOfHistory.add(new History(Status.UP, worker)); 
     }
 
     public boolean decreaseSalary(double amount, String code) {
@@ -50,8 +49,7 @@ public class Manager {
             return false;
         }
         worker.setSalary(worker.getSalary() - amount);
-        Status status = Status.DOWN;        
-        return listOfHistory.add(new History(status, worker)); 
+        return listOfHistory.add(new History(Status.DOWN, worker)); 
     }
 
     public Worker findByID(String code) {

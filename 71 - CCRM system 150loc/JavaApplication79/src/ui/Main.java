@@ -29,20 +29,22 @@ public class Main {
             switch (choice) {
                 case 1 -> {
                     System.out.println("---------- Add Task ----------");
-                    try {
-                        managerController.addTask();
-                        System.out.println("Add successully");
-                    } catch (Exception e) {
-                        System.err.println(e.getMessage());
-                    }
+                    do {
+                        try {
+                            managerController.addTask();
+                            System.out.println("----------Add successully----------");
+                        } catch (Exception e) {
+                            System.err.println(e.getMessage());
+                        }
+                    } while (Validation.checkYN());
                 }
                 case 2 -> {
                     System.out.println("---------- Delete Task ----------");
                     try {
                         managerController.deleteTask();
-                        System.out.println("Successfully");
+                        System.out.println("----------Successfully----------");
                     } catch (Exception e) {
-                        System.out.println(e.getMessage());
+                        System.err.println(e.getMessage());
                     }
                 }
                 case 3 -> {
