@@ -11,11 +11,11 @@ import utils.Validation;
  *
  * @author ADMIN
  */
-public class Input {
+public class WorkerInput {
 
     private final Worker worker;
 
-    public Input() {
+    public WorkerInput() {
         this.worker = new Worker();
     }
 

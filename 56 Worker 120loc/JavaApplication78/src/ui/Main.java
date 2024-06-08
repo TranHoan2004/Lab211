@@ -32,11 +32,11 @@ public class Main {
                 case 1 -> {
                     do {
                         try {
-                            managerController.addWorker();
+                            managerController.createWorker();
                             System.out.printf("""
-                                                          -------------------- Display Worker Information -----------------------
-                                                          %-15s%-15s%-15s%-15s%-15s
-                                                          """, "Code", "Name", "Age", "Salary", "Work Location");
+                                            -------------------- Display Worker Information -----------------------
+                                            %-15s%-15s%-15s%-15s%-15s
+                                            """, "Code", "Name", "Age", "Salary", "Work Location");
                             for (Worker w : managerController.getList()) {
                                 System.out.println(w.toString());
                             }
@@ -60,9 +60,9 @@ public class Main {
                 }
                 case 4 -> {
                     System.out.printf("""
-                                           -------------------- Display Information Salary -----------------------
-                                           %-15s%-15s%-15s%-15s%-15s%-15s
-                                           """, "Code", "Name", "Age", "Salary", "Status", "Date");
+                                    -------------------- Display Information Salary -----------------------
+                                    %-15s%-15s%-15s%-15s%-15s%-15s
+                                    """, "Code", "Name", "Age", "Salary", "Status", "Date");
                     for (History w : managerController.getHistory()) {
                         System.out.println(w.displaySalaryInformation());
                     }

@@ -16,7 +16,7 @@ public class Input {
     private final Account account;
 
     public Input() {
-        account = new Account();
+        this.account = new Account();
     }
 
     public Account getAccountInformation() {

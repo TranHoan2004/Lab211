@@ -22,10 +22,10 @@ public class Validation {
     public static String removeUnnecessaryBlank(String input) {
         return input.trim().replaceAll("\\s+", " ");
     }
-
-    public static String removeAllBlank(String input) {
-        return input.trim().replaceAll("\\s+", "");
-    }
+//
+//    public static String removeAllBlank(String input) {
+//        return input.trim().replaceAll("\\s+", "");
+//    }
 
     public static boolean pressYNtoContinue() {
         String input = getStringByRegex("Do you want to continue (Y/N): ", "[YNyn]", "[YNyn]");
@@ -48,8 +48,8 @@ public class Validation {
         Scanner scan = new Scanner(System.in);
         while (true) {
             System.out.print(mess);
-            String output = scan.nextLine();
-            if (output == "") {
+            String output = removeUnnecessaryBlank(scan.nextLine()); 
+            if ("".equals(output)) {
                 System.err.println("Not null!");
             }
             else if (output.matches(regex)) {
@@ -100,7 +100,7 @@ public class Validation {
                 String base64Hash = Base64.getEncoder().encodeToString(hashBytes);
                 return base64Hash;
             } catch (NoSuchAlgorithmException ex) {
-                ex.printStackTrace();
+                System.err.println("There is an error occured"); 
             }
             return null;
         }        

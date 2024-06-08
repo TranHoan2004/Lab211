@@ -4,8 +4,8 @@
  */
 package controller;
 
-import bo.Input;
-import bo.Manager;
+import bo.WorkerInput;
+import bo.WorkerManager;
 import entity.History;
 import entity.Worker;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import utils.Validation;
  */
 public class ManagerController {
 
-    private final Manager manager = new Manager();
+    private final WorkerManager manager = new WorkerManager();
 
     public ArrayList<Worker> getList() {
         return manager.getList();
@@ -27,10 +27,10 @@ public class ManagerController {
         return manager.getHistory();
     }
 
-    public void addWorker() throws Exception {
-        Input input = new Input();
+    public void createWorker() throws Exception {
+        WorkerInput input = new WorkerInput();
         Worker work = input.getWorker();
-        if (!manager.createWorker(work)) {
+        if (!manager.addWorker(work)) {
             throw new Exception("ID is existed, worker will not be added");
         }
     }

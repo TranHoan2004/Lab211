@@ -14,11 +14,16 @@ import utils.Validation;
  *
  * @author ADMIN
  */
-public class Manager {
+public class WorkerManager {
 
-    private final ArrayList<Worker> listOfWorker = new ArrayList<>();
-    private final ArrayList<History> listOfHistory = new ArrayList<>();
+    private final ArrayList<Worker> listOfWorker;
+    private final ArrayList<History> listOfHistory;
 
+    public WorkerManager() {
+        this.listOfWorker = new ArrayList<>();
+        this.listOfHistory = new ArrayList<>();
+    }
+    
     public ArrayList<Worker> getList() {
         return listOfWorker;
     }
@@ -27,7 +32,7 @@ public class Manager {
         return listOfHistory;
     }
 
-    public boolean createWorker(Worker work) {
+    public boolean addWorker(Worker work) {
         if (!isExist(work.getId(), listOfWorker)) {
             return listOfWorker.add(work);
         }
@@ -52,7 +57,7 @@ public class Manager {
         return listOfHistory.add(new History(Status.DOWN, worker)); 
     }
 
-    public Worker findByID(String code) {
+    private Worker findByID(String code) {
         for (Worker person : listOfWorker) {
             if (code.equalsIgnoreCase(person.getId())) {
                 return person;
@@ -61,7 +66,7 @@ public class Manager {
         return null;
     }
     
-    public boolean isExist(String id, ArrayList<Worker> listWorker) {
+    private boolean isExist(String id, ArrayList<Worker> listWorker) {
         for (Worker person : listWorker) {
             if (person.getId().equalsIgnoreCase(id)) {
                 return true;

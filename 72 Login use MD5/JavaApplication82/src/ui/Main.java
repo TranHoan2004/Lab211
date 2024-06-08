@@ -5,6 +5,7 @@
 package ui;
 
 import controller.ManagerController;
+import entity.Account;
 import utils.Validation;
 
 /**
@@ -32,29 +33,34 @@ public class Main {
             switch (choice) {
                 case 1 -> {
                     System.out.println("------------------------- Add User -------------------------");
-                    managerController.addAccount();
+                    try {
+                        managerController.createAccount();
+                    } catch (Exception e) {
+                        System.err.println(e.getMessage());
+                    }
                 }
                 case 2 -> {
-                    if (managerController.getAccount() == null) {
-                        System.err.println("There is no account in this device, cannot be login");
-                        break;
-                    }
+                    Account account = null;
                     System.out.println("------------------------- Login -------------------------");
                     do {
                         try {
-                            managerController.login();
-
+                            account = managerController.login();
                         } catch (Exception e) {
                             System.err.println(e.getMessage());
-                        }
-                        System.out.print("Hi " + managerController.getAccount().getName() + ", do you want change password now? ");
-                        try {
-                            managerController.changePassword();
                             break;
-                        } catch (Exception e) {
-                            System.err.println(e.getMessage());
                         }
-                    } while (Validation.checkYN());
+                        System.out.print("Hi " + account.getName() + ", do you want change password now? ");
+                    } while (!Validation.checkYN());
+                    while (true) {
+                        if (account != null) {
+                            try {
+                                managerController.changePassword();
+                            } catch (Exception e) {
+                                System.err.println(e.getMessage());
+                            }
+                        }
+                        break;
+                    }
                 }
                 case 3 -> {
                     return;
