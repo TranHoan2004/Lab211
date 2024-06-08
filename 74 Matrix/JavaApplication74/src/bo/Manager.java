@@ -33,7 +33,7 @@ public class Manager {
     }
 
     public boolean additionMatrix() {
-        if (!Validation.checkEqualSizeOfTwoMatrix(matrix1, matrix2)) {
+        if (!checkEqualSizeOfTwoMatrix()) {
             return false;
         }
         matrix = new int[sizeOfRow1][sizeOfCol1];
@@ -46,7 +46,7 @@ public class Manager {
     }
 
     public boolean subtractionMatrix() {
-        if (!Validation.checkEqualSizeOfTwoMatrix(matrix1, matrix2)) {
+        if (!checkEqualSizeOfTwoMatrix()) {
             return false;
         }
         matrix = new int[sizeOfRow1][sizeOfCol1];
@@ -59,6 +59,9 @@ public class Manager {
     }
 
     public boolean multipliTwoMatrice() {
+        if (sizeOfCol1 != sizeOfRow2) {
+            return false;
+        }
         sizeOfRow1 = matrix1.length;
         int cols1 = matrix1[0].length;
         sizeOfCol1 = matrix2[0].length;
@@ -71,6 +74,10 @@ public class Manager {
             }
         }
         return true;
+    }
+
+    private boolean checkEqualSizeOfTwoMatrix() {
+        return !(matrix1.length != matrix2.length || matrix1[0].length != matrix2[0].length);
     }
 
     public int[][] getMatrix1() {

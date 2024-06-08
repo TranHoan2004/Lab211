@@ -6,6 +6,7 @@ package ui;
 
 import controller.ManagerController;
 import entity.Expense;
+import utils.Validation;
 
 /**
  *
@@ -25,16 +26,18 @@ public class Main {
             switch (menu.getInt()) {
                 case 1 -> {
                     System.out.println("------------ Add an expense ------------");
-                    try {
-                        managerController.addExpense();
-                        System.out.println("Successfully!");
-                    } catch (Exception e) {
-                        System.err.println(e.getMessage());
-                    }
+                    do {
+                        try {
+                            managerController.addExpense();
+                            System.out.println("Successfully!");
+                        } catch (Exception e) {
+                            System.err.println(e.getMessage());
+                        }
+                    } while (Validation.checkYN());
                 }
                 case 2 -> {
                     if (managerController.getList().isEmpty()) {
-                        System.err.println("List is null");
+                        System.out.println("Nothing in the list");
                         break;
                     }
                     System.out.println("------------ Display all expenses ------------");

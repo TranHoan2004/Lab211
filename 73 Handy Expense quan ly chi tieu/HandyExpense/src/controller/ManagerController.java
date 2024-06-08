@@ -24,22 +24,16 @@ public class ManagerController {
 
     public void addExpense() throws Exception {
         Input input = new Input();
-        do {
-            input.createExpense();
-            if (!manager.addExpense(input.getExpense())) {
-                throw new Exception("Add failed");
-            }
-        } while (Validation.checkYN());
+        Expense expense = input.getExpense();
+        manager.addExpense(expense);
     }
-
+    
     public void delete() throws Exception {
         if (manager.getList().isEmpty()) {
             throw new Exception("List is empty, cannot be deleted");
         }
         int id = Validation.getInt("Enter ID: ", "Only positive numbers!", "Out of range!", 1, manager.getList().size());
-        if (!manager.deleteExpense(id)) {
-            throw new Exception("ID is not existed, delete an expense fail");
-        }
+        manager.deleteExpense(id);
     }
 
     public ArrayList<Expense> getList() {

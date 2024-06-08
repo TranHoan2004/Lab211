@@ -13,18 +13,18 @@ import utils.Validation;
  */
 public class Input {
 
-    private Expense ex = null;
-    private int count = 0;
+    private final Expense expense;
+    private static int count = 0;
 
-    public Expense getExpense() {
-        return this.ex;
+    public Input() {
+        this.expense = new Expense();
     }
 
-    public void createExpense() {
-        ex = new Expense();
-        ex.setId(++count);
-        ex.setDate(Validation.checkInputDate("Enter Date: "));
-        ex.setMoney(Validation.getDouble("Enter Amount: ", "Only real number!", 0, Double.MAX_VALUE));
-        ex.setContent(Validation.getStringByRegex("Enter Content: ", "[A-Za-z ]+", "Name of expense only!"));
+    public Expense getExpense() {
+        expense.setId(++count);
+        expense.setDate(Validation.getDate("Enter Date: "));
+        expense.setMoney(Validation.getDouble("Enter Amount: ", "Only real number!", 0, Double.MAX_VALUE));
+        expense.setContent(Validation.getStringByRegex("Enter Content: ", "[A-Za-z0-9]+", "Name of expense only!"));
+        return expense;
     }
 }

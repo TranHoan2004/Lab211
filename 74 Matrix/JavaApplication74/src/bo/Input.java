@@ -26,18 +26,18 @@ public class Input {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 String message = "Enter Matrix" + order + "[" + (i + 1) + "]" + "[" + (j + 1) + "]:";
-                matrix[i][j] = Validation.checkInputInRange(message, "Values of matrix must be the number", Integer.MIN_VALUE, Integer.MAX_VALUE);
+                matrix[i][j] = Validation.getInt(message, "Values of matrix must be the number", Integer.MIN_VALUE, Integer.MAX_VALUE);
             }
         }
     }
 
     public int inputRowOfMatrix(int order) {
-        int sizeOfRow = Validation.checkInputInRange("Enter Row Matrix " + order + ":", "Values of matrix must be the number", 1, 50);
+        int sizeOfRow = Validation.getInt("Enter Row Matrix " + order + ":", "Values of matrix must be the number", 1, 50);
         return sizeOfRow;
     }
 
     public int inputColOfMatrix(int order) {
-        int sizeOfColumn = Validation.checkInputInRange("Enter Column Matrix " + order + ":", "Values of matrix must be the number", 1, 50);
+        int sizeOfColumn = Validation.getInt("Enter Column Matrix " + order + ":", "Values of matrix must be the number", 1, 50);
         return sizeOfColumn;
     }
 }

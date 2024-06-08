@@ -22,10 +22,6 @@ public class Validation {
     public static String removeUnnecessaryBlank(String input) {
         return input.trim().replaceAll("\\s+", " ");
     }
-//
-//    public static String removeAllBlank(String input) {
-//        return input.trim().replaceAll("\\s+", "");
-//    }
 
     public static boolean pressYNtoContinue() {
         String input = getStringByRegex("Do you want to continue (Y/N): ", "[YNyn]", "[YNyn]");

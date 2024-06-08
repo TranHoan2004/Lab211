@@ -9,6 +9,7 @@ package entity;
  * @author ADMIN
  */
 public class Expense {
+
     private int id;
     private String date;
     private double money;
@@ -58,6 +59,6 @@ public class Expense {
     @Override
     public String toString() {
         return String.format("%-12d%-15s%-15.2f%s", this.getId(), this.getDate(),
-                this.getMoney(), this.getContent()); 
-    }    
+                this.getMoney(), this.getContent());
+    }
 }

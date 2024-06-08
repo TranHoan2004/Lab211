@@ -19,18 +19,21 @@ public class ManagerController {
         manager = new Manager();
     }
 
-    public void addMatrix() {
+    private void addMatrix() {
         Input input = new Input();
+        
         //nhap cho matrix 1
         int sizeOfRow1 = input.inputRowOfMatrix(1);
         int sizeOfCol1 = input.inputColOfMatrix(1);
         input.inputValueOfMatrix(1, sizeOfRow1, sizeOfCol1);
         int[][] matrix1 = input.getMatrix();
+        
         //nhap cho matrix 2
         int sizeOfRow2 = input.inputRowOfMatrix(2);
         int sizeOfCol2 = input.inputColOfMatrix(2);
         input.inputValueOfMatrix(2, sizeOfRow2, sizeOfCol2);
         int[][] matrix2 = input.getMatrix();
+        
         manager = new Manager(matrix1, matrix2, sizeOfRow1, sizeOfCol1, sizeOfRow2, sizeOfCol2);
     }
 
@@ -50,8 +53,8 @@ public class ManagerController {
 
     public void multiplicationMatrix() throws Exception {
         addMatrix();
-        if (!manager.multipliTwoMatrice()) {
-            throw new Exception("Calculate failed");
+        if(!manager.multipliTwoMatrice()) {
+            throw new Exception("Size of column of the first matrix must equal to size of row of the second matrix");
         }
     }
 
@@ -59,7 +62,7 @@ public class ManagerController {
         return manager.getMatrix();
     }
 
-   public int getSizeOfRow1() {
+    public int getSizeOfRow1() {
         return manager.getSizeOfRow1();
     }
 
@@ -82,4 +85,5 @@ public class ManagerController {
     public int[][] getMatrix2() {
         return manager.getMatrix2();
     }
+    
 }

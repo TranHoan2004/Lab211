@@ -20,10 +20,6 @@ public class Validation {
         return input.trim().replaceAll("\\s+", " ");
     }
 
-    public static String removeAllBlank(String input) {
-        return input.trim().replaceAll("\\s+", "");
-    }
-
     public static int getInt(String mess, String errorNumberFormat, String errorOutOfRange, int min, int max) {
         while (true) {
             int ret = Integer.parseInt(getStringByRegex(mess, "[0-9]+", errorNumberFormat));
@@ -49,10 +45,9 @@ public class Validation {
 
     public static String getStringByRegex(String msg, String regex, String err) {
         Scanner sc = new Scanner(System.in);
-        String string = null;
         while (true) {
             System.out.print(msg);
-            string = sc.nextLine();
+            String string = removeUnneccessaryBlank(sc.nextLine()); 
             if (string.matches(regex)) {
                 return string;
             } else {
@@ -66,7 +61,7 @@ public class Validation {
         return input.toLowerCase().equalsIgnoreCase("y");
     }
 
-    public static String checkInputDate(String message) {
+    public static String getDate(String message) {
         Scanner sc = new Scanner(System.in);
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat formatOutput = new SimpleDateFormat("dd/MMM/yyyy", Locale.ENGLISH);

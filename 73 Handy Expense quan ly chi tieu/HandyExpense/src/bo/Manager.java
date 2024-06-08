@@ -7,7 +7,6 @@ package bo;
 import entity.Expense;
 import java.util.ArrayList;
 import java.util.Iterator;
-import utils.Validation;
 
 /**
  *
@@ -15,7 +14,7 @@ import utils.Validation;
  */
 public class Manager {
 
-    private ArrayList<Expense> list;
+    private final ArrayList<Expense> list;
 
     public Manager() {
         this.list = new ArrayList<>();
@@ -25,20 +24,19 @@ public class Manager {
         return list;
     }
 
-    public boolean addExpense(Expense ex) {
-        list.add(ex); 
-        return true;
+    public void addExpense(Expense ex) {
+        list.add(ex);
     }
 
-    public boolean deleteExpense(int id) {
+    public void deleteExpense(int id) {
         Iterator<Expense> iterator = list.iterator();
         while (iterator.hasNext()) {
             Expense ex = iterator.next();
-            if (Validation.checkIdExist(id, ex.getId())) {
+            if (ex.getId() == id) {
                 iterator.remove();
-                return true;
+            } else if (ex.getId() > id) {
+                ex.setId(ex.getId() - 1);
             }
         }
-        return false;
     }
 }
