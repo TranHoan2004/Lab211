@@ -24,7 +24,7 @@ public class Manager {
         return list;
     }
 
-    public void addExpense(Expense ex) {
+    public void setList(Expense ex) {
         list.add(ex);
     }
 

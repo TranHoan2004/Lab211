@@ -23,7 +23,7 @@ public class WorkerManager {
         this.listOfWorker = new ArrayList<>();
         this.listOfHistory = new ArrayList<>();
     }
-    
+
     public ArrayList<Worker> getList() {
         return listOfWorker;
     }
@@ -32,42 +32,39 @@ public class WorkerManager {
         return listOfHistory;
     }
 
-    public boolean addWorker(Worker work) {
-        if (!isExist(work.getId(), listOfWorker)) {
-            return listOfWorker.add(work);
+    public void addWorker(Worker work) throws Exception {
+        if (isExist(work.getId())) {
+            throw new Exception("ID is existed");
         }
-        return false;
+        listOfWorker.add(work);
     }
 
-    public boolean increaseSalary(double amount, String code) {
+    public void increaseSalary(double amount, String code) throws Exception {
         Worker worker = findByID(code);
-        if (worker == null) {
-            return false;
-        }
         worker.setSalary(worker.getSalary() + amount);
-        return listOfHistory.add(new History(Status.UP, worker)); 
+        listOfHistory.add(new History(Status.UP, worker));
     }
 
-    public boolean decreaseSalary(double amount, String code) {
+    public void decreaseSalary(double amount, String code) throws Exception {
         Worker worker = findByID(code);
-        if (worker == null || (amount > worker.getSalary())) {
-            return false;
+        if (amount > worker.getSalary()) {
+            throw new Exception("Amount is larger than salary, salary of waorker cannot be changed");
         }
         worker.setSalary(worker.getSalary() - amount);
-        return listOfHistory.add(new History(Status.DOWN, worker)); 
+        listOfHistory.add(new History(Status.DOWN, worker));
     }
 
-    private Worker findByID(String code) {
+    private Worker findByID(String id) throws Exception {
         for (Worker person : listOfWorker) {
-            if (code.equalsIgnoreCase(person.getId())) {
+            if (id.equalsIgnoreCase(person.getId())) {
                 return person;
             }
         }
-        return null;
+        throw new Exception("Worker has this id is not existed");
     }
-    
-    private boolean isExist(String id, ArrayList<Worker> listWorker) {
-        for (Worker person : listWorker) {
+
+    private boolean isExist(String id) {
+        for (Worker person : listOfWorker) {
             if (person.getId().equalsIgnoreCase(id)) {
                 return true;
             }

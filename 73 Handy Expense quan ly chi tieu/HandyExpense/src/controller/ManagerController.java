@@ -25,7 +25,7 @@ public class ManagerController {
     public void addExpense() throws Exception {
         Input input = new Input();
         Expense expense = input.getExpense();
-        manager.addExpense(expense);
+        manager.setList(expense);
     }
     
     public void delete() throws Exception {
