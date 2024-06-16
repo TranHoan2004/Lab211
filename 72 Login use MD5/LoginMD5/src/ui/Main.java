@@ -32,17 +32,20 @@ public class Main {
                     "Please enter an integer number rom 1 to 3", 1, 3);
             switch (choice) {
                 case 1:
-                    System.out.println("------------------------- Add User -------------------------");
                     try {
+                        System.out.println("------------------------- Add User -------------------------");
                         managerController.createAccount();
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
                     break;
                 case 2:
-                    System.out.println("------------------------- Login -------------------------");
                     while (true) {
                         try {
+                            if (managerController.getList().isEmpty()) {
+                                throw new Exception("There is no account in this device, cannot be login");
+                            }
+                            System.out.println("------------------------- Login -------------------------");
                             Account account = managerController.login();
                             System.out.print("Hi " + account.getName() + ", do you want change password now? ");
                             if (!Validation.checkYN()) {

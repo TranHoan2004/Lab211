@@ -4,10 +4,11 @@
  */
 package controller;
 
-import bo.Input;
+import bo.AccountInput;
 import bo.AccountManager;
 import bo.ListAccountManager;
 import entity.Account;
+import java.util.ArrayList;
 import utils.Validation;
 import static utils.Validation.getStringByRegex;
 
@@ -26,7 +27,7 @@ public class ManagerController {
     }
 
     public void createAccount() throws Exception {
-        Input input = new Input();
+        AccountInput input = new AccountInput();
         Account account = input.getAccountInformation();
         listManager.checkWhenCreateAccount(account);
         listManager.addToList(account);
@@ -39,16 +40,18 @@ public class ManagerController {
      * danh sách bằng tên đăng nhập, kiểm tra mật khẩu trùng khớp thì đăng nhập
      * thành công và trả về tài khoản đó
      *
+     * @return
      * @throws Exception
      */
     public Account login() throws Exception {
-        if (listManager.getList().isEmpty()) {
-            throw new Exception("There is no account in this device, cannot be login");
-        }
+        //user name
         String userAccount = getStringByRegex("Account: ", "Only words", "[A-Za-z]+");
         Account account = listManager.getAccountByUserName(userAccount);
         accountManager.setAccount(account);
-        String encryptedPass = Validation.MD5Encryption(getStringByRegex("Password: ", "Not null or empty", "^[a-zA-Z0-9@#$%^&+=.]+$"));
+        
+        //password 
+        String pasword = Validation.getPassword("Password: ");
+        String encryptedPass = accountManager.MD5Encryption(pasword);
         if (accountManager.isTruePassword(encryptedPass)) {
             account = accountManager.getAccount();
         }
@@ -62,13 +65,17 @@ public class ManagerController {
      * @throws Exception
      */
     public void changePassword() throws Exception {
-        String encryptedPass = Validation.MD5Encryption(getStringByRegex("Old password: ", "Not null", "^[a-zA-Z0-9@#$%^&+=.]+$"));
+        String oldPassword = Validation.getPassword("Old Password: ");
+        String encryptedPass = accountManager.MD5Encryption(oldPassword);
         if (accountManager.checkPassMatchesAccount(encryptedPass)) {
-            String newPass = Validation.getStringByRegex("New password: ", "Not null or empty", "^[a-zA-Z0-9@#$%^&+=.]+$");
-            String rewritePass = Validation.getStringByRegex("Re-new password: ", "Not null or empty", "^[a-zA-Z0-9@#$%^&+=.]+$");
-            if (accountManager.resetPassword(newPass, rewritePass)) {
-                listManager.updateAccount(accountManager.getAccount());
-            }
+            String newPass = Validation.getPassword("New Password: ");
+            String rewritePass = Validation.getPassword("Re-new Password: ");
+            Account account = accountManager.resetPassword(newPass, rewritePass);
+            listManager.updateAccount(account);
         }
+    }
+
+    public ArrayList<Account> getList() {
+        return listManager.getList();
     }
 }

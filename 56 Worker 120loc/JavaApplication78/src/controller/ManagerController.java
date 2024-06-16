@@ -34,18 +34,16 @@ public class ManagerController {
     }
 
     public void changeSalary(int choice) throws Exception {
-        if (getList().isEmpty()) {
-            throw new Exception("List of worker is null, cannot be changed");
-        }
         String code = Validation.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Not null or code must begin with an upper case and followinging by a digit");
-        double amount = Validation.getDouble("Amount: ", "Must be a number", 1, Double.MAX_VALUE);
+        if (!manager.isExist(code)) {
+            throw new Exception("Id is not existed");
+        }
+        double amount = Validation.getDouble("Amount: ", "Must be a positive number", 1, Double.MAX_VALUE);
         switch (choice) {
-            case 2 -> {
+            case 2 ->
                 manager.increaseSalary(amount, code);
-            }
-            case 3 -> {
+            case 3 ->
                 manager.decreaseSalary(amount, code);
-            }
         }
     }
 }

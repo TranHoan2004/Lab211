@@ -11,19 +11,18 @@ import utils.Validation;
  *
  * @author ADMIN
  */
-public class Input {
+public class AccountInput {
 
     private final Account account;
 
-    public Input() {
+    public AccountInput() {
         this.account = new Account();
     }
 
     public Account getAccountInformation() {
-        account.setUserName(Validation.getStringByRegex("Account: ", "Not null or empty", "[A-Za-z]+"));
-        String password = Validation.getStringByRegex("Password: ", "Not null", "^[a-zA-Z0-9@#$%^&+=.]+$");
-        account.setPassword(Validation.MD5Encryption(password)); 
-        account.setName(Validation.getStringByRegex("Name: ", "Only letters and spaces", "^([A-Z][a-z]+\\\s)*[A-Z][a-z]+$"));
+        account.setUserName(Validation.getStringByRegex("Account: ", "Not null", "[A-Za-z]+"));
+        account.setPassword(Validation.getPassword("Password: "));  
+        account.setName(Validation.getStringByRegex("Name: ", "Do not have digits", "^([A-Z][a-z]+\\\s)*[A-Z][a-z]+$")); //regex se bat buoc phai viet ten gom cac chu hoa dau tu 
         account.setPhone(Validation.getPhone("Phone: "));
         account.setEmailAddress(Validation.getEmail("Email: "));
         account.setAddress(Validation.getStringByRegex("Address: ", "Must have a name of street or city", "^[a-zA-Z0-9 ,./-]+$"));

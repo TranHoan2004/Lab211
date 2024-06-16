@@ -6,6 +6,7 @@ package controller;
 
 import bo.Input;
 import bo.Manager;
+import entity.Matrix;
 
 /**
  *
@@ -21,69 +22,41 @@ public class ManagerController {
 
     public void additionMatrix() throws Exception {
         addMatrix();
-        if (!manager.additionMatrix()) {
-            throw new Exception("Two matrix must have the same size");
-        }
+        manager.additionMatrix();
     }
 
     public void subtractionMatrix() throws Exception {
         addMatrix();
-        if (!manager.subtractionMatrix()) {
-            throw new Exception("Two matrix must have the same size");
-        }
+        manager.subtractionMatrix();
     }
 
     public void multiplicationMatrix() throws Exception {
         addMatrix();
-        if (!manager.multipliTwoMatrice()) {
-            throw new Exception("Size of column of the first matrix must equal to size of row of the second matrix");
-        }
+        manager.multipliTwoMatrice();
     }
 
     private void addMatrix() {
         Input input = new Input();
 
         //nhap cho matrix 1
-        int sizeOfRow1 = input.inputRowOfMatrix(1);
-        int sizeOfCol1 = input.inputColOfMatrix(1);
-        input.inputValueOfMatrix(1, sizeOfRow1, sizeOfCol1);
-        int[][] matrix1 = input.getMatrix();
+        Matrix matrix1 = input.getMatrix(1);
 
         //nhap cho matrix 2
-        int sizeOfRow2 = input.inputRowOfMatrix(2);
-        int sizeOfCol2 = input.inputColOfMatrix(2);
-        input.inputValueOfMatrix(2, sizeOfRow2, sizeOfCol2);
-        int[][] matrix2 = input.getMatrix();
+        Matrix matrix2 = input.getMatrix(2);
 
-        manager = new Manager(matrix1, matrix2, sizeOfRow1, sizeOfCol1, sizeOfRow2, sizeOfCol2);
+        manager.setMatrix_1(matrix1); 
+        manager.setMatrix_2(matrix2); 
     }
 
-    public int[][] getMatrix() {
+    public Matrix getMatrix1() {
+        return manager.getMatrix_1();
+    }
+
+    public Matrix getMatrix2() {
+        return manager.getMatrix_2();
+    }
+
+    public Matrix getMatrix() {
         return manager.getMatrix();
     }
-
-    public int getSizeOfRow1() {
-        return manager.getSizeOfRow1();
-    }
-
-    public int getSizeOfCol1() {
-        return manager.getSizeOfCol1();
-    }
-
-    public int getSizeOfRow2() {
-        return manager.getSizeOfRow2();
-    }
-
-    public int getSizeOfCol2() {
-        return manager.getSizeOfCol2();
-    }
-
-    public int[][] getMatrix1() {
-        return manager.getMatrix1();
-    }
-
-    public int[][] getMatrix2() {
-        return manager.getMatrix2();
-    }
-
 }

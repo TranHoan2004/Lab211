@@ -52,7 +52,7 @@ public final class History {
     }
 
     public String displaySalaryInformation() {
-        return String.format("%-15s%-15s%-15d%-15.2f%-15s%s", worker.getId(), worker.getName(), worker.getAge(), worker.getSalary(), this.getStatus(), this.getDate());
+        return String.format("%-15s%-15s%-15d%-15.2f%-15s%s", getWorker().getId(), getWorker().getName(), getWorker().getAge(), getWorker().getSalary(), this.getStatus(), this.getDate());
     }
 
 }

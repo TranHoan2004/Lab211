@@ -28,8 +28,7 @@ public class Controller {
 
     public void addTask() throws Exception {
         Input input = new Input();
-        Task task;
-        task = input.getTaskInformation();
+        Task task = input.getTaskInformation();
         manager.addTask(task);
     }
 

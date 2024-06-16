@@ -5,6 +5,7 @@
 package ui;
 
 import controller.ManagerController;
+import entity.Matrix;
 import utils.Validation;
 
 /**
@@ -22,17 +23,15 @@ public class Main {
                       3. Multiplication Matrix
                       4. Quit
                       """;
-        System.out.print(menu);
-        int choice = Validation.getInt("Your choice: ", "Please enter an integer number from 1 to 4", 1, 4);
         while (true) {
             System.out.print(menu);
+            int choice = Validation.getInt("Your choice: ", "Please enter an integer number from 1 to 4", 1, 4);
             switch (choice) {
                 case 1 -> {
                     System.out.println("\n\n-------Addition-------");
                     try {
                         managerController.additionMatrix();
-                        printAnswer(choice, managerController.getMatrix1(), managerController.getMatrix2(), managerController.getMatrix(),
-                                managerController.getSizeOfRow1(), managerController.getSizeOfCol1(), managerController.getSizeOfRow2(), managerController.getSizeOfCol2());
+                        printAnswer1(choice, managerController.getMatrix1(), managerController.getMatrix2(), managerController.getMatrix());
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
@@ -41,8 +40,7 @@ public class Main {
                     System.out.println("\n\n-------Subtraction-------");
                     try {
                         managerController.subtractionMatrix();
-                        printAnswer(choice, managerController.getMatrix1(), managerController.getMatrix2(), managerController.getMatrix(),
-                                managerController.getSizeOfRow1(), managerController.getSizeOfCol1(), managerController.getSizeOfRow2(), managerController.getSizeOfCol2());
+                        printAnswer1(choice, managerController.getMatrix1(), managerController.getMatrix2(), managerController.getMatrix());
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
@@ -54,8 +52,7 @@ public class Main {
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
-                    printAnswer(choice, managerController.getMatrix1(), managerController.getMatrix2(), managerController.getMatrix(),
-                            managerController.getSizeOfRow1(), managerController.getSizeOfCol1(), managerController.getSizeOfRow2(), managerController.getSizeOfCol2());
+                    printAnswer1(choice, managerController.getMatrix1(), managerController.getMatrix2(), managerController.getMatrix());
                 }
                 case 4 -> {
                     return;
@@ -64,18 +61,9 @@ public class Main {
         }
     }
 
-    public static void printMatrix(int[][] matrix1, int sizeOfRow, int sizeOfCol) {
-        for (int i = 0; i < sizeOfRow; i++) {
-            for (int j = 0; j < sizeOfCol; j++) {
-                System.out.print("[" + matrix1[i][j] + "]");
-            }
-            System.out.println();
-        }
-    }
-
-    public static void printAnswer(int choice, int[][] matrix1, int[][] matrix2, int[][] matrix, int sizeOfRow1, int sizeOfCol1, int sizeOfRow2, int sizeOfCol2) {
+    public static void printAnswer1(int choice, Matrix matrix1, Matrix matrix2, Matrix matrix) {
         System.out.println("\n-------Result-------");
-        printMatrix(matrix1, sizeOfRow1, sizeOfCol1);
+        printMatrix1(matrix1);
         switch (choice) {
             case 1 ->
                 System.out.println("+");
@@ -84,8 +72,17 @@ public class Main {
             case 3 ->
                 System.out.println("/");
         }
-        printMatrix(matrix2, sizeOfRow2, sizeOfCol2);
+        printMatrix1(matrix2);
         System.out.println("=");
-        printMatrix(matrix, sizeOfRow1, sizeOfCol1);
+        printMatrix1(matrix);
+    }
+
+    public static void printMatrix1(Matrix matrix) {
+        for (int i = 0; i < matrix.getRow(); i++) {
+            for (int j = 0; j < matrix.getCol(); j++) {
+                System.out.print("[" + matrix.getValue()[i][j] + "]");
+            }
+            System.out.println();
+        }
     }
 }

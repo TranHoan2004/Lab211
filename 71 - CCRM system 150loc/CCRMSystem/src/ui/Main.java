@@ -6,8 +6,7 @@ package ui;
 
 import controller.Controller;
 import entity.Task;
-import java.io.IOException;
-import java.util.ArrayList;
+//import java.io.IOException;
 import utils.Validation;
 
 /**
@@ -16,9 +15,8 @@ import utils.Validation;
  */
 public class Main {
 
-    private static Controller managerController = new Controller();
-
     public static void main(String[] args) {
+        Controller managerController = new Controller();
         String menu = """
                       ========== Task program ==========
                          1. Add Task
@@ -55,10 +53,9 @@ public class Main {
                 }
                 case 3 -> {
                     System.out.println("\n------------- TASK -------------");
-                    System.out.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s", "ID", "Name", "Task Type", "Date", "Time",
+                    System.out.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s\n", "ID", "Name", "Task Type", "Date", "Time",
                             "Assigne",
                             "Reviewer");
-                    System.out.println();
                     for (Task task : managerController.getList()) {
                         System.out.println(task.display());
                     }

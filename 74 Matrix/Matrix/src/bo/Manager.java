@@ -4,113 +4,99 @@
  */
 package bo;
 
+import entity.Matrix;
+
 /**
  *
  * @author ADMIN
  */
 public class Manager {
 
-    private int[][] matrix1;
-    private int[][] matrix2;
-    private int[][] matrix;
-    private int sizeOfRow1;
-    private int sizeOfCol1;
-    private int sizeOfRow2;
-    private int sizeOfCol2;
+    private Matrix matrix_1;
+    private Matrix matrix_2;
+    private Matrix matrix; //ma tran ket qua
 
     public Manager() {
+        this.matrix_1 = new Matrix();
+        this.matrix_2 = new Matrix();
+        this.matrix = new Matrix();
+    }
+    
+    public void setMatrix_1(Matrix matrix_1) {
+        this.matrix_1 = matrix_1;
     }
 
-    public Manager(int[][] matrix1, int[][] matrix2, int sizeOfRow1, int sizeOfCol1, int sizeOfRow2, int sizeOfCol2) {
-        this.matrix1 = matrix1;
-        this.matrix2 = matrix2;
-        this.sizeOfRow1 = sizeOfRow1;
-        this.sizeOfCol1 = sizeOfCol1;
-        this.sizeOfRow2 = sizeOfRow2;
-        this.sizeOfCol2 = sizeOfCol2;
+    public void setMatrix_2(Matrix matrix_2) {
+        this.matrix_2 = matrix_2;
     }
 
-    public boolean additionMatrix() {
+    public void additionMatrix() throws Exception {
         if (!checkEqualSizeOfTwoMatrix()) {
-            return false;
+            throw new Exception("Two matrix must have the same size");
         }
-        matrix = new int[sizeOfRow1][sizeOfCol1];
-        for (int i = 0; i < sizeOfRow1; i++) {
-            for (int j = 0; j < sizeOfCol1; j++) {
-                matrix[i][j] = matrix1[i][j] + matrix2[i][j];
+        this.matrix.setRow(matrix_1.getRow());
+        this.matrix.setCol(matrix_1.getCol());
+        int[][] matrix = new int[matrix_1.getRow()][matrix_1.getCol()];
+        for (int i = 0; i < matrix_1.getRow(); i++) {
+            for (int j = 0; j < matrix_1.getCol(); j++) {
+                matrix[i][j] = matrix_1.getValue()[i][j] + matrix_2.getValue()[i][j];
             }
         }
-        return true;
+        this.matrix.setValue(matrix);
     }
 
-    public boolean subtractionMatrix() {
+    public void subtractionMatrix() throws Exception {
         if (!checkEqualSizeOfTwoMatrix()) {
-            return false;
+            throw new Exception("Two matrix must have the same size");
         }
-        matrix = new int[sizeOfRow1][sizeOfCol1];
-        for (int i = 0; i < sizeOfRow1; i++) {
-            for (int j = 0; j < sizeOfCol1; j++) {
-                matrix[i][j] = matrix1[i][j] - matrix2[i][j];
+        matrix.setRow(matrix_1.getRow());
+        matrix.setCol(matrix_1.getCol());
+        int[][] mt = new int[matrix.getRow()][matrix.getCol()];
+        for (int i = 0; i < matrix.getRow(); i++) {
+            for (int j = 0; j < matrix.getCol(); j++) {
+                mt[i][j] = matrix_1.getValue()[i][j] - matrix_2.getValue()[i][j];
             }
         }
-        return true;
+        matrix.setValue(mt);
     }
 
-    public boolean multipliTwoMatrice() {
-        if (sizeOfCol1 != sizeOfRow2) {
-            return false;
+    public void multipliTwoMatrice() throws Exception {
+        if (matrix_1.getCol() != matrix_2.getRow()) {
+            throw new Exception("Size of column of the first matrix must equal to size of row of the second matrix");
         }
-        sizeOfRow1 = matrix1.length;
-        int cols1 = matrix1[0].length;
-        sizeOfCol1 = matrix2[0].length;
-        this.matrix = new int[sizeOfRow1][sizeOfCol1];
-        for (int i = 0; i < sizeOfRow1; i++) {
-            for (int j = 0; j < sizeOfCol1; j++) {
-                for (int k = 0; k < cols1; k++) {
-                    matrix[i][j] += matrix1[i][k] * matrix2[k][j];
+        matrix = new Matrix(matrix_1.getRow(), matrix_2.getCol());
+        int[][] mt = new int[matrix.getRow()][matrix.getCol()];
+        for (int i = 0; i < matrix.getRow(); i++) {
+            for (int j = 0; j < matrix.getCol(); j++) {
+                for (int k = 0; k < matrix_1.getCol(); k++) {
+                    mt[i][j] += matrix_1.getValue()[i][k] * matrix_2.getValue()[k][j];
                 }
             }
         }
-        return true;
+        matrix.setValue(mt);
     }
 
     private boolean checkEqualSizeOfTwoMatrix() {
-        if (matrix1.length != matrix2.length) {
+        if (matrix_1.getSize() != matrix_2.getSize()) {
             return false;
         }
-        for (int i = 0; i < matrix1.length; i++) {
-            if (matrix1[i].length != matrix2[i].length) {
+        for (int i = 0; i < matrix_1.getSize(); i++) {
+            if (matrix_1.getValue()[i].length != matrix_2.getValue()[i].length) {
                 return false;
             }
         }
         return true;
     }
 
-    public int[][] getMatrix1() {
-        return matrix1;
+    public Matrix getMatrix_1() {
+        return matrix_1;
     }
 
-    public int[][] getMatrix2() {
-        return matrix2;
+    public Matrix getMatrix_2() {
+        return matrix_2;
     }
 
-    public int[][] getMatrix() {
+    public Matrix getMatrix() {
         return matrix;
-    }
-
-    public int getSizeOfRow1() {
-        return sizeOfRow1;
-    }
-
-    public int getSizeOfCol1() {
-        return sizeOfCol1;
-    }
-
-    public int getSizeOfRow2() {
-        return sizeOfRow2;
-    }
-
-    public int getSizeOfCol2() {
-        return sizeOfCol2;
     }
 }

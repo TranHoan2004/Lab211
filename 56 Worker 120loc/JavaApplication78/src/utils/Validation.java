@@ -4,8 +4,6 @@
  */
 package utils;
 
-import entity.Worker;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**

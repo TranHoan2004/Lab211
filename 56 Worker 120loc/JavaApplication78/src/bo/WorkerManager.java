@@ -8,7 +8,6 @@ import entity.History;
 import entity.History.Status;
 import entity.Worker;
 import java.util.ArrayList;
-import utils.Validation;
 
 /**
  *
@@ -18,10 +17,12 @@ public class WorkerManager {
 
     private final ArrayList<Worker> listOfWorker;
     private final ArrayList<History> listOfHistory;
+    private Worker worker;
 
     public WorkerManager() {
         this.listOfWorker = new ArrayList<>();
         this.listOfHistory = new ArrayList<>();
+        this.worker = new Worker();
     }
 
     public ArrayList<Worker> getList() {
@@ -34,24 +35,30 @@ public class WorkerManager {
 
     public void addWorker(Worker work) throws Exception {
         if (isExist(work.getId())) {
-            throw new Exception("ID is existed");
+            throw new Exception("Id is existed");
         }
         listOfWorker.add(work);
     }
 
     public void increaseSalary(double amount, String code) throws Exception {
-        Worker worker = findByID(code);
+        worker = findByID(code);
         worker.setSalary(worker.getSalary() + amount);
-        listOfHistory.add(new History(Status.UP, worker));
+        addToList(Status.UP);
     }
 
     public void decreaseSalary(double amount, String code) throws Exception {
-        Worker worker = findByID(code);
+        worker = findByID(code);
         if (amount > worker.getSalary()) {
-            throw new Exception("Amount is larger than salary, salary of waorker cannot be changed");
+            throw new Exception("Amount is larger than salary");
         }
         worker.setSalary(worker.getSalary() - amount);
-        listOfHistory.add(new History(Status.DOWN, worker));
+        addToList(Status.DOWN);
+    }
+
+    private void addToList(Status status) {
+        Worker w = new Worker(worker.getId(), worker.getName(), worker.getWorkLocation(), worker.getAge(), worker.getSalary());
+        History history = new History(status, w);
+        listOfHistory.add(history);
     }
 
     private Worker findByID(String id) throws Exception {
@@ -63,7 +70,7 @@ public class WorkerManager {
         throw new Exception("Worker has this id is not existed");
     }
 
-    private boolean isExist(String id) {
+    public boolean isExist(String id) {
         for (Worker person : listOfWorker) {
             if (person.getId().equalsIgnoreCase(id)) {
                 return true;

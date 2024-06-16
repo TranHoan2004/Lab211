@@ -44,11 +44,10 @@ public class Validation {
         Scanner scan = new Scanner(System.in);
         while (true) {
             System.out.print(mess);
-            String output = removeUnnecessaryBlank(scan.nextLine()); 
+            String output = removeUnnecessaryBlank(scan.nextLine());
             if ("".equals(output)) {
                 System.err.println("Not null!");
-            }
-            else if (output.matches(regex)) {
+            } else if (output.matches(regex)) {
                 return output;
             } else {
                 System.err.println(error);
@@ -87,21 +86,6 @@ public class Validation {
         return input.toLowerCase().equalsIgnoreCase("y");
     }
 
-    public static String MD5Encryption(String password) {
-        while (true) {
-            try {
-                MessageDigest md = MessageDigest.getInstance("MD5");
-                md.update(password.getBytes());
-                byte[] hashBytes = md.digest();
-                String base64Hash = Base64.getEncoder().encodeToString(hashBytes);
-                return base64Hash;
-            } catch (NoSuchAlgorithmException ex) {
-                System.err.println("There is an error occured"); 
-            }
-            return null;
-        }        
-    }
-
     public static String getDate() {
         while (true) {
             try {
@@ -117,5 +101,10 @@ public class Validation {
                 System.err.println("Re-input");
             }
         }
+    }
+
+    public static String getPassword(String msg) {
+        String password = getStringByRegex(msg, "Not null", "^[a-zA-Z0-9@#$%^&+=.]+$");
+        return password;
     }
 }
