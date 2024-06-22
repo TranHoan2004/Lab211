@@ -9,6 +9,7 @@ import bo.WorkerManager;
 import entity.History;
 import entity.Worker;
 import java.util.ArrayList;
+import java.util.Stack;
 import utils.Validation;
 
 /**
@@ -23,7 +24,7 @@ public class ManagerController {
         return manager.getList();
     }
 
-    public ArrayList<History> getHistory() {
+    public Stack<History> getHistory() {
         return manager.getHistory();
     }
 

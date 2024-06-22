@@ -15,19 +15,15 @@ import utils.Validation;
  * @author ADMIN
  */
 public class ManagerController {
-
     private final Manager manager;
-
     public ManagerController() {
         this.manager = new Manager();
     }
-
     public void addExpense() throws Exception {
         Input input = new Input();
         Expense expense = input.getExpense();
         manager.setList(expense);
-    }
-    
+    }    
     public void delete() throws Exception {
         if (manager.getList().isEmpty()) {
             throw new Exception("List is empty, cannot be deleted");
@@ -35,7 +31,6 @@ public class ManagerController {
         int id = Validation.getInt("Enter ID: ", "Only positive numbers!", "Out of range!", 1, manager.getList().size());
         manager.deleteExpense(id);
     }
-
     public ArrayList<Expense> getList() {
         return manager.getList();
     }

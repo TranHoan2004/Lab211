@@ -13,21 +13,16 @@ import java.util.Iterator;
  * @author ADMIN
  */
 public class Manager {
-
     private final ArrayList<Expense> list;
-
     public Manager() {
         this.list = new ArrayList<>();
     }
-
     public ArrayList<Expense> getList() {
         return list;
     }
-
     public void setList(Expense ex) {
         list.add(ex);
     }
-
     public void deleteExpense(int id) {
         Iterator<Expense> iterator = list.iterator();
         while (iterator.hasNext()) {

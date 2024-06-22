@@ -33,10 +33,7 @@ public class Main {
                     do {
                         try {
                             managerController.addTask();
-                            System.out.println("Add successully!!\n\n\n");
-//                            managerController.createFile();
-//                        } catch (IOException e) {
-//                            System.out.println(e.getMessage());
+                            System.out.println("Add successully!!");
                         } catch (Exception e) {
                             System.err.println(e.getMessage());
                         }
@@ -46,7 +43,7 @@ public class Main {
                     System.out.println("---------- Delete Task ----------");
                     try {
                         managerController.deleteTask();
-                        System.out.println("Successfully\n\n\n");
+                        System.out.println("Successfully");
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
@@ -57,7 +54,7 @@ public class Main {
                             "Assigne",
                             "Reviewer");
                     for (Task task : managerController.getList()) {
-                        System.out.println(task.display());
+                        System.out.println(task.display());                     
                     }
                 }
                 case 4 -> {

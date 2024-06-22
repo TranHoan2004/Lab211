@@ -9,32 +9,25 @@ package entity;
  * @author ADMIN
  */
 public class Matrix {
-
     private int row;
     private int col;
     private int[][] value;
-
     public Matrix() {
     }
-
     public Matrix(int row, int col) {
         this.row = row;
         this.col = col;
         this.value = new int[row][col];
     }
-
     public int[][] getValue() {
         return value;
     }
-
     public void setValue(int[][] value) {
         this.value = value;
     }
-
     public int getRow() {
         return row;
     }
-
     public void setRow(int row) {
         this.row = row;
     }

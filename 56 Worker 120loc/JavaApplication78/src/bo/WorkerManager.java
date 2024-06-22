@@ -8,6 +8,8 @@ import entity.History;
 import entity.History.Status;
 import entity.Worker;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Stack;
 
 /**
  *
@@ -16,20 +18,18 @@ import java.util.ArrayList;
 public class WorkerManager {
 
     private final ArrayList<Worker> listOfWorker;
-    private final ArrayList<History> listOfHistory;
-    private Worker worker;
+    private final Stack<History> listOfHistory;
 
     public WorkerManager() {
         this.listOfWorker = new ArrayList<>();
-        this.listOfHistory = new ArrayList<>();
-        this.worker = new Worker();
+        this.listOfHistory = new Stack<>();
     }
 
     public ArrayList<Worker> getList() {
         return listOfWorker;
     }
 
-    public ArrayList<History> getHistory() {
+    public Stack<History> getHistory() {
         return listOfHistory;
     }
 
@@ -41,24 +41,24 @@ public class WorkerManager {
     }
 
     public void increaseSalary(double amount, String code) throws Exception {
-        worker = findByID(code);
+        Worker worker = findByID(code);
         worker.setSalary(worker.getSalary() + amount);
-        addToList(Status.UP);
+        addToList(Status.UP, worker);
     }
 
     public void decreaseSalary(double amount, String code) throws Exception {
-        worker = findByID(code);
+        Worker worker = findByID(code);
         if (amount > worker.getSalary()) {
             throw new Exception("Amount is larger than salary");
         }
         worker.setSalary(worker.getSalary() - amount);
-        addToList(Status.DOWN);
+        addToList(Status.DOWN, worker);
     }
 
-    private void addToList(Status status) {
+    private void addToList(Status status, Worker worker) {
         Worker w = new Worker(worker.getId(), worker.getName(), worker.getWorkLocation(), worker.getAge(), worker.getSalary());
         History history = new History(status, w);
-        listOfHistory.add(history);
+        listOfHistory.push(history);
     }
 
     private Worker findByID(String id) throws Exception {

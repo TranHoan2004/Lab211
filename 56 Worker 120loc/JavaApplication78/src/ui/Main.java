@@ -7,6 +7,7 @@ package ui;
 import controller.ManagerController;
 import entity.History;
 import entity.Worker;
+import java.util.Stack;
 import utils.Validation;
 
 /**
@@ -63,8 +64,10 @@ public class Main {
                                     -------------------- Display Information Salary -----------------------
                                     %-15s%-15s%-15s%-15s%-15s%-15s
                                     """, "Code", "Name", "Age", "Salary", "Status", "Date");
-                    for (History w : managerController.getHistory()) {
-                        System.out.println(w.displaySalaryInformation());
+                    System.out.println("From the newest to the oldest");
+                    Stack<History> list = managerController.getHistory();
+                    while (!list.isEmpty()) {
+                        System.out.println(list.pop().displaySalaryInformation());
                     }
                 }
                 case 5 -> {

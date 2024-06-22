@@ -12,11 +12,11 @@ import entity.Matrix;
  *
  * @author ADMIN
  */
-public class ManagerController {
+public class Controller {
 
     private Manager manager;
 
-    public ManagerController() {
+    public Controller() {
         this.manager = new Manager();
     }
 

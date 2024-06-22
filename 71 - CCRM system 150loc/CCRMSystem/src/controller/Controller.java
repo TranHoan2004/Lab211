@@ -7,10 +7,6 @@ package controller;
 import bo.Input;
 import bo.Manager;
 import entity.Task;
-//import java.io.BufferedWriter;
-//import java.io.File;
-//import java.io.FileWriter;
-//import java.io.IOException;
 import java.util.LinkedList;
 import utils.Validation;
 
@@ -40,25 +36,6 @@ public class Controller {
         manager.deleteTask(id);
     }
 
-//    public void createFile() throws IOException {
-//        File file = new File("Data.txt");
-//        boolean isEmpty = !file.exists() || file.length() == 0;
-//        FileWriter fw = new FileWriter("Data.txt", true);
-//        BufferedWriter bw = new BufferedWriter(fw);
-//        if (isEmpty) {
-//            bw.write("\n------------- TASK -------------\n");
-//            String string = String.format("%-15s%-15s%-15s%-15s%-15s%-15s%-15s", "ID", "Name", "Task Type", "Date", "Time",
-//                    "Assigne",
-//                    "Reviewer");
-//            bw.write(string);
-//        }
-//        bw.write("\n");
-//        for (Task handy : manager.getList()) {
-//            bw.write(handy.display());
-//        }
-//        bw.close();
-//        fw.close();
-//    }
     public LinkedList<Task> getList() {
         return manager.getList();
     }

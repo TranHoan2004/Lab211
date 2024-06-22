@@ -4,7 +4,7 @@
  */
 package ui;
 
-import controller.ManagerController;
+import controller.Controller;
 import entity.Matrix;
 import utils.Validation;
 
@@ -15,7 +15,7 @@ import utils.Validation;
 public class Main {
 
     public static void main(String[] args) {
-        ManagerController managerController = new ManagerController();
+        Controller managerController = new Controller();
         String menu = """
                       =======Calculator Program=======
                       1. Addition Matrix

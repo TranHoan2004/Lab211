@@ -21,20 +21,15 @@ public class Input {
     }
 
     public Task getTaskInformation() throws Exception {
-        task.setRequirementName(Validation.getStringByRegex("Requirement Name: ", "^([A-Z][a-z]+\\\s)*[A-Z][a-z]+$",
-                "Each word in name of task must begin with an upper case letter and following by lower case letters"));
+        task.setRequirementName(Validation.getStringByRegex("Requirement Name: ", "[A-Za-z ]+",
+                "Do not have specials characters"));
         task.setTaskTypeID(Validation.getInt("Task Type: ", "Must be a positive number greater than 0",
                 "Out of range", 1, 4));
         task.setDate(Validation.getDate());
-        task.setPlanFrom(Validation.getDouble("From: ", "Must be a number greater than 0", 1, 24));
-        double time = Validation.getDouble("To: ", "Must be a number greater than 0", 1, 24);
-        if (time <= task.getPlanFrom()) {
-            throw new Exception("Time out is smaller than time in, cannot be setted up");
-        }
-        task.setPlanTo(time); 
-        task.setAssignee(Validation.getStringByRegex("Assignee: ", "^[A-Z][a-z]+$", "Please enter a word"));
-        task.setReviewer(Validation.getStringByRegex("Reviewer: ", "^([A-Z][a-z]+\\\s)*[A-Z][a-z]+$",
-                "Each word in name of task must begin with an upper case letter and following by lower case letters"));
+        task.setPlanFrom(Validation.getDouble("From: ", "Must be a number greater than 0", 1, 18));
+        task.setPlanTo(Validation.getDouble("To: ", "Must be a number greater than 0", task.getPlanFrom() + 0.5, 24)); 
+        task.setAssignee(Validation.getStringByRegex("Assignee: ", "[A-Za-z]+", "Please enter a word"));
+        task.setReviewer(Validation.getStringByRegex("Reviewer: ", "[A-Za-z]+", "Do not have specials characters"));
         task.setID(++counter);
         return task;
     }

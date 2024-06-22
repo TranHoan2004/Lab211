@@ -4,7 +4,6 @@
  */
 package entity;
 
-
 /**
  *
  * @author ADMIN
@@ -100,7 +99,7 @@ public final class Task {
         return planTo;
     }
 
-    public void setPlanTo(double planTo) {        
+    public void setPlanTo(double planTo) {
         this.planTo = planTo;
     }
 
@@ -130,4 +129,5 @@ public final class Task {
                 this.getAssignee(),
                 this.getReviewer());
     }
+        
 }
