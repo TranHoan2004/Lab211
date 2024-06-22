@@ -13,18 +13,17 @@ import java.util.ArrayList;
  *
  * @author ADMIN
  */
-public class ManagerController {
+public class Controller {
 
     private Manager manager = new Manager();
 
-    public ArrayList<Fruit> addFruit() throws Exception {
+    public void addFruit() throws Exception {
         Input input = new Input();
-        Fruit fr = new Fruit();
-        fr = input.input();
-        if (!manager.createFruit(fr)) {
-            throw new Exception("ID is existed, cannot be create");
-        }
-        ArrayList<Fruit> list = manager.getList();
-        return list;
+        Fruit fr = input.getFruit();
+        manager.createFruit(fr);
+    }
+
+    public ArrayList<Fruit> getFruit() {
+        return manager.getListOfFruit();
     }
 }

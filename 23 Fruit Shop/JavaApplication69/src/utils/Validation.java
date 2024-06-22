@@ -15,100 +15,78 @@ import java.util.Scanner;
  * @author ADMIN
  */
 public class Validation {
+
     private static Scanner sc = new Scanner(System.in);
-    
-    public static int checkInputChoice(String msg, String err, int min, int max) {
-        int choice=0;
+
+    public static String removeUnneccessaryBlank(String input) {
+        return input.trim().replaceAll("\\s+", " ");
+    }
+
+    public static String removeAllBlank(String input) {
+        return input.trim().replaceAll("\\s+", "");
+    }
+
+    public static int getInt(String mess, String errorNumberFormat, String errorOutOfRange, int min, int max) {
         while (true) {
-            try {
-                System.out.print(msg);
-                choice=Integer.parseInt(sc.nextLine());
-                if (choice<min || choice>max) throw new NumberFormatException();
-                else return choice;                
-            } catch (NumberFormatException e) {
-                System.out.println(err);
+            int ret = Integer.parseInt(getStringByRegex(mess, "[0-9]+", errorNumberFormat));
+            if (ret < min || ret > max) {
+                System.err.println(errorOutOfRange);
+            } else {
+                return ret;
+            }
+        }
+
+    }
+
+    public static boolean checkYN() {
+	String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
+        return input.toLowerCase().equalsIgnoreCase("y");
+    }
+
+    public static String getStringByRegex(String msg, String regex, String err) {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.print(msg);
+            String string = removeUnneccessaryBlank(sc.nextLine());
+            if (string.isEmpty()) {
+                System.err.println("Not null");
+            }
+            else if (string.matches(regex)) {
+                return string;
+            } else {
+                System.err.println(err);
             }
         }
     }
-    
-    public static boolean checkYN(String msg, String err) {
-        String ans;
-        String ansInLowerCase;
+
+    public static double getDouble(String msg, String error, double min, double max) {
         while (true) {
-            try {
-                System.out.print(msg);
-                ans=sc.nextLine().trim();
-                ansInLowerCase=ans.toLowerCase();
-                if (ansInLowerCase.equalsIgnoreCase("y")) return true;
-                else if (ansInLowerCase.equalsIgnoreCase("n")) return false;
-                else throw new InputMismatchException();
-            } catch (InputMismatchException e) {
-                System.out.println(err);
-            }
-        }
-    }
-    
-    public static String checkInputString(String msg, String err) {
-        String input;
-        while (true) {
-            try {
-                System.out.print(msg);
-                input=sc.nextLine().trim();
-                if (input.isEmpty()) throw new InputMismatchException();
-                else return input;
-            } catch (InputMismatchException e) {
-                System.out.println(err);
-            }
-        }
-    }
-    
-    public static double checkInputDouble(String msg, String err) {
-        double input;
-        while (true) {            
-            try {
-                System.out.print(msg);
-                input=Double.parseDouble(sc.nextLine());
+            double input = Double.parseDouble(getStringByRegex(msg, "[0-9]*\\.?[0-9]+", error));
+            if (input < min || input > max) {
+                System.err.println("Out of range!");
+            } else {
                 return input;
-            } catch (NumberFormatException e) {
-                System.out.println(err);
             }
         }
     }
-    
-    public static int checkInputInt(String msg, String err) {
-        int input;
-        while (true) {            
-            try {
-                System.out.print(msg);
-                input=Integer.parseInt(sc.nextLine());
-                return input;
-            } catch (NumberFormatException e) {
-                System.out.println(err);
-            }
-        }
-    }
-    
-    public static boolean checkItemExistOrder(ArrayList<Order> listOrder, String id)
-    {
-        for (Order order: listOrder) {
-            if (order.getFruitID().equalsIgnoreCase(id))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    public static boolean checkItemExistFruit(ArrayList<Fruit> listOrder, String id, String name)
-    {
-        for (Fruit order: listOrder) {
-            if (order.getFruitID().equalsIgnoreCase(id)||
-                    order.getFruitName().equalsIgnoreCase(name)||
-                    (order.getFruitID().equalsIgnoreCase(id)&&order.getFruitName().equalsIgnoreCase(name)))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
+
+//    public static boolean checkItemExistOrder(ArrayList<Order> listOrder, String id) {
+//        for (Order order : listOrder) {
+//            if (order.getFruitID().equalsIgnoreCase(id)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+//
+//    public static boolean checkItemExistFruit(ArrayList<Fruit> listOrder, String id, String name) {
+//        for (Fruit order : listOrder) {
+//            if (order.getFruitID().equalsIgnoreCase(id)
+//                    || order.getFruitName().equalsIgnoreCase(name)
+//                    || (order.getFruitID().equalsIgnoreCase(id) && order.getFruitName().equalsIgnoreCase(name))) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 }

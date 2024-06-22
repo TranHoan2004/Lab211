@@ -17,17 +17,18 @@ import java.util.Hashtable;
 public class Manager {
 
 //    private static ArrayList<Fruit> f = new ArrayList<>();
-    private ArrayList<Fruit> list = new ArrayList<>();    
-    public ArrayList<Fruit> getList() {
+    private ArrayList<Fruit> list = new ArrayList<>();
+    private ArrayList<Order> listOfOrder = new ArrayList<>();
+
+    public ArrayList<Fruit> getListOfFruit() {
         return list;
     }
-    public boolean createFruit(Fruit fr) {
-        if (Validation.checkItemExistFruit(list, fr.getFruitID(), fr.getFruitName())) {
-            return false;
-        } else {
-            list.add(fr);
+
+    public void createFruit(Fruit fr) throws Exception {
+        if (checkItemExistFruit(fr.getFruitID(), fr.getFruitName())) {
+            throw new Exception("ID is existed, cannot be create");
         }
-        return true;
+        list.add(fr);
     }
 
     public void viewOrders(Hashtable<String, ArrayList<Order>> order) {
@@ -54,17 +55,37 @@ public class Manager {
     public void displayListOrder(ArrayList<Order> orderList) {
 
     }
+
+    private boolean checkItemExistOrder(String id) {
+        for (Order order : listOfOrder) {
+            if (order.getFruitID().equalsIgnoreCase(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean checkItemExistFruit(String id, String name) {
+        for (Fruit order : list) {
+            if (order.getFruitID().equalsIgnoreCase(id)
+                    || order.getFruitName().equalsIgnoreCase(name)
+                    || (order.getFruitID().equalsIgnoreCase(id) && order.getFruitName().equalsIgnoreCase(name))) {
+                return true;
+            }
+        }
+        return false;
+    }
 //    public static void createFruit() {
 //        String fruitID;
 //        String fruitName;
 //        double price;
 //        int quantity;
 //        String origin;
-//        fruitID=Validation.checkInputString("Enter Fruits ID: ", "Not empty");
-//        fruitName=Validation.checkInputString("Enter Fruits Name: ", "Not empty");
-//        price=Validation.checkInputDouble("Enter Fruits Price: ", "Please enter an integer number");
-//        quantity=Validation.checkInputInt("Enter Fruits Quantities: ", "Please enter a number");
-//        origin=Validation.checkInputString("Enter Fruits Origin: ", "Not empty");
+//        fruitID=Validation.getStringByRegex("Enter Fruits ID: ", "Not empty");
+//        fruitName=Validation.getStringByRegex("Enter Fruits Name: ", "Not empty");
+//        price=Validation.getDouble("Enter Fruits Price: ", "Please enter an integer number");
+//        quantity=Validation.getInt("Enter Fruits Quantities: ", "Please enter a number");
+//        origin=Validation.getStringByRegex("Enter Fruits Origin: ", "Not empty");
 //        if (Validation.checkItemExistFruit(f, fruitID, fruitName)) {
 //            System.out.println("ID is existed");
 //        }
@@ -87,10 +108,10 @@ public class Manager {
 //        ArrayList<Order> listOrder = new ArrayList<>();
 //        while (true) {
 //            displayListFruit(f);
-//            int choice=Validation.checkInputChoice("Enter item: ", "Please enter a number in range of number of items", 1, f.size());
+//            int choice=Validation.getInt("Enter item: ", "Please enter a number in range of number of items", 1, f.size());
 //            //lay thong tin fruit duoc chon
 //            Fruit fr = getFruitByItem(choice, f);
-//            int quantity=Validation.checkInputInt("Enter quantity: ", "Please enter an integer number"); //nhap so luong fruit muon mua
+//            int quantity=Validation.getInt("Enter quantity: ", "Please enter an integer number"); //nhap so luong fruit muon mua
 //            //cap nhat lai quantity cua fr
 //            fr.setQuantity(fr.getQuantity()-quantity);
 //            System.out.println("You selected: "+fr.getFruitName());
@@ -104,7 +125,7 @@ public class Manager {
 //            if (!Validation.checkYN("Do you want to continue (Y/N)? ", "Please enter Y or N")) break;
 //        }
 //        displayListOrder(listOrder);
-//        String name = Validation.checkInputString("Input your name: ", "Not empty");
+//        String name = Validation.getStringByRegex("Input your name: ", "Not empty");
 //        hashTable.put(name, listOrder);
 //        System.out.println("Add successfully");
 //    }
