@@ -15,7 +15,7 @@ import utils.Validation;
 public class Main {
 
     public static void main(String[] args) {
-        Controller managerController = new Controller();
+        Controller controller = new Controller();
         String menu = """
                       =======Calculator Program=======
                       1. Addition Matrix
@@ -30,8 +30,8 @@ public class Main {
                 case 1 -> {
                     System.out.println("\n\n-------Addition-------");
                     try {
-                        managerController.additionMatrix();
-                        printAnswer1(choice, managerController.getMatrix1(), managerController.getMatrix2(), managerController.getMatrix());
+                        Matrix matrix = controller.additionMatrix();
+                        printAnswer1(choice, controller.getMatrix1(), controller.getMatrix2(), matrix);
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
@@ -39,8 +39,8 @@ public class Main {
                 case 2 -> {
                     System.out.println("\n\n-------Subtraction-------");
                     try {
-                        managerController.subtractionMatrix();
-                        printAnswer1(choice, managerController.getMatrix1(), managerController.getMatrix2(), managerController.getMatrix());
+                        Matrix matrix = controller.subtractionMatrix();
+                        printAnswer1(choice, controller.getMatrix1(), controller.getMatrix2(), matrix);
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
@@ -48,11 +48,11 @@ public class Main {
                 case 3 -> {
                     System.out.println("\n\n-------Multiplication-------");
                     try {
-                        managerController.multiplicationMatrix();
+                        Matrix matrix = controller.multiplicationMatrix();
+                        printAnswer1(choice, controller.getMatrix1(), controller.getMatrix2(), matrix);
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
-                    printAnswer1(choice, managerController.getMatrix1(), managerController.getMatrix2(), managerController.getMatrix());
                 }
                 case 4 -> {
                     return;

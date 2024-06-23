@@ -9,6 +9,7 @@ package entity;
  * @author ADMIN
  */
 public class Fruit {
+
     private String fruitID;
     private String fruitName;
     private double price;
@@ -23,7 +24,7 @@ public class Fruit {
         this.fruitName = fruitName;
         this.price = price;
         this.quantity = quantity;
-        this.origin=origin;
+        this.origin = origin;
     }
 
     public String getFruitID() {
@@ -68,8 +69,7 @@ public class Fruit {
 
     @Override
     public String toString() {
-        return "Fruit{" + "fruitID=" + fruitID + ", fruitName=" + fruitName + ", price=" + price + ", quantity=" + quantity+'}';
+        return "Fruit{" + "fruitID=" + fruitID + ", fruitName=" + fruitName + ", price=" + price + ", quantity=" + quantity + '}';
     }
-    
-    
+
 }

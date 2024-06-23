@@ -39,7 +39,7 @@ public class Validation {
     }
 
     public static boolean checkYN() {
-	String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
+        String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
         return input.toLowerCase().equalsIgnoreCase("y");
     }
 
@@ -50,8 +50,7 @@ public class Validation {
             String string = removeUnneccessaryBlank(sc.nextLine());
             if (string.isEmpty()) {
                 System.err.println("Not null");
-            }
-            else if (string.matches(regex)) {
+            } else if (string.matches(regex)) {
                 return string;
             } else {
                 System.err.println(err);
@@ -70,23 +69,23 @@ public class Validation {
         }
     }
 
-//    public static boolean checkItemExistOrder(ArrayList<Order> listOrder, String id) {
-//        for (Order order : listOrder) {
-//            if (order.getFruitID().equalsIgnoreCase(id)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//
-//    public static boolean checkItemExistFruit(ArrayList<Fruit> listOrder, String id, String name) {
-//        for (Fruit order : listOrder) {
-//            if (order.getFruitID().equalsIgnoreCase(id)
-//                    || order.getFruitName().equalsIgnoreCase(name)
-//                    || (order.getFruitID().equalsIgnoreCase(id) && order.getFruitName().equalsIgnoreCase(name))) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+    public static String getNameByItem(ArrayList<Fruit> list, int item) {
+        String name = null;
+        for (Fruit fruit : list) {
+            if (list.indexOf(fruit) == item) {
+                name = fruit.getFruitName();
+            }
+        }
+        return name;
+    }
+
+    public static int getQuantityByItem(ArrayList<Fruit> list, int item) {
+        int quantity = 0;
+        for (Fruit fruit : list) {
+            if (list.indexOf(fruit) == item) {
+                quantity = fruit.getQuantity();
+            }
+        }
+        return quantity;
+    }
 }

@@ -17,93 +17,103 @@ import java.util.Hashtable;
 public class Manager {
 
 //    private static ArrayList<Fruit> f = new ArrayList<>();
-    private ArrayList<Fruit> list = new ArrayList<>();
-    private ArrayList<Order> listOfOrder = new ArrayList<>();
+    private final ArrayList<Fruit> listOfFruit;
+    private final ArrayList<Order> listOfOrder;
+    private final Hashtable<String, ArrayList<Order>> list;
+    private Fruit fruit;
+
+    public Manager() {
+        listOfFruit = new ArrayList<>();
+        listOfOrder = new ArrayList<>();
+        list = new Hashtable<>();
+        this.fruit = new Fruit();
+    }
 
     public ArrayList<Fruit> getListOfFruit() {
+        return listOfFruit;
+    }
+
+    public Hashtable<String, ArrayList<Order>> getCart() {
         return list;
     }
 
+    public ArrayList<Order> getOrder() {
+        return listOfOrder;
+    }
+
     public void createFruit(Fruit fr) throws Exception {
-        if (checkItemExistFruit(fr.getFruitID(), fr.getFruitName())) {
+        if (checkExistedFruit(fr.getFruitID(), fr.getFruitName())) {
             throw new Exception("ID is existed, cannot be create");
         }
-        list.add(fr);
+        listOfFruit.add(fr);
     }
 
-    public void viewOrders(Hashtable<String, ArrayList<Order>> order) {
-
+    public void order(int numberOfFruit, int item, String name) throws Exception {
+        fruit = getFruitByItem(item);
+        double amount = fruit.getPrice() * numberOfFruit;
+        if (list.containsKey(name)) {
+            
+        } else {
+            ArrayList<Order> newList = new ArrayList<>();
+        }
+        if (checkExistedOrder()) {
+            listOfOrder.add(new Order(fruit, numberOfFruit, amount));
+            updateQuantity(numberOfFruit);
+        }
     }
 
-    public void Shopping(ArrayList<Fruit> fruit, Hashtable<String, ArrayList<Order>> hashTable) {
-
+    public void addToList(String name) {
+        list.put(name, listOfOrder);
     }
 
-    public void updateOrder(ArrayList<Order> listOrder, String id, int quantity) {
-
-    }
-
-    public Fruit getFruitByItem(int choice, ArrayList<Fruit> listFruit) {
-        Fruit fr = new Fruit();
-        return fr;
+    private Fruit getFruitByItem(int item) throws Exception {
+        for (Fruit fruit : listOfFruit) {
+            if (listOfFruit.indexOf(fruit) == item) {
+                return fruit;
+            }
+        }
+        throw new Exception("THere is no fruit that has this item");
     }
 
     public void displayListFruit(ArrayList<Fruit> fruit) {
 
     }
 
-    public void displayListOrder(ArrayList<Order> orderList) {
-
-    }
-
-    private boolean checkItemExistOrder(String id) {
+    private boolean checkExistedOrder() {
         for (Order order : listOfOrder) {
-            if (order.getFruitID().equalsIgnoreCase(id)) {
+            if (order.getFruit().getFruitID().equalsIgnoreCase(fruit.getFruitID())) {
                 return true;
             }
         }
         return false;
     }
 
-    private boolean checkItemExistFruit(String id, String name) {
-        for (Fruit order : list) {
-            if (order.getFruitID().equalsIgnoreCase(id)
-                    || order.getFruitName().equalsIgnoreCase(name)
-                    || (order.getFruitID().equalsIgnoreCase(id) && order.getFruitName().equalsIgnoreCase(name))) {
+    private boolean checkExistedFruit(String id, String name) {
+        for (Fruit fruit : listOfFruit) {
+            if (fruit.getFruitID().equalsIgnoreCase(id)
+                    || fruit.getFruitName().equalsIgnoreCase(name)
+                    || (fruit.getFruitID().equalsIgnoreCase(id) && fruit.getFruitName().equalsIgnoreCase(name))) {
                 return true;
             }
         }
         return false;
     }
-//    public static void createFruit() {
-//        String fruitID;
-//        String fruitName;
-//        double price;
-//        int quantity;
-//        String origin;
-//        fruitID=Validation.getStringByRegex("Enter Fruits ID: ", "Not empty");
-//        fruitName=Validation.getStringByRegex("Enter Fruits Name: ", "Not empty");
-//        price=Validation.getDouble("Enter Fruits Price: ", "Please enter an integer number");
-//        quantity=Validation.getInt("Enter Fruits Quantities: ", "Please enter a number");
-//        origin=Validation.getStringByRegex("Enter Fruits Origin: ", "Not empty");
-//        if (Validation.checkItemExistFruit(f, fruitID, fruitName)) {
-//            System.out.println("ID is existed");
-//        }
-//        else f.add(new Fruit(fruitID, fruitName, price, quantity, origin));
-//        displayListFruit(f);
-//    }
-//    public static void viewOrders(Hashtable<String, ArrayList<Order>> order) {
-//        if (order.isEmpty()) {
+
+    private void updateQuantity(int numberOfFruit) {
+        fruit.setQuantity(fruit.getQuantity() - numberOfFruit);
+    }
+//    public static void viewOrders(Hashtable<String, ArrayList<Order>> fruit) {
+//        if (fruit.isEmpty()) {
 //            System.out.println("There is no item");
 //        }
-//        for (String name: order.keySet()) {
+//        for (String name: fruit.keySet()) {
 //            System.out.println("Customer: "+name);
-//            ArrayList<Order> fruit = order.get(name);
+//            ArrayList<Order> fruit = fruit.get(name);
 //            displayListOrder(fruit);
 //        }
 //    }
 
-//    public static void Shopping(ArrayList<Fruit> fruit, Hashtable<String, ArrayList<Order>> hashTable) {
+//    public static void shopping(ArrayList<Fruit> fruit, Hashtable<String, ArrayList<Order>> hashTable) {
 //
 //        ArrayList<Order> listOrder = new ArrayList<>();
 //        while (true) {
@@ -115,11 +125,11 @@ public class Manager {
 //            //cap nhat lai quantity cua fr
 //            fr.setQuantity(fr.getQuantity()-quantity);
 //            System.out.println("You selected: "+fr.getFruitName());
-//            //kiem tra trong order id cua item da ton tai hay chua
+//            //kiem tra trong fruit id cua item da ton tai hay chua
 //            if (Validation.checkItemExistOrder(listOrder, fr.getFruitID())) {
 //                updateOrder(listOrder, fr.getFruitID(), quantity);
 //            }
-//            else { //neu chua ton tai item trong order
+//            else { //neu chua ton tai item trong fruit
 //                listOrder.add(new Order(fr.getFruitID(), fr.getFruitName(), quantity, fr.getPrice()));
 //            }
 //            if (!Validation.checkYN("Do you want to continue (Y/N)? ", "Please enter Y or N")) break;
@@ -130,10 +140,10 @@ public class Manager {
 //        System.out.println("Add successfully");
 //    }
 //    public static void updateOrder(ArrayList<Order> listOrder, String id, int quantity) {
-//        for (Order order: listOrder) {
-//            if (order.getFruitID().equalsIgnoreCase(id)) //kiem tra ID cua fruit co trung voi id cua Order khong
+//        for (Order fruit: listOrder) {
+//            if (fruit.getFruitID().equalsIgnoreCase(id)) //kiem tra ID cua fruit co trung voi id cua Order khong
 //            {
-//                order.setQuantity(order.getQuantity()+quantity);
+//                fruit.setQuantity(fruit.getQuantity()+quantity);
 //                return;
 //            }
 //        }
