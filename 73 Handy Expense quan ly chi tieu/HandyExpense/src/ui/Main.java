@@ -24,7 +24,7 @@ public class Main {
         while (true) {
             menu.menu();
             switch (menu.getInt()) {
-                case 1 -> {
+                case 1:
                     System.out.println("------------ Add an expense ------------");
                     do {
                         try {
@@ -34,10 +34,10 @@ public class Main {
                             System.err.println(e.getMessage());
                         }
                     } while (Validation.checkYN());
-                }
-                case 2 -> {
+                    break;
+                case 2:
                     if (managerController.getList().isEmpty()) {
-                        System.out.println("Nothing in the list");
+                        System.out.println("There is nothing in the list");
                         break;
                     }
                     System.out.println("------------ Display all expenses ------------");
@@ -45,8 +45,8 @@ public class Main {
                     for (Expense obj : managerController.getList()) {
                         System.out.println(obj.toString());
                     }
-                }
-                case 3 -> {
+                    break;
+                case 3:
                     System.out.println("------------ Delete an expense ------------");
                     try {
                         managerController.delete();
@@ -54,10 +54,9 @@ public class Main {
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
-                }
-                case 4 -> {
+                    break;
+                case 4:
                     return;
-                }
             }
         }
     }

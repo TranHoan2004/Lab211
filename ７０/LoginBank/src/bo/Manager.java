@@ -4,14 +4,17 @@
  */
 package bo;
 
+import entity.Account;
+import java.util.ArrayList;
+
 /**
  *
  * @author ADMIN
  */
 public class Manager {
 
-    private String account;
-    private String password;
+    private Account account;
+    private String captcha;
     private static final char[] chars = {'1', 'A', 'a', 'B', 'b', 'C',
         'c', '2', 'D', 'd', 'E', 'e', 'F', 'f', '3', 'G', 'g', 'H', 'h',
         'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', '4', 'M', 'm', 'N', 'n',
@@ -19,9 +22,8 @@ public class Manager {
         '6', '7', 'U', 'u', 'V', 'v', 'U', 'u', 'W', 'w', '8', 'X', 'x',
         'Y', 'y', 'Z', 'z', '9'};
 
-    public void addAccount(String account, String password) {
+    public void addAccount(Account account) {
         this.account = account;
-        this.password = password;
     }
 
     public String generateCaptchaText() {
@@ -31,15 +33,28 @@ public class Manager {
             int index = (int) (Math.random() * (chars.length - 1));
             sb.append(chars[index]);
         }
-        return sb.toString();
+        captcha = sb.toString();
+        return captcha;
     }
 
-    public String getAccount() {
-        return account;
+    public boolean checkCaptcha(String captcha) {
+        if (this.captcha.compareTo(captcha) == 0) {
+            return true;
+        }
+        return false;
     }
 
-    public String getPassword() {
-        return password;
+    public boolean isAccountNumberMatches(String accNumber) {
+        if (account.getAccountNumber().compareTo(accNumber) == 0) {
+            return true;
+        }
+        return false;
     }
 
+    public boolean isPasswordMatches(String password) {
+        if (account.getAccountPassword().compareTo(password) == 0) {
+            return true;
+        }
+        return false;
+    }
 }

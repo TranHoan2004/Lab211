@@ -20,12 +20,10 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         ManagerController managerController = new ManagerController();
-        String menu = """
-                      ======================== Login Program ========================
-                      1. Add User
-                      2. Login
-                      3. Exit                      
-                      """;
+        String menu = "======================== Login Program ========================\n"
+                + "1. Add User\n"
+                + "2. Login\n"
+                + "3. Exit\n";
         while (true) {
             System.out.println(menu);
             int choice = Validation.getInt("Please choice one option: ", "Must be an integer number",
@@ -42,9 +40,6 @@ public class Main {
                 case 2:
                     while (true) {
                         try {
-                            if (managerController.getList().isEmpty()) {
-                                throw new Exception("There is no account in this device, cannot be login");
-                            }
                             System.out.println("------------------------- Login -------------------------");
                             Account account = managerController.login();
                             System.out.print("Hi " + account.getName() + ", do you want change password now? ");

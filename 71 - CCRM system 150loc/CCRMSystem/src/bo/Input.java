@@ -13,7 +13,6 @@ import utils.Validation;
  */
 public class Input {
 
-    private static int counter = 0;
     private final Task task;
 
     public Input() {
@@ -30,7 +29,6 @@ public class Input {
         task.setPlanTo(Validation.getDouble("To: ", "Must be a number greater than 0", task.getPlanFrom() + 0.5, 24)); 
         task.setAssignee(Validation.getStringByRegex("Assignee: ", "[A-Za-z]+", "Please enter a word"));
         task.setReviewer(Validation.getStringByRegex("Reviewer: ", "[A-Za-z]+", "Do not have specials characters"));
-        task.setID(++counter);
         return task;
     }
 

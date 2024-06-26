@@ -15,13 +15,11 @@ public class Menu {
     private int choice = 0;
 
     public void menu() {
-        String menu = """
-                      ======== Handy Expense Program ========
-                      1. Add an expense
-                      2. Display all expenses
-                      3. Delete an expense
-                      4. Quit
-                      """;
+        String menu = "======== Handy Expense Program ========\n"
+                + "1. Add an expense\n"
+                + "2. Display all expenses\n"
+                + "3. Delete an expense\n"
+                + "4. Quit";
         System.out.println(menu);
         choice = Validation.getInt("Your choice: ", "Only Number!", "Out of range!", 1, 4);
     }

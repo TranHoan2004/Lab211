@@ -29,8 +29,9 @@ public class ManagerController {
     public void createAccount() throws Exception {
         AccountInput input = new AccountInput();
         Account account = input.getAccountInformation();
-        listManager.checkWhenCreateAccount(account);
-        listManager.addToList(account);
+        accountManager.setAccount(account); 
+        account = listManager.checkWhenCreateAccount(accountManager.getAccount());
+        listManager.addToList(account); 
     }
 
     /**
@@ -48,10 +49,10 @@ public class ManagerController {
         String userAccount = getStringByRegex("Account: ", "Only words", "[A-Za-z]+");
         Account account = listManager.getAccountByUserName(userAccount);
         accountManager.setAccount(account);
-        
+
         //password 
         String pasword = Validation.getPassword("Password: ");
-        String encryptedPass = accountManager.MD5Encryption(pasword);
+        String encryptedPass = Validation.MD5Encryption(pasword);
         if (accountManager.isTruePassword(encryptedPass)) {
             account = accountManager.getAccount();
         }
@@ -66,7 +67,7 @@ public class ManagerController {
      */
     public void changePassword() throws Exception {
         String oldPassword = Validation.getPassword("Old Password: ");
-        String encryptedPass = accountManager.MD5Encryption(oldPassword);
+        String encryptedPass = Validation.MD5Encryption(oldPassword);
         if (accountManager.checkPassMatchesAccount(encryptedPass)) {
             String newPass = Validation.getPassword("New Password: ");
             String rewritePass = Validation.getPassword("Re-new Password: ");
@@ -75,7 +76,7 @@ public class ManagerController {
         }
     }
 
-    public ArrayList<Account> getList() {
+    public ArrayList<Account> getList() throws Exception {
         return listManager.getList();
     }
 }

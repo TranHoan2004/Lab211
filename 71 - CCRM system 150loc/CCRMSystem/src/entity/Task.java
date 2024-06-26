@@ -38,19 +38,15 @@ public final class Task {
 
     public Type getTaskTypeID() {
         switch (this.taskTypeID) {
-            case 1 -> {
+            case 1:
                 return Type.Code;
-            }
-            case 2 -> {
+            case 2:
                 return Type.Design;
-            }
-            case 3 -> {
+            case 3:
                 return Type.Review;
-            }
-            case 4 -> {
+            case 4:
                 return Type.Test;
-            }
-            default ->
+            default:
                 throw new AssertionError();
         }
     }

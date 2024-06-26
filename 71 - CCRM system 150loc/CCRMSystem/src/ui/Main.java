@@ -17,18 +17,16 @@ public class Main {
 
     public static void main(String[] args) {
         Controller managerController = new Controller();
-        String menu = """
-                      ========== Task program ==========
-                         1. Add Task
-                         2. Delete Task
-                         3. Display Task
-                         4. Exit
-                      """;
+        String menu = "========== Task program ==========\n"
+                + "1. Add Task\n"
+                + "2. Delete Task\n"
+                + "3. Display Task\n"
+                + "4. Exit\n";
         while (true) {
             System.out.println(menu);
             int choice = Validation.getInt("Your choice: ", "[0-9]", "Please enter an integer number from 1 to 4", 1, 4);
             switch (choice) {
-                case 1 -> {
+                case 1:
                     System.out.println("---------- Add Task ----------");
                     do {
                         try {
@@ -38,8 +36,8 @@ public class Main {
                             System.err.println(e.getMessage());
                         }
                     } while (Validation.checkYN());
-                }
-                case 2 -> {
+                    break;
+                case 2:
                     System.out.println("---------- Delete Task ----------");
                     try {
                         managerController.deleteTask();
@@ -47,19 +45,22 @@ public class Main {
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
-                }
-                case 3 -> {
-                    System.out.println("\n------------- TASK -------------");
-                    System.out.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s\n", "ID", "Name", "Task Type", "Date", "Time",
-                            "Assigne",
-                            "Reviewer");
-                    for (Task task : managerController.getList()) {
-                        System.out.println(task.display());                     
+                    break;
+                case 3:
+                    try {
+                        System.out.println("\n------------- TASK -------------");
+                        System.out.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s\n", "ID", "Name", "Task Type", "Date", "Time",
+                                "Assigne",
+                                "Reviewer");
+                        for (Task task : managerController.getList()) {
+                            System.out.println(task.display());
+                        }
+                    } catch (Exception ex) {
+                        System.err.println(ex.getMessage());
                     }
-                }
-                case 4 -> {
+                    break;
+                case 4:
                     return;
-                }
             }
         }
     }

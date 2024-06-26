@@ -20,9 +20,9 @@ public class AccountInput {
     }
 
     public Account getAccountInformation() {
-        account.setUserName(Validation.getStringByRegex("Account: ", "Not null", "[A-Za-z]+"));
+        account.setUserName(Validation.getStringByRegex("Account: ", "Not null", "[A-Za-z0-9]+"));
         account.setPassword(Validation.getPassword("Password: "));  
-        account.setName(Validation.getStringByRegex("Name: ", "Do not have digits", "^([A-Z][a-z]+\\\s)*[A-Z][a-z]+$")); //regex se bat buoc phai viet ten gom cac chu hoa dau tu 
+        account.setName(Validation.getStringByRegex("Name: ", "Do not have digits", "[A-Za-z ]+")); 
         account.setPhone(Validation.getPhone("Phone: "));
         account.setEmailAddress(Validation.getEmail("Email: "));
         account.setAddress(Validation.getStringByRegex("Address: ", "Must have a name of street or city", "^[a-zA-Z0-9 ,./-]+$"));

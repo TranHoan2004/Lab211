@@ -16,18 +16,16 @@ public class Main {
 
     public static void main(String[] args) {
         Controller controller = new Controller();
-        String menu = """
-                      =======Calculator Program=======
-                      1. Addition Matrix
-                      2. Subtraction Matrix
-                      3. Multiplication Matrix
-                      4. Quit
-                      """;
+        String menu = "=======Calculator Program=======\n"
+                + "1. Addition Matrix\n"
+                + "2. Subtraction Matrix\n"
+                + "3. Multiplication Matrix\n"
+                + "4. Quit\n";
         while (true) {
             System.out.print(menu);
             int choice = Validation.getInt("Your choice: ", "Please enter an integer number from 1 to 4", 1, 4);
             switch (choice) {
-                case 1 -> {
+                case 1:
                     System.out.println("\n\n-------Addition-------");
                     try {
                         Matrix matrix = controller.additionMatrix();
@@ -35,8 +33,8 @@ public class Main {
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
-                }
-                case 2 -> {
+                    break;
+                case 2:
                     System.out.println("\n\n-------Subtraction-------");
                     try {
                         Matrix matrix = controller.subtractionMatrix();
@@ -44,8 +42,8 @@ public class Main {
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
-                }
-                case 3 -> {
+                    break;
+                case 3:
                     System.out.println("\n\n-------Multiplication-------");
                     try {
                         Matrix matrix = controller.multiplicationMatrix();
@@ -53,10 +51,9 @@ public class Main {
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
-                }
-                case 4 -> {
+                    break;
+                case 4:
                     return;
-                }
             }
         }
     }
@@ -65,12 +62,15 @@ public class Main {
         System.out.println("\n-------Result-------");
         printMatrix1(matrix1);
         switch (choice) {
-            case 1 ->
+            case 1:
                 System.out.println("+");
-            case 2 ->
+                break;
+            case 2:
                 System.out.println("-");
-            case 3 ->
+                break;
+            case 3:
                 System.out.println("/");
+                break;
         }
         printMatrix1(matrix2);
         System.out.println("=");

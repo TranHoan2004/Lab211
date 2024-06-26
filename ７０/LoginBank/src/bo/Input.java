@@ -4,6 +4,7 @@
  */
 package bo;
 
+import entity.Account;
 import utils.Validation;
 
 /**
@@ -12,14 +13,27 @@ import utils.Validation;
  */
 public class Input {
 
-    private String account;
-    private String password;
+    private Account account;
 
-    public String getAccount(String message, String err) {
-        return account = Validation.getStringByRegex(message, "[0-9 ]+", err);
+    public Account getAccountInVietnamese() {
+        account.setAccountNumber(Validation.getStringByRegex("So tai khoan: ", "[0-9 ]+", "So tai khoan phai la 1 so va phai co 10 chu so"));
+        account.setAccountPassword(Validation.getStringByRegex("Mat khau: ", "[A-Za-z0-9 ]+", "Mat khau phai trong khoang 9-31 ky tu va phai chua ky tu va so"));
+        return account;
     }
 
-    public String getPassword(String message, String err) {
-        return password = Validation.getStringByRegex(message, "^[a-zA-Z0-9]+$", err);
+    public Account getAccountInEnglish() {
+        account.setAccountNumber(Validation.getStringByRegex("Account number: ", "[0-9 ]+", "Account number must be a number and must have 10 digits"));
+        account.setAccountPassword(Validation.getStringByRegex("Password: ", "[A-Za-z0-9 ]+", "Password must be between 8 and 31 characters and must be alphanumberic"));
+        return account;
+    }
+
+    public String getCapchaInVietnamese() {
+        String capcha = Validation.getStringByRegex("Nhap 1 ky tu captcha: ", "[A-Za-z0-9]{6}+", "Capcha sai");
+        return capcha;
+    }
+
+    public String getCapchaInEnglish() {
+        String capcha = Validation.getStringByRegex("Enter a Captcha: ", "[A-Za-z0-9]{6}+", "Captcha incorrect");
+        return capcha;
     }
 }

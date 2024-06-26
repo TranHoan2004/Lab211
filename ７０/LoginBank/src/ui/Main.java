@@ -4,6 +4,8 @@
  */
 package ui;
 
+import controller.Controller;
+
 /**
  *
  * @author ADMIN
@@ -15,6 +17,19 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Controller controller = new Controller();
+        Menu menu = new Menu();
+        while (true) {
+            menu.getMenu();
+            switch (menu.getChoice()) {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    return;
+            }
+        }
     }
     
 }

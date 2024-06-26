@@ -77,10 +77,6 @@ public class Validation {
         return account.getUserName().equalsIgnoreCase(userAccount);
     }
 
-    public static boolean checkPassword(String password, Account account) {
-        return account.getPassword().equalsIgnoreCase(password);
-    }
-
     public static boolean checkYN() {
         String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
         return input.toLowerCase().equalsIgnoreCase("y");
@@ -106,5 +102,19 @@ public class Validation {
     public static String getPassword(String msg) {
         String password = getStringByRegex(msg, "Not null", "^[a-zA-Z0-9@#$%^&+=.]+$");
         return password;
+    }
+    public static String MD5Encryption(String password) {
+        while (true) {
+            try {
+                MessageDigest md = MessageDigest.getInstance("MD5");
+                md.update(password.getBytes());
+                byte[] hashBytes = md.digest();
+                String base64Hash = Base64.getEncoder().encodeToString(hashBytes);
+                return base64Hash;
+            } catch (NoSuchAlgorithmException ex) {
+                System.err.println("There is an error occured");
+            }
+            return null;
+        }
     }
 }

@@ -5,9 +5,6 @@
 package bo;
 
 import entity.Account;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
 import utils.Validation;
 
 /**
@@ -23,6 +20,7 @@ public class AccountManager {
     }
 
     public void setAccount(Account account) {
+        encryption();
         this.account = account;
     }
 
@@ -31,7 +29,7 @@ public class AccountManager {
     }
 
     public boolean isTruePassword(String encryptedPass) throws Exception {
-        if (!Validation.checkPassword(encryptedPass, account)) {
+        if (!account.getPassword().equalsIgnoreCase(encryptedPass)) {
             throw new Exception("Password is incorrect");
         }
         return true;
@@ -43,32 +41,17 @@ public class AccountManager {
         if (!checkPassMatchesPass(password, rewritePass)) {
             throw new Exception("Re-new password is incorrect");
         }
-        account.setPassword(MD5Encryption(rewritePass));
+        account.setPassword(Validation.MD5Encryption(rewritePass));
         return account;
     }
 
     private Account encryption() {
-        account.setPassword(MD5Encryption(account.getPassword()));
+        account.setPassword(Validation.MD5Encryption(account.getPassword()));
         return account;
     }
 
-    public String MD5Encryption(String password) {
-        while (true) {
-            try {
-                MessageDigest md = MessageDigest.getInstance("MD5");
-                md.update(password.getBytes());
-                byte[] hashBytes = md.digest();
-                String base64Hash = Base64.getEncoder().encodeToString(hashBytes);
-                return base64Hash;
-            } catch (NoSuchAlgorithmException ex) {
-                System.err.println("There is an error occured");
-            }
-            return null;
-        }
-    }
-
     public boolean checkPassMatchesAccount(String encryptedPass) throws Exception {
-        if (!Validation.checkPassword(encryptedPass, account)) {
+        if (!account.getPassword().equalsIgnoreCase(encryptedPass)) {
             throw new Exception("Password is incorrect");
         }
         return true;

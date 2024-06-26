@@ -14,13 +14,6 @@ import java.util.Scanner;
  */
 public class Validation {
 
-    private static final char[] chars = {'1', 'A', 'a', 'B', 'b', 'C',
-        'c', '2', 'D', 'd', 'E', 'e', 'F', 'f', '3', 'G', 'g', 'H', 'h',
-        'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', '4', 'M', 'm', 'N', 'n',
-        'O', 'o', '5', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't',
-        '6', '7', 'U', 'u', 'V', 'v', 'U', 'u', 'W', 'w', '8', 'X', 'x',
-        'Y', 'y', 'Z', 'z', '9'};
-
     public static String removeUnneccessaryBlank(String input) {
         return input.trim().replaceAll("\\s+", " ");
     }
@@ -56,17 +49,21 @@ public class Validation {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.print(msg);
-            String string = sc.nextLine();
-            if (string.matches(regex)) {
+            String string = removeUnneccessaryBlank(sc.nextLine());
+            if (string.isEmpty()) {
+                System.err.println("Not null");
+            }
+            else if (string.matches(regex)) {
                 return string;
             } else {
                 System.err.println(err);
             }
         }
     }
-    
+
     public static boolean checkYN() {
-        String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
+	String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
         return input.toLowerCase().equalsIgnoreCase("y");
     }
+
 }

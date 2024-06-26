@@ -42,12 +42,13 @@ public class ListAccountManager {
         }
     }
 
-    public void checkWhenCreateAccount(Account account) throws Exception { //kiểm tra xem tk mới đã tồn tại trong danh sách hay không
+    public Account checkWhenCreateAccount(Account account) throws Exception { //kiểm tra xem tk mới đã tồn tại trong danh sách hay không
         if (isUsernameAndEmailExisted(account)) { //nếu trùng tên người dùng và email 
             throw new Exception("User's name is already existed");
         } else if (isAccountExisted(account)) { //nếu tài khoản đã tồn tại 
             throw new Exception("This account is already existed");
         }
+        return account;
     }
 
     private boolean isUsernameAndEmailExisted(Account account) {
@@ -69,7 +70,10 @@ public class ListAccountManager {
         return false;
     }
 
-    public ArrayList<Account> getList() {
+    public ArrayList<Account> getList() throws Exception {
+        if (listOfAccount.isEmpty()) {
+            throw new Exception("There is no account in this device, cannot be login");
+        }
         return listOfAccount;
     }
 }
