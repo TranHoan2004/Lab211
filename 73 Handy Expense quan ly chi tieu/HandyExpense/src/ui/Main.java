@@ -4,7 +4,7 @@
  */
 package ui;
 
-import controller.ManagerController;
+import controller.Controller;
 import entity.Expense;
 import utils.Validation;
 
@@ -20,43 +20,36 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         Menu menu = new Menu();
-        ManagerController managerController = new ManagerController();
+        Controller managerController = new Controller();
         while (true) {
-            menu.menu();
-            switch (menu.getInt()) {
-                case 1:
-                    System.out.println("------------ Add an expense ------------");
-                    do {
-                        try {
+            try {
+                menu.menu();
+                switch (menu.getInt()) {
+                    case 1:
+                        System.out.println("------------ Add an expense ------------");
+                        do {
                             managerController.addExpense();
                             System.out.println("Successfully!");
-                        } catch (Exception e) {
-                            System.err.println(e.getMessage());
-                        }
-                    } while (Validation.checkYN());
-                    break;
-                case 2:
-                    if (managerController.getList().isEmpty()) {
-                        System.out.println("There is nothing in the list");
+                        } while (Validation.checkYN());
                         break;
-                    }
-                    System.out.println("------------ Display all expenses ------------");
-                    System.out.printf("%-12s%-15s%-15s%s\n", "ID", "Date", "Amount", "Content");
-                    for (Expense obj : managerController.getList()) {
-                        System.out.println(obj.toString());
-                    }
-                    break;
-                case 3:
-                    System.out.println("------------ Delete an expense ------------");
-                    try {
+                    case 2:
+                        System.out.println("------------ Display all expenses ------------");
+                        System.out.printf("%-12s%-15s%-15s%s\n", "ID", "Date", "Amount", "Content");
+                        for (Expense obj : managerController.getList()) {
+                            System.out.println(obj.toString());
+                        }
+                        System.out.println("Total: " + managerController.getTotal());
+                        break;
+                    case 3:
+                        System.out.println("------------ Delete an expense ------------");
                         managerController.delete();
                         System.out.println("Successfully!");
-                    } catch (Exception e) {
-                        System.err.println(e.getMessage());
-                    }
-                    break;
-                case 4:
-                    return;
+                        break;
+                    case 4:
+                        return;
+                }
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
             }
         }
     }

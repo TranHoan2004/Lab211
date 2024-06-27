@@ -8,7 +8,6 @@ import entity.History;
 import entity.History.Status;
 import entity.Worker;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Stack;
 
 /**
@@ -26,6 +25,7 @@ public class WorkerManager {
     }
 
     public ArrayList<Worker> getList() {
+        sort();
         return listOfWorker;
     }
 
@@ -53,6 +53,18 @@ public class WorkerManager {
         }
         worker.setSalary(worker.getSalary() - amount);
         addToList(Status.DOWN, worker);
+    }
+
+    private void sort() {
+        for (int i = 0; i < listOfWorker.size(); i++) {
+            for (int j = 0; j < listOfWorker.size() - i -1; j++) {
+                if (listOfWorker.get(j).getId().compareTo(listOfWorker.get(j + 1).getId()) > 0) {
+                    Worker temp = listOfWorker.get(j);
+                    listOfWorker.set(j, listOfWorker.get(j + 1));
+                    listOfWorker.set(j + 1, temp);
+                }
+            }
+        }
     }
 
     private void addToList(Status status, Worker worker) {
