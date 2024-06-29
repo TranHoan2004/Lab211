@@ -73,7 +73,7 @@ public class Main {
                             + "%-15s%-15s%-15s%-15s%-15s%-15s\n",
                             "Code", "Name", "Age", "Salary", "Status", "Date");
                     System.out.println("From the newest to the oldest");
-                    for (int i = managerController.getHistory().size(); i > 0; i--) {
+                    for (int i = managerController.getHistory().size() - 1; i >= 0; i--) {
                         System.out.println(managerController.getHistory().get(i).displaySalaryInformation());
                     }
                     break;
