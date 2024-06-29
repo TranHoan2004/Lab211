@@ -20,7 +20,7 @@ public class Controller {
     private final Manager manager;
     private final FileManager file;
 
-    public Controller() {
+    public Controller() throws Exception {
         this.file = new FileManager();
         this.manager = new Manager(file.getMaxID());
     }
@@ -62,8 +62,7 @@ public class Controller {
         return manager.getList();
     }
 
-    public void openFile() throws Exception {
-        file.openFile();
+    private void openFile() throws Exception {
         manager.setList(file.readFromFile()); 
     }
 }

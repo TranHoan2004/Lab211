@@ -23,12 +23,16 @@ public class ManagerController {
     public ManagerController() {
         this.manager = new WorkerManager();
     }
-    
+
     public ArrayList<Worker> getList() {
         return manager.getList();
     }
 
     public Stack<History> getHistory() {
+//        ArrayList<History> list = new ArrayList<>();
+//        for (int i=0;i< manager.getHistory().size();i++) {
+//            list.add(manager.getHistory().peek());  
+//        }
         return manager.getHistory();
     }
 
@@ -38,19 +42,16 @@ public class ManagerController {
         manager.addWorker(work);
     }
 
-    public void changeSalary(int choice) throws Exception {
+    public void changeSalary(boolean type) throws Exception {
         String code = Validation.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Code must begin with an upper case and followinging by a digit");
         if (!manager.isExist(code)) {
             throw new Exception("Id is not existed");
         }
         double amount = Validation.getDouble("Amount: ", "Must be a positive number", 1, Double.MAX_VALUE);
-        switch (choice) {
-            case 2:
-                manager.increaseSalary(amount, code);
-                break;
-            case 3:
-                manager.decreaseSalary(amount, code);
-                break;
+        if (type) {
+            manager.increaseSalary(amount, code);
+        } else if (!type) {
+            manager.decreaseSalary(amount, code);
         }
     }
 }

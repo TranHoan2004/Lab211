@@ -45,11 +45,22 @@ public class Main {
                     } while (Validation.checkYN());
                     break;
                 case 2:
+                    System.out.println("--------------------------- CHANGE SALARY ---------------------------");
+                    while (true) {
+                        try {
+                            managerController.changeSalary(true);
+                            System.out.println("Successfully!");
+                            break;
+                        } catch (Exception e) {
+                            System.err.println(e.getMessage());
+                        }
+                    }
+                    break;
                 case 3:
                     System.out.println("--------------------------- CHANGE SALARY ---------------------------");
                     while (true) {
                         try {
-                            managerController.changeSalary(choice);
+                            managerController.changeSalary(false);
                             System.out.println("Successfully!");
                             break;
                         } catch (Exception e) {
@@ -62,9 +73,8 @@ public class Main {
                             + "%-15s%-15s%-15s%-15s%-15s%-15s\n",
                             "Code", "Name", "Age", "Salary", "Status", "Date");
                     System.out.println("From the newest to the oldest");
-                    Stack<History> list = managerController.getHistory();
-                    while (!list.isEmpty()) {
-                        System.out.println(list.pop().displaySalaryInformation());
+                    for (int i = managerController.getHistory().size(); i > 0; i--) {
+                        System.out.println(managerController.getHistory().get(i).displaySalaryInformation());
                     }
                     break;
                 case 5:

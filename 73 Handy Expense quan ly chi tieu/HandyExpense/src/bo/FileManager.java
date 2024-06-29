@@ -25,7 +25,7 @@ public class FileManager {
 
     private final File file = new File("Data.txt");
 
-    public void createText(String infor) {
+    public void createText(String infor) throws Exception{
         file.getAbsolutePath();
         try {
             boolean isEmpty = !file.exists() || isFileEmpty();
@@ -41,11 +41,11 @@ public class FileManager {
             bw.close();
             fw.close();
         } catch (IOException e) {
-            System.out.println("File is not existed");
+            throw new Exception("File is not existed");
         }
     }
 
-    public int getMaxID() {
+    public int getMaxID() throws Exception {
         file.getAbsolutePath();
         int lastId = 0;
         String filePath = "Data.txt";
@@ -64,12 +64,12 @@ public class FileManager {
                 }
             }
         } catch (IOException e) {
-            System.out.println("File is not existed");
+            throw new Exception("File is not existed");
         }
         return lastId;
     }
 
-    public boolean isFileEmpty() throws FileNotFoundException, IOException {
+    public boolean isFileEmpty() throws Exception {
         if (file.length() == 0) {
             return true;
         }

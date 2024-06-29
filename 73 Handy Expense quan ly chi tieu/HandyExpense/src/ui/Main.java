@@ -20,29 +20,30 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         Menu menu = new Menu();
-        Controller managerController = new Controller();
+        Controller controller;
         while (true) {
             try {
+                controller = new Controller();
                 menu.menu();
                 switch (menu.getInt()) {
                     case 1:
                         System.out.println("------------ Add an expense ------------");
                         do {
-                            managerController.addExpense();
+                            controller.addExpense();
                             System.out.println("Successfully!");
                         } while (Validation.checkYN());
                         break;
                     case 2:
                         System.out.println("------------ Display all expenses ------------");
                         System.out.printf("%-12s%-15s%-15s%s\n", "ID", "Date", "Amount", "Content");
-                        for (Expense obj : managerController.getList()) {
+                        for (Expense obj : controller.getList()) {
                             System.out.println(obj.toString());
                         }
-                        System.out.println("Total: " + managerController.getTotal());
+                        System.out.println("Total: " + controller.getTotal());
                         break;
                     case 3:
                         System.out.println("------------ Delete an expense ------------");
-                        managerController.delete();
+                        controller.delete();
                         System.out.println("Successfully!");
                         break;
                     case 4:
