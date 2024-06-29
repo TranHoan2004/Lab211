@@ -5,7 +5,7 @@
 package ui;
 
 import controller.Controller;
-import entity.EastAsiaCountries;
+import entity.Country;
 import java.util.ArrayList;
 
 /**
@@ -25,42 +25,41 @@ public class Main {
         while (true) {
             menu.menu();
             switch (menu.getChoice()) {
-                case 1 -> {
+                case 1:
                     System.out.println("============= Add countries =============");
-                    int count = 0;
-                    while (count != 4) {
                         try {
-                            ++count;
-                            controller.addCountryInformation(count);
+                            controller.addCountryInformation();
                             System.out.println("Add successfully");
                         } catch (Exception ex) {
-                            System.out.println(ex.getMessage());
+                            System.err.println(ex.getMessage());
                         }
-                    }
-                }
-                case 2 -> display(controller.getRecentlyEnteredInformation());
-                case 3 -> {
+                    break;
+                case 2:
+                    display(controller.getRecentlyEnteredInformation());
+                    break;
+                case 3:
                     try {
-                        ArrayList<EastAsiaCountries> list = controller.searchInformationByName();
+                        ArrayList<Country> list = controller.searchInformationByName();
                         display(list);
                     } catch (Exception ex) {
-                        System.out.println(ex.getMessage());
+                        System.err.println(ex.getMessage());
                     }
-                }
-                case 4 -> display(controller.sortInformationByAscendingOrder());
-                case 5 -> {
+                    break;
+                case 4:
+                    display(controller.sortInformationByAscendingOrder());
+                    break;
+                case 5:
                     return;
-                }
+
             }
         }
     }
 
-    public static void display(ArrayList<EastAsiaCountries> list) {
+    public static void display(ArrayList<Country> list) {
         System.out.println("============= Display =============");
         System.out.printf("%-15s%-15s%-15s%s\n", "ID", "Name", "Total Area", "Terrain");
-        for (EastAsiaCountries country : list) {
+        for (Country country : list) {
             System.out.println(country.display());
         }
     }
 }
- 

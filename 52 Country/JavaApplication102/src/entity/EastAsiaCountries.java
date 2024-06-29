@@ -8,46 +8,28 @@ package entity;
  *
  * @author ADMIN
  */
-public class EastAsiaCountries {
-    protected String countryCode;
-    protected String countryName;
-    protected float totalArea;
+public class EastAsiaCountries extends Country {
+
+    private String countryTerrain;
+
+    public EastAsiaCountries(String countryTerrain, String countryCode, String countryName, float totalArea) {
+        super(countryCode, countryName, totalArea);
+        this.countryTerrain = countryTerrain;
+    }
 
     public EastAsiaCountries() {
     }
 
-    public EastAsiaCountries(String countryCode, String countryName, float totalArea) {
-        this.countryCode = countryCode;
-        this.countryName = countryName;
-        this.totalArea = totalArea;
+    public String getCountryTerrain() {
+        return countryTerrain;
     }
 
-    public String getCountryCode() {
-        return countryCode;
+    public void setCountryTerrain(String countryTerrain) {
+        this.countryTerrain = countryTerrain;
     }
 
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
-
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
-    }
-
-    public float getTotalArea() {
-        return totalArea;
-    }
-
-    public void setTotalArea(float totalArea) {
-        this.totalArea = totalArea;
-    }
-
+    @Override
     public String display() {
-        return String.format("%-15s%-15s%.2f", getCountryCode(), getCountryName(), getTotalArea());
+        return String.format("%s      %s", super.display(), getCountryTerrain());
     }
-    
 }

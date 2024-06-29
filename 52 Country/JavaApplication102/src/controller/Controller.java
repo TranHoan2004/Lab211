@@ -6,7 +6,7 @@ package controller;
 
 import bo.CountryInput;
 import bo.CountryManager;
-import entity.EastAsiaCountries;
+import entity.Country;
 import java.util.ArrayList;
 import utils.Validation;
 
@@ -23,26 +23,34 @@ public class Controller {
         this.manager = new CountryManager();
     }
 
-    public void addCountryInformation(int count) throws Exception {
-        this.input = new CountryInput();
-        EastAsiaCountries country = input.getCountry();
-        manager.addToList(country);
+    public void addCountryInformation() throws Exception {
+        int count = 0;
+        while (count != 3) {
+            ++count;
+            this.input = new CountryInput();
+            Country country = input.getCountry();
+            manager.addToList(country);
+        }
     }
 
-    public ArrayList<EastAsiaCountries> getRecentlyEnteredInformation() {
+    public ArrayList<Country> getRecentlyEnteredInformation() {
         return manager.getRecentlyEnteredInformation();
     }
 
-    public ArrayList<EastAsiaCountries> searchInformationByName() throws Exception {
+    public ArrayList<Country> searchInformationByName() throws Exception {
         String name = Validation.getStringByRegex("Enter name of country: ", "[A-Za-z ]+", "Only letters and spaces");
-        return manager.searchInformationByName(name); 
+        if (manager.searchInformationByName(name).isEmpty()) { 
+            throw new Exception("There is no country that has this name");
+        }
+        return manager.searchInformationByName(name);
     }
 
-    public ArrayList<EastAsiaCountries> sortInformationByAscendingOrder() {
-        ArrayList<EastAsiaCountries> list = manager.sortInformationByAscendingOrder();
+    public ArrayList<Country> sortInformationByAscendingOrder() {
+        ArrayList<Country> list = manager.sortInformationByAscendingOrder();
         return list;
     }
-    public ArrayList<EastAsiaCountries> getList() {
+
+    public ArrayList<Country> getList() {
         return manager.getRecentlyEnteredInformation();
     }
 }

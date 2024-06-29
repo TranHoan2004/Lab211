@@ -4,8 +4,8 @@
  */
 package bo;
 
-import entity.Country;
 import entity.EastAsiaCountries;
+import entity.Country;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -16,39 +16,36 @@ import java.util.Comparator;
  */
 public class CountryManager {
 
-    private final ArrayList<EastAsiaCountries> list;
+    private final ArrayList<Country> list;
 
     public CountryManager() {
         this.list = new ArrayList<>();
     }
 
-    public void addToList(EastAsiaCountries country) throws Exception {
+    public void addToList(Country country) throws Exception {
         if (isExisted(country)) {
             throw new Exception("This country is already existed");
         }
         list.add(country);
     }
 
-    public ArrayList<EastAsiaCountries> searchInformationByName(String name) throws Exception {
-        ArrayList<EastAsiaCountries> listOfCountry = new ArrayList<>();
-        for (EastAsiaCountries country : list) {
+    public ArrayList<Country> searchInformationByName(String name) {
+        ArrayList<Country> listOfCountry = new ArrayList<>();
+        for (Country country : list) {
             if (country.getCountryName().toUpperCase().contains(name.toUpperCase())
                     || country.getCountryName().toLowerCase().contains(name.toLowerCase())) {
                 listOfCountry.add(country);
             }
         }
-        if (listOfCountry.isEmpty()) {
-            throw new Exception("There is no country that has this name");
-        }
         return listOfCountry;
     }
 
-    public ArrayList<EastAsiaCountries> sortInformationByAscendingOrder() {
-        ArrayList<EastAsiaCountries> cloneCountry = new ArrayList<>();
+    public ArrayList<Country> sortInformationByAscendingOrder() {
+        ArrayList<Country> cloneCountry = new ArrayList<>();
         cloneCountry = (ArrayList) list.clone();
-        Comparator<EastAsiaCountries> ct = new Comparator<EastAsiaCountries>() {
+        Comparator<Country> ct = new Comparator<Country>() {
             @Override
-            public int compare(EastAsiaCountries o1, EastAsiaCountries o2) {
+            public int compare(Country o1, Country o2) {
                 return o1.getCountryName().compareTo(o2.getCountryName());
             }
         };
@@ -56,12 +53,12 @@ public class CountryManager {
         return cloneCountry;
     }
 
-    public ArrayList<EastAsiaCountries> getRecentlyEnteredInformation() {
+    public ArrayList<Country> getRecentlyEnteredInformation() {
         return list;
     }
 
-    private boolean isExisted(EastAsiaCountries country) {
-        for (EastAsiaCountries c : list) {
+    private boolean isExisted(Country country) {
+        for (Country c : list) {
             if (c == country) {
                 return true;
             }

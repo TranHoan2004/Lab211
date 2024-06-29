@@ -4,8 +4,8 @@
  */
 package bo;
 
-import entity.EastAsiaCountries;
 import entity.Country;
+import entity.EastAsiaCountries;
 import utils.Validation;
 
 /**
@@ -14,13 +14,13 @@ import utils.Validation;
  */
 public class CountryInput {
 
-    private final Country country;
+    private final EastAsiaCountries country;
 
     public CountryInput() {
-        this.country = new Country();
+        this.country = new EastAsiaCountries();
     }
 
-    public Country getCountry() {
+    public EastAsiaCountries getCountry() {
         country.setCountryCode(Validation.getStringByRegex("Enter code of country: ", "[A-Z]+", "Only uppercase letters"));
         country.setCountryName(Validation.getStringByRegex("Enter name of country: ", "[A-Za-z ]+", "Only letters and spaces"));
         country.setTotalArea(Validation.getFloat("Enter total area: ", "Only positive numbers", 1, Float.MAX_VALUE));
