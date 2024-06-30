@@ -15,11 +15,13 @@ import java.util.Comparator;
  */
 public class Manager {
 
-    private ArrayList<Expense> list;
+    private ArrayList<Expense> list = new ArrayList<>();
     private static int count;
 
+    public Manager() {
+    }
+    
     public Manager(int max) {
-        this.list = new ArrayList<>();
         Manager.count = max;
     }
 
@@ -32,7 +34,7 @@ public class Manager {
         this.list = list;
     }
 
-    public void setList(Expense ex) {
+    public void addToList(Expense ex) {
         ex.setId(++count);
         list.add(ex);
     }
@@ -49,8 +51,7 @@ public class Manager {
 
     public int calcSummaryOfExpense() {
         int sum = 0;
-        for (Expense expense : list) {
-            
+        for (Expense expense : list) {            
             sum += expense.getMoney();
         }
         return sum;
@@ -124,7 +125,6 @@ public class Manager {
                 int year2 = Integer.parseInt(parts2[2]);
                 int month2 = Integer.parseInt(parts2[1]);
                 int day2 = Integer.parseInt(parts2[0]);
-
                 if (year1 != year2) {
                     return Integer.compare(year1, year2);
                 } else if (month1 != month2) {

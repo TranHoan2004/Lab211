@@ -25,13 +25,13 @@ public class ListAccountManager {
         listOfAccount.add(account);
     }
 
-    public Account getAccountByUserName(String userName) throws Exception { //trả về tài khoản có user name 
+    public Account getAccountByUserName(String userName) { //trả về tài khoản có user name 
         for (Account account : listOfAccount) {
             if (account.getUserName().equalsIgnoreCase(userName)) {
                 return account;
             }
         }
-        throw new Exception("This account is not existed, please create the new one");
+        return null;
     }
 
     public void updateAccount(Account account) { //cập nhật lại tài khoản đã cập nhật mật khẩu 
@@ -70,10 +70,7 @@ public class ListAccountManager {
         return false;
     }
 
-    public ArrayList<Account> getList() throws Exception {
-        if (listOfAccount.isEmpty()) {
-            throw new Exception("There is no account in this device, cannot be login");
-        }
+    public ArrayList<Account> getList() {
         return listOfAccount;
     }
 }

@@ -8,7 +8,6 @@ import entity.History;
 import entity.History.Status;
 import entity.Worker;
 import java.util.ArrayList;
-import java.util.Stack;
 
 /**
  *
@@ -17,11 +16,11 @@ import java.util.Stack;
 public class WorkerManager {
 
     private final ArrayList<Worker> listOfWorker;
-    private final Stack<History> listOfHistory;
+    private final ArrayList<History> listOfHistory;
 
     public WorkerManager() {
         this.listOfWorker = new ArrayList<>();
-        this.listOfHistory = new Stack<>();
+        this.listOfHistory = new ArrayList<>();
     }
 
     public ArrayList<Worker> getList() {
@@ -29,7 +28,7 @@ public class WorkerManager {
         return listOfWorker;
     }
 
-    public Stack<History> getHistory() {
+    public ArrayList<History> getHistory() {
         return listOfHistory;
     }
 
@@ -70,7 +69,7 @@ public class WorkerManager {
     private void addToList(Status status, Worker worker) {
         Worker w = new Worker(worker.getId(), worker.getName(), worker.getWorkLocation(), worker.getAge(), worker.getSalary());
         History history = new History(status, w);
-        listOfHistory.push(history);
+        listOfHistory.add(history);
     }
 
     private Worker findByID(String id) throws Exception {

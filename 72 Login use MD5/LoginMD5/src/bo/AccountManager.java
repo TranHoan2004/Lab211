@@ -14,13 +14,14 @@ import utils.Validation;
  */
 public class AccountManager {
 
-    private Account account = new Account();
+    private Account account;
 
     public AccountManager() {
+        this.account = new Account();
     }
 
     public void setAccount(Account account) {
-        encryption();
+        encryption(account);
         this.account = account;
     }
 
@@ -30,7 +31,7 @@ public class AccountManager {
 
     public boolean isTruePassword(String encryptedPass) throws Exception {
         if (!account.getPassword().equalsIgnoreCase(encryptedPass)) {
-            throw new Exception("Password is incorrect");
+            return false;
         }
         return true;
     }
@@ -45,14 +46,14 @@ public class AccountManager {
         return account;
     }
 
-    private Account encryption() {
+    private Account encryption(Account account) {
         account.setPassword(Validation.MD5Encryption(account.getPassword()));
         return account;
     }
 
     public boolean checkPassMatchesAccount(String encryptedPass) throws Exception {
         if (!account.getPassword().equalsIgnoreCase(encryptedPass)) {
-            throw new Exception("Password is incorrect");
+            return false;
         }
         return true;
     }

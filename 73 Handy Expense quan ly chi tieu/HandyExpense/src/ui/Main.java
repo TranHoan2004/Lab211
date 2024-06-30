@@ -20,10 +20,9 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         Menu menu = new Menu();
-        Controller controller;
         while (true) {
             try {
-                controller = new Controller();
+                Controller controller = new Controller();
                 menu.menu();
                 switch (menu.getInt()) {
                     case 1:
@@ -34,10 +33,14 @@ public class Main {
                         } while (Validation.checkYN());
                         break;
                     case 2:
+                        if (controller.getList().isEmpty()) {
+                            System.out.println("List is empty");
+                            break;
+                        }
                         System.out.println("------------ Display all expenses ------------");
                         System.out.printf("%-12s%-15s%-15s%s\n", "ID", "Date", "Amount", "Content");
-                        for (Expense obj : controller.getList()) {
-                            System.out.println(obj.toString());
+                        for (Expense expense: controller.getList()) {
+                            System.out.println(expense.toString());
                         }
                         System.out.println("Total: " + controller.getTotal());
                         break;

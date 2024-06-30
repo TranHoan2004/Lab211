@@ -17,20 +17,21 @@ import utils.Validation;
  */
 public class Controller {
 
-    private final Manager manager;
+    private Manager manager;
     private final FileManager file;
 
-    public Controller() throws Exception {
+    public Controller() {
         this.file = new FileManager();
-        this.manager = new Manager(file.getMaxID());
+        this.manager = new Manager();
     }
 
     public void addExpense() throws Exception {
+        manager = new Manager(file.getMaxID());
         openFile();
         Input input = new Input();
         Expense expense = input.getExpense();
-        manager.setList(expense);
-        file.createText(expense.toString());
+        manager.addToList(expense);
+        updateFile();
     }
 
     public void delete() throws Exception {
@@ -47,6 +48,10 @@ public class Controller {
         return manager.calcSummaryOfExpense();
     }
 
+    public ArrayList<Expense> getList() {
+        return manager.getList();
+    }
+
     private void updateFile() throws Exception {
         file.clear();
         for (Expense expense : manager.getList()) {
@@ -54,15 +59,7 @@ public class Controller {
         }
     }
 
-    public ArrayList<Expense> getList() throws Exception {
-        if (manager.getList().isEmpty()) {
-            throw new Exception("List is empty, cannot be deleted");
-        }
-        updateFile();
-        return manager.getList();
-    }
-
     private void openFile() throws Exception {
-        manager.setList(file.readFromFile()); 
+        manager.setList(file.readFromFile());
     }
 }

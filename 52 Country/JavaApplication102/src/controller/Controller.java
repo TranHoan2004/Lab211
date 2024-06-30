@@ -25,7 +25,7 @@ public class Controller {
 
     public void addCountryInformation() throws Exception {
         int count = 0;
-        while (count != 3) {
+        while (count != 11) {
             ++count;
             this.input = new CountryInput();
             Country country = input.getCountry();

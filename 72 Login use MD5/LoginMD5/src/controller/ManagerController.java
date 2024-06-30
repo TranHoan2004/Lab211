@@ -29,9 +29,9 @@ public class ManagerController {
     public void createAccount() throws Exception {
         AccountInput input = new AccountInput();
         Account account = input.getAccountInformation();
-        accountManager.setAccount(account); 
+        accountManager.setAccount(account);
         account = listManager.checkWhenCreateAccount(accountManager.getAccount());
-        listManager.addToList(account); 
+        listManager.addToList(account);
     }
 
     /**
@@ -48,6 +48,9 @@ public class ManagerController {
         //user name
         String userAccount = getStringByRegex("Account: ", "Only words", "[A-Za-z]+");
         Account account = listManager.getAccountByUserName(userAccount);
+        if (account == null) {
+            throw new Exception("This account is not existed, please create the new one");
+        }
         accountManager.setAccount(account);
 
         //password 
@@ -55,8 +58,9 @@ public class ManagerController {
         String encryptedPass = Validation.MD5Encryption(pasword);
         if (accountManager.isTruePassword(encryptedPass)) {
             account = accountManager.getAccount();
+            return account;
         }
-        return account;
+        throw new Exception("Password is incorrect");
     }
 
     /**
@@ -73,10 +77,8 @@ public class ManagerController {
             String rewritePass = Validation.getPassword("Re-new Password: ");
             Account account = accountManager.resetPassword(newPass, rewritePass);
             listManager.updateAccount(account);
+        } else {
+            throw new Exception("Password is incorrect");
         }
-    }
-
-    public ArrayList<Account> getList() throws Exception {
-        return listManager.getList();
     }
 }
