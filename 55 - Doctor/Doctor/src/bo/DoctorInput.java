@@ -22,10 +22,14 @@ public class DoctorInput {
 
     public Doctor getDoctor() {
         doctor.setCode(Validation.getStringByRegex("Enter Code: ", "[A-Za-z0-9 ]+", "Do not have special characters"));
-        doctor.setName(Validation.getStringByRegex("ENter Name: ", "[A-Za-z ]+", "Do not have any digits and special characters"));
+        doctor.setName(Validation.getStringByRegex("Enter Name: ", "[A-Za-z ]+", "Do not have any digits and special characters"));
         doctor.setSpecialization(Validation.getStringByRegex("Enter Specialization: ", "[A-Za-z ]+", "Do not have any digits and special characters"));
-        doctor.setAvailability(Validation.getInt("ENter Availability: ", "Only one number", "Out of range", 1, 100));
+        doctor.setAvailability(Validation.getInt("Enter Availability: ", "Only one number", "Out of range", 1, 100));
         return doctor;
     }
-
+    
+    public String getString() {
+        String text = Validation.getStringByRegex("Enter Code: ", "[A-Za-z0-9 ]+", "Do not have special characters");
+        return text;
+    }
 }

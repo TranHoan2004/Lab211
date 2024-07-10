@@ -6,6 +6,9 @@
 package ui;
 
 import controller.Controller;
+import entity.Doctor;
+import java.util.ArrayList;
+import utils.Validation;
 
 /**
  *
@@ -21,18 +24,46 @@ public class Main {
         Controller controller = new Controller();
         Menu menu = new Menu();
         while (true) {
-            menu.getMenu();
-            switch (menu.getChoice()) {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    return;
+            try {
+                menu.getMenu();
+                switch (menu.getChoice()) {
+                    case 1:
+                        do {
+                            System.out.println("==========Add Doctor==========");
+                            controller.createDoctor();
+                            System.out.println("Successfully");
+                        } while (Validation.checkYN());
+                        System.out.printf("%-15s%-15s%-20s%s\n", "Code", "Name", "Specialization", "Avaibility");
+                        for (Doctor doctor : controller.getListOfDoctor()) {
+                            System.out.println(doctor.toString()); 
+                        }
+                        break;
+                    case 2:
+                        System.out.println("==========Update Doctor==========");
+                        controller.update();
+                        break;
+                    case 3:
+                        System.out.println("==========Delete Doctor==========");
+                        controller.delete();
+                        break;
+                    case 4:
+                        System.out.println("==========Search Doctor==========");
+                        ArrayList<Doctor> list = controller.search();
+                        if (list.isEmpty()) {
+                            System.out.println("No data");
+                            break;
+                        }
+                        System.out.println("----------Result----------");
+                        System.out.printf("%-15s%-15s%-20s%s\n", "Code", "Name", "Specialization", "Avaibility");
+                        for (Doctor doctor : list) {
+                            System.out.println(doctor.toString());
+                        }
+                        break;
+                    case 5:
+                        return;
+                }
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
             }
         }
     }

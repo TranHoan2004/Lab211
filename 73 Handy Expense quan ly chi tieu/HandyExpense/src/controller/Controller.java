@@ -48,7 +48,8 @@ public class Controller {
         return manager.calcSummaryOfExpense();
     }
 
-    public ArrayList<Expense> getList() {
+    public ArrayList<Expense> getList() throws Exception {
+        openFile();
         return manager.getList();
     }
 

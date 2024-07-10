@@ -38,15 +38,21 @@ public class WorkerManager {
         }
         listOfWorker.add(work);
     }
-
+//
     public void increaseSalary(double amount, String code) throws Exception {
         Worker worker = findByID(code);
+        if (worker == null) {
+            throw new Exception("Worker has this id is not existed");
+        }
         worker.setSalary(worker.getSalary() + amount);
         addToList(Status.UP, worker);
     }
 
     public void decreaseSalary(double amount, String code) throws Exception {
         Worker worker = findByID(code);
+        if (worker == null) {
+            throw new Exception("Worker has this id is not existed");
+        }
         if (amount > worker.getSalary()) {
             throw new Exception("Amount is larger than salary");
         }
@@ -54,9 +60,26 @@ public class WorkerManager {
         addToList(Status.DOWN, worker);
     }
 
+//    public void updateSalary(double amount, String code, boolean status) throws Exception {
+//        Worker worker = findByID(code);
+//        if (worker == null) {
+//            throw new Exception("Worker has this id is not existed");
+//        }
+//        if (status) {
+//            worker.setSalary(worker.getSalary() + amount);
+//            addToList(Status.UP, worker);
+//        } else if (!status) {
+//            if (amount > worker.getSalary()) {
+//                throw new Exception("Amount is larger than salary");
+//            }
+//            worker.setSalary(worker.getSalary() - amount);
+//            addToList(Status.DOWN, worker);
+//        }
+//    }
+
     private void sort() {
         for (int i = 0; i < listOfWorker.size(); i++) {
-            for (int j = 0; j < listOfWorker.size() - i -1; j++) {
+            for (int j = 0; j < listOfWorker.size() - i - 1; j++) {
                 if (listOfWorker.get(j).getId().compareTo(listOfWorker.get(j + 1).getId()) > 0) {
                     Worker temp = listOfWorker.get(j);
                     listOfWorker.set(j, listOfWorker.get(j + 1));
@@ -72,13 +95,13 @@ public class WorkerManager {
         listOfHistory.add(history);
     }
 
-    private Worker findByID(String id) throws Exception {
+    private Worker findByID(String id) {
         for (Worker person : listOfWorker) {
             if (id.equalsIgnoreCase(person.getId())) {
                 return person;
             }
         }
-        throw new Exception("Worker has this id is not existed");
+        return null;
     }
 
     public boolean isExist(String id) {

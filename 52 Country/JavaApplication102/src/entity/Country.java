@@ -9,6 +9,7 @@ package entity;
  * @author ADMIN
  */
 public class Country {
+
     protected String countryCode;
     protected String countryName;
     protected float totalArea;
@@ -49,5 +50,5 @@ public class Country {
     public String display() {
         return String.format("%-15s%-15s%.2f", getCountryCode(), getCountryName(), getTotalArea());
     }
-    
+
 }

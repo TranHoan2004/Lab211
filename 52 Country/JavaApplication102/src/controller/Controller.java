@@ -46,8 +46,7 @@ public class Controller {
     }
 
     public ArrayList<Country> sortInformationByAscendingOrder() {
-        ArrayList<Country> list = manager.sortInformationByAscendingOrder();
-        return list;
+        return manager.sortInformationByAscendingOrder();
     }
 
     public ArrayList<Country> getList() {

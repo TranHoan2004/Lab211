@@ -20,7 +20,7 @@ public class Menu {
                 + "1. Add Doctor\n"
                 + "2. Update Doctor\n"
                 + "3. Delete Doctor\n"
-                + "4. Searchn Doctor\n"
+                + "4. Search Doctor\n"
                 + "5. Exit\n");
     }
 

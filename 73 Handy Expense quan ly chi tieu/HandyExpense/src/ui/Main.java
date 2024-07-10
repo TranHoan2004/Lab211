@@ -20,9 +20,9 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         Menu menu = new Menu();
+        Controller controller = new Controller();
         while (true) {
-            try {
-                Controller controller = new Controller();
+            try {                
                 menu.menu();
                 switch (menu.getInt()) {
                     case 1:
@@ -39,7 +39,7 @@ public class Main {
                         }
                         System.out.println("------------ Display all expenses ------------");
                         System.out.printf("%-12s%-15s%-15s%s\n", "ID", "Date", "Amount", "Content");
-                        for (Expense expense: controller.getList()) {
+                        for (Expense expense : controller.getList()) {
                             System.out.println(expense.toString());
                         }
                         System.out.println("Total: " + controller.getTotal());

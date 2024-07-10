@@ -20,7 +20,7 @@ public class Manager {
 
     public Manager() {
     }
-    
+
     public Manager(int max) {
         Manager.count = max;
     }
@@ -51,7 +51,7 @@ public class Manager {
 
     public int calcSummaryOfExpense() {
         int sum = 0;
-        for (Expense expense : list) {            
+        for (Expense expense : list) {
             sum += expense.getMoney();
         }
         return sum;

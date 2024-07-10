@@ -47,6 +47,18 @@ public class ManagerController {
             manager.increaseSalary(amount, code);
         } else if (!type) {
             manager.decreaseSalary(amount, code);
-        }
+        }        
     }
+//    public void ChangeSalary(boolean type) throws Exception {
+//        String code = Validation.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Code must begin with an upper case and followinging by a digit");
+//        if (!manager.isExist(code)) {
+//            throw new Exception("Id is not existed");
+//        }
+//        double amount = Validation.getDouble("Amount: ", "Must be a positive number", 1, Double.MAX_VALUE);
+//        if (type) {
+//            manager.updateSalary(amount, code, true);
+//        } else if (!type) {
+//            manager.updateSalary(amount, code, false);
+//        }  
+//    }
 }

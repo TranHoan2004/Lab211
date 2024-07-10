@@ -8,6 +8,7 @@ package controller;
 import bo.DoctorInput;
 import bo.DoctorManager;
 import entity.Doctor;
+import java.util.ArrayList;
 import utils.Validation;
 
 /**
@@ -29,15 +30,25 @@ public class Controller {
         manager.setList(doctor); 
     }
 
-    public void update() {
-        Doctor doctor = input.getDoctor();
-    }
-
-    public void delete() {
+    public void update() throws Exception {
         String code = Validation.getStringByRegex("Enter Code: ", "[A-Za-z0-9 ]+", "Do not have special characters");
+        String name = Validation.getStringByRegex("Enter Name: ", "[A-Za-z ]+", "Do not have any digits and special characters");
+        String specialization = Validation.getStringByRegex("Enter Specialization: ", "[A-Za-z ]+", "Do not have any digits and special characters");
+        int availability = Validation.getInt("Enter Availability: ", "Only one number", "Out of range", 1, 100);
+        manager.updateInformationOfDoctor(code, name, specialization, availability);
     }
 
-    public void search() {
+    public void delete() throws Exception {
+        String code = Validation.getStringByRegex("Enter Code: ", "[A-Za-z0-9 ]+", "Do not have special characters");
+        manager.deleteDoctor(code); 
+    }
 
+    public ArrayList<Doctor> search() {
+        String text = input.getString();
+        return manager.searchDoctor(text);
+    }
+    
+    public ArrayList<Doctor> getListOfDoctor() {
+        return manager.getList();
     }
 }
