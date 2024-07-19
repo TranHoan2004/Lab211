@@ -22,7 +22,7 @@ public class Input {
     public Expense getExpense() {
         expense.setDate(Validation.getDate("Enter Date: "));
         expense.setMoney(Validation.getDouble("Enter Amount: ", "Only real number!", 0, Double.MAX_VALUE));
-        expense.setContent(Validation.getStringByRegex("Enter Content: ", "[A-Za-z0-9]+", "Name of expense only!"));
+        expense.setContent(Validation.getStringByRegex("Enter Content: ", ".+", "Name of expense only!"));
         return expense;
     }
 }

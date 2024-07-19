@@ -20,4 +20,8 @@ public class Input {
         double b = Validation.getDouble("Enter number b: ", "Please enter a number");
         return b;
     }
+    public OperatorManager.Type getOperation() {
+        OperatorManager.Type operator = Validation.getOperator("Enter Operator: ", "Please input (+,-,*,/,^,=)");
+        return operator;
+    }
 }

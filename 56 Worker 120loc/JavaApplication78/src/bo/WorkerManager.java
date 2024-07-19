@@ -4,7 +4,6 @@
  */
 package bo;
 
-import entity.History;
 import entity.History.Status;
 import entity.Worker;
 import java.util.ArrayList;
@@ -16,11 +15,9 @@ import java.util.ArrayList;
 public class WorkerManager {
 
     private final ArrayList<Worker> listOfWorker;
-    private final ArrayList<History> listOfHistory;
 
     public WorkerManager() {
         this.listOfWorker = new ArrayList<>();
-        this.listOfHistory = new ArrayList<>();
     }
 
     public ArrayList<Worker> getList() {
@@ -28,54 +25,30 @@ public class WorkerManager {
         return listOfWorker;
     }
 
-    public ArrayList<History> getHistory() {
-        return listOfHistory;
-    }
-
-    public void addWorker(Worker work) throws Exception {
+    public boolean addWorker(Worker work) throws Exception {
         if (isExist(work.getId())) {
             throw new Exception("Id is existed");
         }
-        listOfWorker.add(work);
-    }
-//
-    public void increaseSalary(double amount, String code) throws Exception {
-        Worker worker = findByID(code);
-        if (worker == null) {
-            throw new Exception("Worker has this id is not existed");
-        }
-        worker.setSalary(worker.getSalary() + amount);
-        addToList(Status.UP, worker);
+        return listOfWorker.add(work);
     }
 
-    public void decreaseSalary(double amount, String code) throws Exception {
-        Worker worker = findByID(code);
-        if (worker == null) {
-            throw new Exception("Worker has this id is not existed");
+    public Worker changeSalary(Status status, String id, double amount) throws Exception {
+        for (Worker worker : listOfWorker) {
+            if (worker.getId().equalsIgnoreCase(id)) {
+                if (status == Status.UP) {
+                    worker.setSalary(worker.getSalary() + amount);
+                    return worker;
+                } else if (status == Status.DOWN) {
+                    if (amount > worker.getSalary()) {
+                        throw new Exception("Amount is larger than salary");
+                    }
+                    worker.setSalary(worker.getSalary() - amount);
+                    return worker;
+                }
+            }
         }
-        if (amount > worker.getSalary()) {
-            throw new Exception("Amount is larger than salary");
-        }
-        worker.setSalary(worker.getSalary() - amount);
-        addToList(Status.DOWN, worker);
+        throw new Exception("This id is not existed");
     }
-
-//    public void updateSalary(double amount, String code, boolean status) throws Exception {
-//        Worker worker = findByID(code);
-//        if (worker == null) {
-//            throw new Exception("Worker has this id is not existed");
-//        }
-//        if (status) {
-//            worker.setSalary(worker.getSalary() + amount);
-//            addToList(Status.UP, worker);
-//        } else if (!status) {
-//            if (amount > worker.getSalary()) {
-//                throw new Exception("Amount is larger than salary");
-//            }
-//            worker.setSalary(worker.getSalary() - amount);
-//            addToList(Status.DOWN, worker);
-//        }
-//    }
 
     private void sort() {
         for (int i = 0; i < listOfWorker.size(); i++) {
@@ -89,22 +62,7 @@ public class WorkerManager {
         }
     }
 
-    private void addToList(Status status, Worker worker) {
-        Worker w = new Worker(worker.getId(), worker.getName(), worker.getWorkLocation(), worker.getAge(), worker.getSalary());
-        History history = new History(status, w);
-        listOfHistory.add(history);
-    }
-
-    private Worker findByID(String id) {
-        for (Worker person : listOfWorker) {
-            if (id.equalsIgnoreCase(person.getId())) {
-                return person;
-            }
-        }
-        return null;
-    }
-
-    public boolean isExist(String id) {
+    private boolean isExist(String id) {
         for (Worker person : listOfWorker) {
             if (person.getId().equalsIgnoreCase(id)) {
                 return true;

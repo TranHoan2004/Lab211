@@ -105,7 +105,10 @@ public class FileManager {
                 int id = Integer.parseInt(parts[0]);
                 String date = parts[1];
                 double amount = Double.parseDouble(parts[2].replace(",", "."));
-                String content = parts[3];
+                String content = "";
+                for (int i=3;i<parts.length;i++) {
+                    content += parts[i]+ " ";
+                }
                 Expense expense = new Expense();
                 expense.setId(id);
                 expense.setContent(content);

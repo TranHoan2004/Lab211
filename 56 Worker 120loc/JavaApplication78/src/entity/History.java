@@ -15,14 +15,24 @@ public final class History {
     private Worker worker;
     private Status status;
     private LocalDate date;
+    private float salary;
+
+    public float getSalary() {
+        return salary;
+    }
+
+    public void setSalary(float salary) {
+        this.salary = salary;
+    }
 
     public enum Status {
         UP, DOWN;
     }
 
-    public History(Status status, Worker worker) {
+    public History(Status status, Worker worker, float salary) {
         this.worker = worker;
         this.status = status;
+        this.salary = salary;
         setDate();
     }
 

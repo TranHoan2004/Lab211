@@ -4,6 +4,8 @@
  */
 package util;
 
+import bo.OperatorManager;
+import bo.OperatorManager.Type;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -59,13 +61,26 @@ public class Validation {
         }
     }
 
-    public static String checkOperator(String msg, String err) {
+    public static Type getOperator(String msg, String err) {
         while (true) {
-            String op = getStringByRegex(msg, "^[+*/=-]{1}$", err);
+            String op = getStringByRegex(msg, "^[+*^/=-]{1}$", err);
             if (op.equalsIgnoreCase("+") || op.equalsIgnoreCase("-")
                     || op.equalsIgnoreCase("*") || op.equalsIgnoreCase("/")
                     || op.equalsIgnoreCase("^") || op.equalsIgnoreCase("=")) {
-                return op;
+                switch (op) {
+                    case "+":
+                        return OperatorManager.Type.SUM;
+                    case "-":
+                        return OperatorManager.Type.SUB;
+                    case "*":
+                        return OperatorManager.Type.MULTI;
+                    case "/":
+                        return OperatorManager.Type.DIV;
+                    case "^":
+                        return OperatorManager.Type.POW;
+                    default:
+                        return OperatorManager.Type.EQUAL;
+                }
             }
         }
     }
