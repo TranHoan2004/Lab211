@@ -39,7 +39,7 @@ public class Validation {
     }
 
     public static boolean checkYN() {
-        String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
+        String input = getStringByRegex("Do you want to continue? (Y/N): ", "[YNyn]", "[YNyn]");
         return input.toLowerCase().equalsIgnoreCase("y");
     }
 
@@ -67,16 +67,6 @@ public class Validation {
                 return input;
             }
         }
-    }
-
-    public static String getNameByItem(ArrayList<Fruit> list, int item) {
-        String name = null;
-        for (Fruit fruit : list) {
-            if (list.indexOf(fruit) == item) {
-                name = fruit.getFruitName();
-            }
-        }
-        return name;
     }
 
     public static int getQuantityByItem(ArrayList<Fruit> list, int item) {

@@ -69,7 +69,11 @@ public class Fruit {
 
     @Override
     public String toString() {
-        return "Fruit{" + "fruitID=" + fruitID + ", fruitName=" + fruitName + ", price=" + price + ", quantity=" + quantity + '}';
+        return String.format("%-15s%-15s%-15.2f%-15d%s", fruitID,
+                fruitName,
+                price,
+                quantity,
+                origin);
     }
 
 }

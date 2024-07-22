@@ -6,7 +6,6 @@ package ui;
 
 import bo.OperatorManager.Type;
 import controller.Controller;
-import java.io.PrintWriter;
 
 /**
  *

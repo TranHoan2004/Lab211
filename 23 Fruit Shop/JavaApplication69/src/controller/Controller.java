@@ -5,7 +5,8 @@
 package controller;
 
 import bo.Input;
-import bo.Manager;
+import bo.FruitManager;
+import bo.OrderManager;
 import entity.Fruit;
 import entity.Order;
 import java.util.ArrayList;
@@ -17,33 +18,43 @@ import utils.Validation;
  */
 public class Controller {
 
-    private final Manager manager = new Manager();
+    private final FruitManager fruitManager;
+    private final OrderManager orderManager;
+    private Input input;
+
+    public Controller() {
+        this.fruitManager = new FruitManager();
+        this.orderManager = new OrderManager();
+    }
 
     public void addFruit() throws Exception {
-        Input input = new Input();
-        Fruit fr = input.getFruit();
-        manager.createFruit(fr);
+        input = new Input();
+        Fruit fruit = input.getFruit();
+        fruitManager.addFruit(fruit);
     }
 
-    public void shopping(int item) throws Exception {
-        int maxQuantity = Validation.getQuantityByItem(manager.getListOfFruit(), item);
-        int numberOfFruit = Validation.getInt("Please input quality: ", "Only a positive number", "Out of range", 1, maxQuantity);
-        manager.order(numberOfFruit, item);
+    public void shopping() throws Exception {
+        ArrayList<Order> list = new ArrayList<>();
+        do {
+            String item = Validation.getStringByRegex("Select item: ", "[A-Za-z0-9]+", "Do not have special characters");
+            Fruit fruit = fruitManager.getFruit(item);
+            if (fruit == null) {
+                throw new Exception("This fruit is not existed");
+            }
+            int numberOfFruit = Validation.getInt("You seleted: " + fruit.getFruitName() + "\nPlease input quality: ", "Only a positive number", "Out of range", 1, fruit.getQuantity());
+            fruitManager.update(fruit, numberOfFruit);
+            list = orderManager.createOrder(list, fruit, numberOfFruit);
+        } while (Validation.checkYN());
         String name = Validation.getStringByRegex("Your name: ", "[A-Za-z ]+", "Do not have digits or special characters");
-
+        Order order = new Order(name, list);
+        orderManager.addToCart(order);
     }
 
-    public ArrayList<Fruit> getFruit() throws Exception {
-        if (manager.getListOfFruit().isEmpty()) {
-            throw new Exception("List is empty");
-        }
-        return manager.getListOfFruit();
+    public ArrayList<Fruit> getListOfFruit() {
+        return fruitManager.getListOfFruit();
     }
-    
-    public ArrayList<Order> getOrder() throws Exception {
-        if (manager.getOrder().isEmpty()) {
-            throw new Exception("LIst is empty");
-        }
-        return manager.getOrder();
+
+    public ArrayList<Order> getListOfOrder() {
+        return orderManager.getListOfOrder();
     }
 }

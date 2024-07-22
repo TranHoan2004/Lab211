@@ -4,66 +4,48 @@
  */
 package entity;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ADMIN
  */
 public class Order {
 
-//    private String fruitID;
-//    private String fruitName;
-//    private int quantity;
-//    private double price;
-//
-//    public Order() {
-//    }
-//
-//    public Order(String fruitID, String fruitName, int quantity, double price) {
-//        this.fruitID = fruitID;
-//        this.fruitName = fruitName;
-//        this.quantity = quantity;
-//        this.price = price;
-//    }
-//
-//    public String getFruitID() {
-//        return fruitID;
-//    }
-//
-//    public void setFruitID(String fruitID) {
-//        this.fruitID = fruitID;
-//    }
-//
-//    public String getFruitName() {
-//        return fruitName;
-//    }
-//
-//    public void setFruitName(String fruitName) {
-//        this.fruitName = fruitName;
-//    }
-//
-//    public int getQuantity() {
-//        return quantity;
-//    }
-//
-//    public void setQuantity(int quantity) {
-//        this.quantity = quantity;
-//    }
-//
-//    public double getPrice() {
-//        return price;
-//    }
-//
-//    public void setPrice(double price) {
-//        this.price = price;
-//    }
     private Fruit fruit;
     private int quantity;
     private double price;
+    private String name;
+    private ArrayList<Order> listOfOrder;
 
     public Order(Fruit fruit, int quantity, double price) {
         this.fruit = fruit;
         this.quantity = quantity;
         this.price = price;
+    }
+
+    public Order(String name, ArrayList<Order> list) {
+        this.name = name;
+        this.listOfOrder = list;
+    }
+
+    public Order() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ArrayList<Order> getListOfOrder() {
+        return listOfOrder;
+    }
+
+    public void setListOfOrder(ArrayList<Order> listOfOrder) {
+        this.listOfOrder = listOfOrder;
     }
 
     public Fruit getFruit() {
