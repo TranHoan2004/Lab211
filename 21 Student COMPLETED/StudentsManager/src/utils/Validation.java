@@ -42,11 +42,10 @@ public class Validation {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.print(msg);
-            String string = removeUnneccessaryBlank(sc.nextLine()); 
+            String string = removeUnneccessaryBlank(sc.nextLine());
             if ("".equals(string)) {
                 System.err.println("Not null!");
-            }
-            else if (string.matches(regex)) {
+            } else if (string.matches(regex)) {
                 return string;
             } else {
                 System.err.println(err);
@@ -56,6 +55,11 @@ public class Validation {
 
     public static boolean checkYN() {
         String input = getStringByRegex("Do you want to continue (Y/N): ", "[YNyn]", "Y/N only!");
-        return input.toLowerCase().equalsIgnoreCase("y"); 
+        return input.toLowerCase().equalsIgnoreCase("y");
+    }
+
+    public static boolean getOption(String msg, String err, String regex) {
+        String option = getStringByRegex(msg, regex, err);
+        return option.toLowerCase().equalsIgnoreCase("u");
     }
 }

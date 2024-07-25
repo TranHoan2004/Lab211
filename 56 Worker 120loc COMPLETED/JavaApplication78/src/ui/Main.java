@@ -24,7 +24,7 @@ public class Main {
                 + "5. Exit\n";
         while (true) {
             System.out.print(menu);
-            int choice = Validation.checkInputInRange("Your choice: ", "Please enter an integer number from 1 to 5", 1, 5);
+            int choice = Validation.getInt("Your choice: ", "Please enter an integer number from 1 to 5", 1, 5);
             switch (choice) {
                 case 1:
                     do {
