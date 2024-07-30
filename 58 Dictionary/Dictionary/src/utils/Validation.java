@@ -16,7 +16,7 @@ public class Validation {
         return input.trim().replaceAll("\\s+", " ");
     }
 
-    public static int checkInputInRange(String msg, String error, int min, int max) {
+    public static int getInt(String msg, String error, int min, int max) {
         while (true) {
             int input = Integer.parseInt(getStringByRegex(msg, "[0-9]+", error));
             if (input < min || input > max) {
