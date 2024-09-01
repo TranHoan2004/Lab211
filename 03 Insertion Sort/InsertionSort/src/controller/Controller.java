@@ -13,8 +13,8 @@ import bo.Manager;
  */
 public class Controller {
 
-    public final Input input;
-    public final Manager manager;
+    private final Input input;
+    private final Manager manager;
 
     public Controller() {
         this.input = new Input();
