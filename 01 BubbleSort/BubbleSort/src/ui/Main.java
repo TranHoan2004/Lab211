@@ -4,15 +4,13 @@
  */
 package ui;
 
-import controller.ManagerController;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import controller.Controller;
 
 /**
  *
  * @author ADMIN
  */
-public class JavaApplication51 {
+public class Main {
 
     /**
      * @param args the command line arguments
@@ -20,11 +18,11 @@ public class JavaApplication51 {
     //main
     public static void main(String[] args) {
         // TODO code application logic here
-        ManagerController managerController = new ManagerController();
-        int kichCo = managerController.inputSizeOfArray();
-        int[] array = managerController.inputArray(kichCo);
-        managerController.sort(array);
-        managerController.printArray(array);
+        Controller controller = new Controller();
+        int kichCo = controller.getSize();
+        int[] array = controller.getArray(kichCo);
+        controller.sort(array);
+        controller.printArray(array);
     }
 
 }

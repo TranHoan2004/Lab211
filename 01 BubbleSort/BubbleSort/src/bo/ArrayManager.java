@@ -8,7 +8,7 @@ package bo;
  *
  * @author ADMIN
  */
-public class Manager {
+public class ArrayManager {
 
     public void bubbleSort(int[] arr) {
         System.out.println("Unsorted array:");
