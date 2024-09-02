@@ -11,7 +11,7 @@ import utils.Validation;
  * @author ADMIN
  */
 public class Input {
-
+    //input
     public int inputSizeOfArray(String mss) {
         return Validation.getInt(mss, "Must enter an integer", "", Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
