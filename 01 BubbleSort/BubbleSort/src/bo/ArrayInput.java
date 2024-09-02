@@ -11,7 +11,7 @@ import utils.Validation;
  * @author ADMIN
  */
 public class ArrayInput {
-
+    //input
     public int inputSizeOfArray() {
         return Validation.getInteger("kich co = ");
     }
