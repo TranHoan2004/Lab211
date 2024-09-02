@@ -6,7 +6,6 @@ package util;
 
 import bo.OperatorManager;
 import bo.OperatorManager.Type;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**

@@ -9,19 +9,25 @@ package bo;
  * @author ADMIN
  */
 public class OperatorManager {
+
     private double answer;
+
     public OperatorManager() {
         this.answer = 0;
-    }    
+    }
+
     public void setNum(double a) {
         this.answer = a;
     }
+
     public double getAnswer() {
         return answer;
     }
+
     public enum Type {
         SUM, SUB, MULTI, DIV, POW, EQUAL
     }
+
     public void normalCalculator(double b, Type operator) throws Exception {
         switch (operator) {
             case SUM:
@@ -46,6 +52,7 @@ public class OperatorManager {
                 break;
         }
     }
+
     private boolean checkDiv(double b) {
         return b == 0;
     }
