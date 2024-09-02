@@ -31,7 +31,6 @@ public class Main {
                         print(c.getListOfOddNumber(), c.getListOfEvenNumber());
                         printPerfectSquare(c.getListOfPerfectSquare()); 
                     } catch (Exception e) {
-                        System.err.println(e.getMessage());
                     }
                     break;
                 case 2:
