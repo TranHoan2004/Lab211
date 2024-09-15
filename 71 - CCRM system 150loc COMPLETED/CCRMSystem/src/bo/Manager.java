@@ -22,7 +22,7 @@ public class Manager {
     }
 
     public LinkedList<Task> getList() throws Exception {
-        if (getList().isEmpty()) {
+        if (list.isEmpty()) {
             throw new Exception("There is no task in the list, cannot be deleted");
         }
         return list;
