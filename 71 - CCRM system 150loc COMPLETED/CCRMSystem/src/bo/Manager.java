@@ -21,10 +21,7 @@ public class Manager {
         this.count = 0;
     }
 
-    public LinkedList<Task> getList() throws Exception {
-        if (list.isEmpty()) {
-            throw new Exception("There is no task in the list, cannot be deleted");
-        }
+    public LinkedList<Task> getList() {
         return list;
     }
 

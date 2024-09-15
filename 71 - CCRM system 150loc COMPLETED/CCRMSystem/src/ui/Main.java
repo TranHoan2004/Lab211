@@ -48,10 +48,13 @@ public class Main {
                     break;
                 case 3:
                     try {
+                        if (managerController.getList().isEmpty()) {
+                            throw new Exception("There is no task in the list, cannot be deleted");
+                        }
                         System.out.println("\n------------- TASK -------------");
                         System.out.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s\n", "ID", "Name", "Task Type", "Date", "Time",
-                                "Assigne",
-                                "Reviewer");
+                            "Assigne",
+                            "Reviewer");
                         for (Task task : managerController.getList()) {
                             System.out.println(task.display());
                         }

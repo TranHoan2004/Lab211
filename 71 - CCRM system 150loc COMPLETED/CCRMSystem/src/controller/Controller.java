@@ -33,7 +33,7 @@ public class Controller {
         manager.deleteTask(id);
     }
 
-    public LinkedList<Task> getList() throws Exception {
+    public LinkedList<Task> getList() {
         return manager.getList();
     }
 }
