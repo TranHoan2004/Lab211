@@ -6,12 +6,10 @@
 package bo;
 
 /**
- *
  * @author ADMIN
  */
 public class BmiManager {
 
-    private double bmi;
     private double weight;
     private double height;
 
@@ -24,7 +22,6 @@ public class BmiManager {
     }
 
     public double bmiCalculator() {
-        bmi = weight / (height * height / 10000);
-        return bmi;
+        return weight / (height * height / 10000);
     }
 }

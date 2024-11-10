@@ -4,28 +4,21 @@
  */
 package utils;
 
-import entity.Account;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Date;
 import java.util.Scanner;
-import java.util.Base64;
 
 /**
- *
  * @author ADMIN
  */
 public class Validation {
 
     public static String removeUnnecessaryBlank(String input) {
         return input.trim().replaceAll("\\s+", " ");
-    }
-
-    public static boolean pressYNtoContinue() {
-        String input = getStringByRegex("Do you want to continue (Y/N): ", "[YNyn]", "[YNyn]");
-        return input.toLowerCase().equalsIgnoreCase("y");
     }
 
     public static int getInt(String mess, String errorNumberFormat, String errorOutOfRange, int min, int max) {
@@ -45,7 +38,7 @@ public class Validation {
         while (true) {
             System.out.print(mess);
             String output = removeUnnecessaryBlank(scan.nextLine());
-            if ("".equals(output)) {
+            if (output.isEmpty()) {
                 System.err.println("Not null!");
             } else if (output.matches(regex)) {
                 return output;
@@ -56,9 +49,8 @@ public class Validation {
     }
 
     public static String getEmail(String mess) {
-        String regex = "^[A-Za-z](.*)([@]{1})(.{2,})(\\.)(.{2,})";//phai bat dau bang chu cai
-        String email = getStringByRegex(mess, "Please enter email with format <account name>@<domain>", regex);
-        return email;
+        String regex = "^[A-Za-z](.*)([@]{1})(.{2,})(\\.)(.{2,})"; //phai bat dau bang chu cai
+        return getStringByRegex(mess, "Please enter email with format <account name>@<domain>", regex);
     }
 
     public static String getPhone(String mess) {
@@ -73,13 +65,9 @@ public class Validation {
         }
     }
 
-    public static boolean checkUsername(String userAccount, Account account) {
-        return account.getUserName().equalsIgnoreCase(userAccount);
-    }
-
     public static boolean checkYN() {
         String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
-        return input.toLowerCase().equalsIgnoreCase("y");
+        return input.equalsIgnoreCase("y");
     }
 
     public static String getDate() {
@@ -100,21 +88,18 @@ public class Validation {
     }
 
     public static String getPassword(String msg) {
-        String password = getStringByRegex(msg, "Not null", "^[a-zA-Z0-9@#$%^&+=.]+$");
-        return password;
+        return getStringByRegex(msg, "Not null", "^[a-zA-Z0-9@#$%^&+=.]+$");
     }
+
     public static String MD5Encryption(String password) {
-        while (true) {
-            try {
-                MessageDigest md = MessageDigest.getInstance("MD5");
-                md.update(password.getBytes());
-                byte[] hashBytes = md.digest();
-                String base64Hash = Base64.getEncoder().encodeToString(hashBytes);
-                return base64Hash;
-            } catch (NoSuchAlgorithmException ex) {
-                System.err.println("There is an error occured");
-            }
-            return null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(password.getBytes());
+            byte[] hashBytes = md.digest();
+            return Base64.getEncoder().encodeToString(hashBytes);
+        } catch (NoSuchAlgorithmException ex) {
+            System.err.println("There is an error occured");
         }
+        return null;
     }
 }

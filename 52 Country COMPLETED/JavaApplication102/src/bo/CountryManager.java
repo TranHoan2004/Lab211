@@ -4,10 +4,8 @@
  */
 package bo;
 
-import entity.EastAsiaCountries;
 import entity.Country;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 /**
@@ -41,15 +39,15 @@ public class CountryManager {
     }
 
     public ArrayList<Country> sortInformationByAscendingOrder() {
-        ArrayList<Country> cloneCountry = new ArrayList<>();
+        ArrayList<Country> cloneCountry;
         cloneCountry = (ArrayList) list.clone();
-        Comparator<Country> ct = new Comparator<Country>() {
+        Comparator<Country> ct = new Comparator<>() {
             @Override
             public int compare(Country o1, Country o2) {
                 return o1.getCountryName().compareTo(o2.getCountryName());
             }
         };
-        Collections.sort(cloneCountry, ct);
+        cloneCountry.sort(ct);
         return cloneCountry;
     }
 

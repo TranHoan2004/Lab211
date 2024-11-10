@@ -25,7 +25,7 @@ public class Controller {
         this.manager = new Manager();
     }
 
-    public void inputInformation() {
+    public void inputInformation() throws Exception {
         input.addInformation();
     }
 

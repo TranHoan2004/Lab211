@@ -4,27 +4,24 @@
  */
 package controller;
 
-import bo.HistoryManager;
 import bo.WorkerInput;
 import bo.WorkerManager;
 import entity.History;
 import entity.History.Status;
 import entity.Worker;
-import java.util.ArrayList;
 import utils.Validation;
 
+import java.util.ArrayList;
+
 /**
- *
  * @author ADMIN
  */
 public class ManagerController {
 
     private final WorkerManager manager;
-    private final HistoryManager history;
 
     public ManagerController() {
         this.manager = new WorkerManager();
-        this.history = new HistoryManager();
     }
 
     public ArrayList<Worker> getList() {
@@ -32,7 +29,7 @@ public class ManagerController {
     }
 
     public ArrayList<History> getHistory() {
-        return history.getHistory();
+        return manager.getHistory();
     }
 
     public void createWorker() throws Exception {
@@ -42,14 +39,15 @@ public class ManagerController {
     }
 
     public void changeSalary(boolean type) throws Exception {
-        String code = Validation.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Code must begin with an upper case and followinging by a digit");
+        String code = Validation.getStringByRegex("Enter Code: ", "^[A-Z]+[0-9]+$", "Code must begin with an upper case and following by a digit");
         double amount = Validation.getDouble("Amount: ", "Must be a positive number", 1, Double.MAX_VALUE);
-        Worker worker = null;
-        if (type) {
-            worker = manager.changeSalary(Status.UP, code, amount);
-        } else if (!type) {
-            worker = manager.changeSalary(Status.DOWN, code, amount);
-        }
-        history.addToList(Status.UP, worker, 0);
+//        if (type) {
+//            worker = manager.changeSalary(Status.UP, code, amount);
+//        } else if (!type) {
+//            worker = manager.changeSalary(Status.DOWN, code, amount);
+//        }
+        // doan code tren tuong duong voi doan code duoi
+        Worker worker = type ? manager.changeSalary(Status.UP, code, amount) : manager.changeSalary(Status.DOWN, code, amount);
+        manager.addToList(Status.UP, worker, 0);
     }
 }

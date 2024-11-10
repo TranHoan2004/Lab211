@@ -6,7 +6,6 @@
 package ui;
 
 import controller.Controller;
-import entity.Word;
 import utils.Validation;
 
 /**

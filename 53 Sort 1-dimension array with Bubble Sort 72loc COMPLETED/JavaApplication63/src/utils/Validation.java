@@ -11,17 +11,6 @@ import java.util.Scanner;
  * @author ADMIN
  */
 public class Validation {
-
-    private static Scanner sc = new Scanner(System.in);
-
-    public static String removeUnneccessaryBlank(String input) {
-        return input.trim().replaceAll("\\s+", " ");
-    }
-
-    public static String removeAllBlank(String input) {
-        return input.trim().replaceAll("\\s+", "");
-    }
-
     public static String getStringByRegex(String msg, String regex, String err) {
         Scanner sc = new Scanner(System.in);
         while (true) {
@@ -35,14 +24,9 @@ public class Validation {
         }
     }
 
-    public static boolean checkYN() {
-        String input = getStringByRegex("Do you want to continue (Y/N): ", "[YNyn]", "Y/N only!");
-        return input.toLowerCase().equalsIgnoreCase("y");
-    }
-
     public static Integer checkInput(String msg, String regex, String err, int min, int max) {
         while (true) {
-            int input = Integer.parseInt(getStringByRegex(msg, "-?[0-9]+", err));
+            int input = Integer.parseInt(getStringByRegex(msg, regex, err));
             if (input < min || input > max) {
                 System.err.println("Out of range!");
             } else {

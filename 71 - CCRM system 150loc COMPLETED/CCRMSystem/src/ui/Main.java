@@ -31,7 +31,7 @@ public class Main {
                     do {
                         try {
                             managerController.addTask();
-                            System.out.println("Add successully!!");
+                            System.out.println("Add successfully!!");
                         } catch (Exception e) {
                             System.err.println(e.getMessage());
                         }

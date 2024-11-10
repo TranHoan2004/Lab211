@@ -21,9 +21,9 @@ public class Main {
             switch (menu.getChoice()) {
                 case 1:
                     System.out.println("----- Normal Calculator -----");
-                    double ans = 0;
+                    double ans;
                     controller.getA();
-                    Type operator = null;
+                    Type operator;
                     while (true) {
                         try {
                             operator = controller.getOperation();

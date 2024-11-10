@@ -38,11 +38,10 @@ public class Manager {
                 result.add(student);
             }
         }
-        result = sort(result);
-        return result;
+        return sort(result);
     }
 
-    public boolean updateList(boolean type, Students std) throws Exception {
+    public boolean updateList(boolean type, Students std) {
         for (Students student : list) {
             if (student.getId().equalsIgnoreCase(this.student.getId())) {
                 if (type) {

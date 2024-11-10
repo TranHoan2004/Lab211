@@ -13,8 +13,6 @@ import entity.Order;
  */
 public class Menu {
 
-    private int choice;
-
     public void menu() {
         String menu = "\n=====FRUIT SHOP SYSTEM=====\n"
                 + "1. Create Fruit\n"
@@ -25,7 +23,6 @@ public class Menu {
     }
 
     public int getChoice() {
-        choice = Validation.getInt("Your choice: ", "Only one digit", "Out of range!", 1, 4);
-        return choice;
+        return Validation.getInt("Your choice: ", "Only one digit", "Out of range!", 1, 4);
     }
 }

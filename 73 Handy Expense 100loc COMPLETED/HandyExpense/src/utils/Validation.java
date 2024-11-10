@@ -16,7 +16,7 @@ import java.util.Scanner;
  */
 public class Validation {
 
-    public static String removeUnneccessaryBlank(String input) {
+    public static String removeUnnecessaryBlank(String input) {
         return input.trim().replaceAll("\\s+", " ");
     }
 
@@ -47,7 +47,7 @@ public class Validation {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.print(msg);
-            String string = removeUnneccessaryBlank(sc.nextLine()); 
+            String string = removeUnnecessaryBlank(sc.nextLine());
             if (string.matches(regex)) {
                 return string;
             } else {
@@ -58,7 +58,7 @@ public class Validation {
 
     public static boolean checkYN() {
         String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
-        return input.toLowerCase().equalsIgnoreCase("y");
+        return input.equalsIgnoreCase("y");
     }
 
     public static String getDate(String message) {
@@ -71,8 +71,7 @@ public class Validation {
                 String result = sc.nextLine().trim();
                 Date date = format.parse(result);
                 if (result.equalsIgnoreCase(format.format(date))) {
-                    String outputDate = formatOutput.format(date);
-                    return outputDate;
+                    return formatOutput.format(date);
                 } else {
                     System.err.println("Invalid date. Please re-enter.");
                 }                
@@ -80,9 +79,5 @@ public class Validation {
                 System.err.println("Invalid date format. Please re-enter.");
             }
         }
-    }
-    
-    public static boolean checkIdExist(int id, int exID) {
-        return id == exID;
     }
 }

@@ -22,7 +22,7 @@ public class Controller {
         this.manager = new Manager();
     }
 
-    public void addTask() throws Exception {
+    public void addTask() {
         Input input = new Input();
         Task task = input.getTaskInformation();
         manager.addTask(task);

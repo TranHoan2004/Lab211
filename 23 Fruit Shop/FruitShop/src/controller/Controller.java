@@ -20,7 +20,6 @@ public class Controller {
 
     private final FruitManager fruitManager;
     private final OrderManager orderManager;
-    private Input input;
 
     public Controller() {
         this.fruitManager = new FruitManager();
@@ -28,7 +27,7 @@ public class Controller {
     }
 
     public void addFruit() throws Exception {
-        input = new Input();
+        Input input = new Input();
         Fruit fruit = input.getFruit();
         fruitManager.addFruit(fruit);
     }
@@ -41,7 +40,7 @@ public class Controller {
             if (fruit == null) {
                 throw new Exception("This fruit is not existed");
             }
-            int numberOfFruit = Validation.getInt("You seleted: " + fruit.getFruitName() + "\nPlease input quality: ", "Only a positive number", "Out of range", 1, fruit.getQuantity());
+            int numberOfFruit = Validation.getInt("You selected: " + fruit.getFruitName() + "\nPlease input quality: ", "Only a positive number", "Out of range", 1, fruit.getQuantity());
             fruitManager.update(fruit, numberOfFruit);
             list = orderManager.createOrder(list, fruit, numberOfFruit);
         } while (Validation.checkYN());

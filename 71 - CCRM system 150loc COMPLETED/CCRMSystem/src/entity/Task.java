@@ -37,18 +37,13 @@ public final class Task {
     }
 
     public Type getTaskTypeID() {
-        switch (this.taskTypeID) {
-            case 1:
-                return Type.Code;
-            case 2:
-                return Type.Design;
-            case 3:
-                return Type.Review;
-            case 4:
-                return Type.Test;
-            default:
-                throw new AssertionError();
-        }
+        return switch (this.taskTypeID) {
+            case 1 -> Type.Code;
+            case 2 -> Type.Design;
+            case 3 -> Type.Review;
+            case 4 -> Type.Test;
+            default -> throw new AssertionError();
+        };
     }
 
     public String getRequirementName() {

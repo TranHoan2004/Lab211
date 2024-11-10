@@ -27,7 +27,6 @@ public class Input {
     }
 
     public String getEnglishWord() {
-        String word = Validation.getStringByRegex("Enter English: ", "[A-Za-z ]+", "Only word and space");
-        return word;
+        return Validation.getStringByRegex("Enter English: ", "[A-Za-z ]+", "Only word and space");
     }
 }

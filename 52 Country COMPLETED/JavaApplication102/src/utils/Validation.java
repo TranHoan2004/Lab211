@@ -12,12 +12,8 @@ import java.util.Scanner;
  */
 public class Validation {
 
-    public static String removeUnneccessaryBlank(String input) {
+    public static String removeUnnecessaryBlank(String input) {
         return input.trim().replaceAll("\\s+", " ");
-    }
-
-    public static String removeAllBlank(String input) {
-        return input.trim().replaceAll("\\s+", "");
     }
 
     public static int getInt(String mess, String errorNumberFormat, String errorOutOfRange, int min, int max) {
@@ -47,7 +43,7 @@ public class Validation {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.print(msg);
-            String string = removeUnneccessaryBlank(sc.nextLine());
+            String string = removeUnnecessaryBlank(sc.nextLine());
             if (string.isEmpty()) {
                 System.err.println("Not null");
             }
@@ -58,10 +54,4 @@ public class Validation {
             }
         }
     }
-
-    public static boolean checkYN() {
-        String input = getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]");
-        return input.toLowerCase().equalsIgnoreCase("y");
-    }
-
 }

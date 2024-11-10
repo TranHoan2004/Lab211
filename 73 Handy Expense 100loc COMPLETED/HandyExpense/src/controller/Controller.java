@@ -6,7 +6,7 @@ package controller;
 
 import bo.FileManager;
 import bo.Input;
-import bo.Manager;
+import bo.ExpenseManager;
 import entity.Expense;
 import java.util.ArrayList;
 import utils.Validation;
@@ -17,16 +17,16 @@ import utils.Validation;
  */
 public class Controller {
 
-    private Manager manager;
+    private ExpenseManager manager;
     private final FileManager file;
 
     public Controller() {
         this.file = new FileManager();
-        this.manager = new Manager();
+        this.manager = new ExpenseManager();
     }
 
     public void addExpense() throws Exception {
-        manager = new Manager(file.getMaxID());
+        manager = new ExpenseManager(file.getMaxID());
         openFile();
         Input input = new Input();
         Expense expense = input.getExpense();
@@ -44,7 +44,7 @@ public class Controller {
         updateFile();
     }
 
-    public int getTotal() {
+    public double getTotal() {
         return manager.calcSummaryOfExpense();
     }
 

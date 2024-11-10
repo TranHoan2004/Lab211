@@ -11,25 +11,28 @@ import bo.OperatorManager.Type;
 import util.Validation;
 
 /**
- *
  * @author ADMIN
  */
 public class Controller {
     private final OperatorManager operatorManager;
     private final BmiManager bmiManager;
     private final Input input;
+
     public Controller() {
         this.operatorManager = new OperatorManager();
         this.bmiManager = new BmiManager();
         this.input = new Input();
     }
+
     public void getA() {
         double a = input.getA();
         operatorManager.setNum(a);
     }
+
     public Type getOperation() {
         return input.getOperation();
     }
+
     public double typeA(Type operator) throws Exception {
         Input input = new Input();
         if (operator == Type.EQUAL) {
@@ -52,19 +55,15 @@ public class Controller {
             case POW:
                 operatorManager.normalCalculator(b, Type.POW);
                 break;
-            case EQUAL:
-                break;
         }
         return operatorManager.getAnswer();
     }
-    public double typeB() throws Exception {
+
+    public double typeB() {
         double weight = Validation.getDouble("Enter Weight(kg): ", "Weight is a number");
         double height = Validation.getDouble("Enter Height(cm): ", "Weight is a number");
         bmiManager.setWeight(weight);
         bmiManager.setHeight(height);
         return bmiManager.bmiCalculator();
-    }
-    public double getAnswer() {
-        return operatorManager.getAnswer();
     }
 }

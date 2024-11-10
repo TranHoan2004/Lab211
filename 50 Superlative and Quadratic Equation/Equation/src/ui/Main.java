@@ -7,7 +7,6 @@ package ui;
 import controller.Controller;
 import java.util.ArrayList;
 import utils.Validation;
-import java.util.Scanner;
 
 /**
  *

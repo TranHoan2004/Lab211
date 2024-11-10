@@ -12,8 +12,6 @@ import utils.Validation;
  */
 public class Menu {
 
-    private int choice;
-
     public void displayMenu() {
         String menu = """
                       WELCOME TO THE STUDENT MANAGEMENT
@@ -27,7 +25,6 @@ public class Menu {
     }
 
     public int getChoice() {
-        choice = Validation.getInt("Your choice: ", "Only one digit", 1, 5);
-        return choice;
+        return Validation.getInt("Your choice: ", "Only one digit", 1, 5);
     }
 }

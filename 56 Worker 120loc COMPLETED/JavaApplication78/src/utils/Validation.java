@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Validation {
 
-    public static String removeUnneccessaryBlank(String input) {
+    public static String removeUnnecessaryBlank(String input) {
         return input.trim().replaceAll("\\s+", " ");
     }
 
@@ -42,8 +42,8 @@ public class Validation {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.print(msg);
-            String string = removeUnneccessaryBlank(sc.nextLine()); 
-            if ("".equals(string)) {
+            String string = removeUnnecessaryBlank(sc.nextLine());
+            if (string.isEmpty()) {
                 System.err.println("Not null!");
             }
             else if (string.matches(regex)) {
@@ -56,6 +56,6 @@ public class Validation {
 
     public static boolean checkYN() {
         String input = getStringByRegex("Do you want to continue (Y/N): ", "[YNyn]", "Y/N only!");
-        return input.toLowerCase().equalsIgnoreCase("y"); 
+        return input.equalsIgnoreCase("y");
     }
 }

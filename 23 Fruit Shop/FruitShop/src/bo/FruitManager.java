@@ -6,7 +6,6 @@ package bo;
 
 import entity.Fruit;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 /**
@@ -16,11 +15,9 @@ import java.util.Comparator;
 public class FruitManager {
 
     private final ArrayList<Fruit> listOfFruit;
-    private Fruit fruit;
 
     public FruitManager() {
         listOfFruit = new ArrayList<>();
-        this.fruit = new Fruit();
     }
 
     public void addFruit(Fruit fruit) throws Exception {
@@ -30,14 +27,13 @@ public class FruitManager {
         listOfFruit.add(fruit);
     }
 
-    public boolean update(Fruit fruit, int numberOfFruit) {
+    public void update(Fruit fruit, int numberOfFruit) {
         for (Fruit fr : listOfFruit) {
             if (fr == fruit) {
                 fr.setQuantity(fr.getQuantity() - numberOfFruit);
-                return true;
+                return;
             }
         }
-        return false;
     }
 
     private boolean isFruitExisted(Fruit fruit) {
@@ -50,7 +46,7 @@ public class FruitManager {
     }
 
     private void sortListOfFruitById() {
-        Collections.sort(listOfFruit, new Comparator<Fruit>() {
+        listOfFruit.sort(new Comparator<>() {
             @Override
             public int compare(Fruit o1, Fruit o2) {
                 return o1.getFruitID().compareTo(o2.getFruitID());

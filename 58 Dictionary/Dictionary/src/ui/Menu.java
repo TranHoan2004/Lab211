@@ -8,13 +8,9 @@ package ui;
 import utils.Validation;
 
 /**
- *
  * @author ADMIN
  */
 public class Menu {
-
-    private int choice;
-
     public void getMenu() {
         String menu = "\nDICTIONARY PROGRAM"
                 + "\n1. Add new word"
@@ -25,7 +21,6 @@ public class Menu {
     }
 
     public int getChoice() {
-        choice = Validation.getInt("Your choice: ", "Only one digit", 1, 4);
-        return choice;
+        return Validation.getInt("Your choice: ", "Only one digit", 1, 4);
     }
 }

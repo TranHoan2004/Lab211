@@ -41,11 +41,6 @@ public class Manager {
     }
 
     public Triangle getTriangle() {
-        if (triangle.getSideA()+triangle.getSideB() > triangle.getSideC()
-                || triangle.getSideB()+triangle.getSideC() > triangle.getSideA()
-                || triangle.getSideA()+triangle.getSideC() > triangle.getSideB()) {
-            
-        }
         double perimeter = triangle.getSideA() + triangle.getSideB() + triangle.getSideC();
         triangle.setPerimeter(perimeter);
         double area = Math.sqrt(perimeter*(perimeter - triangle.getSideA())*(perimeter - triangle.getSideB())*(perimeter - triangle.getSideC()));

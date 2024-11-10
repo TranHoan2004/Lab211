@@ -18,7 +18,7 @@ public class Manager {
 
     public Manager() {
         this.list = new LinkedList<>();
-        this.count = 0;
+        count = 0;
     }
 
     public LinkedList<Task> getList() {
@@ -47,10 +47,10 @@ public class Manager {
     }
 
     private void updateID(int index) {
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getID() > list.get(index).getID()) {
-                int id = list.get(i).getID() - 1;
-                list.get(i).setID(id);
+        for (Task task : list) {
+            if (task.getID() > list.get(index).getID()) {
+                int id = task.getID() - 1;
+                task.setID(id);
             }
         }
     }

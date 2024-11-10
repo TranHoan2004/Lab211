@@ -17,13 +17,6 @@ public class Triangle extends Shape{
     public Triangle() {
     }
 
-    public Triangle(double sideA, double sideB, double sideC, double area, double perimeter) {
-        super(area, perimeter);
-        this.sideA = sideA;
-        this.sideB = sideB;
-        this.sideC = sideC;
-    }
-
     public double getSideA() {
         return sideA;
     }

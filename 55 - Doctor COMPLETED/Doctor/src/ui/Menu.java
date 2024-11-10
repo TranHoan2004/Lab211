@@ -13,7 +13,6 @@ import utils.Validation;
  */
 public class Menu {
 
-    private int choice;
 
     public void getMenu() {
         System.out.println("\n================ Doctor Management ================\n"
@@ -25,7 +24,6 @@ public class Menu {
     }
 
     public int getChoice() {
-        choice = Validation.getInt("Your choice: ", "Only one digit", "Out of range", 1, 5);
-        return choice;
+        return Validation.getInt("Your choice: ", "Only one digit", "Out of range", 1, 5);
     }
 }

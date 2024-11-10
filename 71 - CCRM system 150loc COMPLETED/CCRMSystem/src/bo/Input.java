@@ -8,7 +8,6 @@ import entity.Task;
 import utils.Validation;
 
 /**
- *
  * @author ADMIN
  */
 public class Input {
@@ -19,14 +18,14 @@ public class Input {
         this.task = new Task();
     }
 
-    public Task getTaskInformation() throws Exception {
+    public Task getTaskInformation() {
         task.setRequirementName(Validation.getStringByRegex("Requirement Name: ", "[A-Za-z ]+",
                 "Do not have specials characters"));
         task.setTaskTypeID(Validation.getInt("Task Type: ", "Must be a positive number greater than 0",
                 "Out of range", 1, 4));
         task.setDate(Validation.getDate());
         task.setPlanFrom(Validation.getDouble("From: ", "Must be a number greater than 0", 1, 18));
-        task.setPlanTo(Validation.getDouble("To: ", "Must be a number greater than 0", task.getPlanFrom() + 0.5, 24)); 
+        task.setPlanTo(Validation.getDouble("To: ", "Must be a number greater than 0", task.getPlanFrom() + 0.5, 24));
         task.setAssignee(Validation.getStringByRegex("Assignee: ", "[A-Za-z]+", "Please enter a word"));
         task.setReviewer(Validation.getStringByRegex("Reviewer: ", "[A-Za-z]+", "Do not have specials characters"));
         return task;

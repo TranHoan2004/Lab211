@@ -13,8 +13,7 @@ import utils.Validation;
 public class Input {
 
     public int getSizeOfArray() {
-        int size = Validation.checkInput("Enter Length Of Array: ", "[0-9]+", "Please input numberand number is greater than zero", 1, Integer.MAX_VALUE);
-        return size;
+        return Validation.checkInput("Enter Length Of Array: ", "[0-9]+", "Please input numberand number is greater than zero", 1, Integer.MAX_VALUE);
     }
 
     public int[] getArray(int size) {

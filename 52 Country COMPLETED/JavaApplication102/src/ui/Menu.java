@@ -12,8 +12,6 @@ import utils.Validation;
  */
 public class Menu {
 
-    private int choice;
-
     public void menu() {
         String menu = "================================= Menu =================================\n"
                 + "1. Enter the information for 11 countries in SoutheastAsia\n"
@@ -25,7 +23,6 @@ public class Menu {
     }
 
     public int getChoice() {
-        choice = Validation.getInt("Your choice: ", "Only one digit", "Out of range", 1, 5);
-        return choice;
+        return Validation.getInt("Your choice: ", "Only one digit", "Out of range", 1, 5);
     }
 }

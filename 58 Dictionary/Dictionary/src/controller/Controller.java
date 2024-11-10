@@ -8,7 +8,6 @@ package controller;
 import bo.Input;
 import bo.Manager;
 import entity.Word;
-import java.util.ArrayList;
 
 /**
  *
@@ -42,11 +41,7 @@ public class Controller {
             throw new Exception("Dictionary is empty, please add some words");
         }
         String string = input.getEnglishWord();
-        String word = manager.translate(string);
-        return word;
+        return manager.translate(string);
     }
 
-    public ArrayList<Word> getDictionary() {
-        return manager.getList();
-    }
 }

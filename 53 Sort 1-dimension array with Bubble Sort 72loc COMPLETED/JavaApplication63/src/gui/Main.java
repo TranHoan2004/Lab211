@@ -21,7 +21,7 @@ public class Main {
                 case 1:
                     System.out.println("----- Input Element -----");
                     try {
-                        manager.intputElement();
+                        manager.inputElement();
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -41,7 +41,7 @@ public class Main {
                         }
                         System.out.printf("[%d]->", manager.getArray()[i]);
                     }
-                    System.out.println("");
+                    System.out.println();
                     break;
                 case 3:
                     System.out.println("----- Descending -----");
@@ -58,7 +58,7 @@ public class Main {
                         }
                         System.out.printf("[%d]<-", manager.getArray()[i]);
                     }
-                    System.out.println("");
+                    System.out.println();
                     break;
                 case 4:
                     return;

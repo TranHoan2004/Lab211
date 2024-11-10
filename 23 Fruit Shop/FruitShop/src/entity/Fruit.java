@@ -19,14 +19,6 @@ public class Fruit {
     public Fruit() {
     }
 
-    public Fruit(String fruitID, String fruitName, double price, int quantity, String origin) {
-        this.fruitID = fruitID;
-        this.fruitName = fruitName;
-        this.price = price;
-        this.quantity = quantity;
-        this.origin = origin;
-    }
-
     public String getFruitID() {
         return fruitID;
     }

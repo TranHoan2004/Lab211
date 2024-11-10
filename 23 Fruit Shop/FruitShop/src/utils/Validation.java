@@ -4,26 +4,15 @@
  */
 package utils;
 
-import entity.Fruit;
-import entity.Order;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *
  * @author ADMIN
  */
 public class Validation {
 
-    private static Scanner sc = new Scanner(System.in);
-
-    public static String removeUnneccessaryBlank(String input) {
+    public static String removeUnnecessaryBlank(String input) {
         return input.trim().replaceAll("\\s+", " ");
-    }
-
-    public static String removeAllBlank(String input) {
-        return input.trim().replaceAll("\\s+", "");
     }
 
     public static int getInt(String mess, String errorNumberFormat, String errorOutOfRange, int min, int max) {
@@ -40,14 +29,14 @@ public class Validation {
 
     public static boolean checkYN() {
         String input = getStringByRegex("Do you want to continue? (Y/N): ", "[YNyn]", "[YNyn]");
-        return input.toLowerCase().equalsIgnoreCase("y");
+        return input.equalsIgnoreCase("y");
     }
 
     public static String getStringByRegex(String msg, String regex, String err) {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.print(msg);
-            String string = removeUnneccessaryBlank(sc.nextLine());
+            String string = removeUnnecessaryBlank(sc.nextLine());
             if (string.isEmpty()) {
                 System.err.println("Not null");
             } else if (string.matches(regex)) {
@@ -67,15 +56,5 @@ public class Validation {
                 return input;
             }
         }
-    }
-
-    public static int getQuantityByItem(ArrayList<Fruit> list, int item) {
-        int quantity = 0;
-        for (Fruit fruit : list) {
-            if (list.indexOf(fruit) == item) {
-                quantity = fruit.getQuantity();
-            }
-        }
-        return quantity;
     }
 }

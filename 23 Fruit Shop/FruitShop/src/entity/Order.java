@@ -29,9 +29,6 @@ public class Order {
         this.listOfOrder = list;
     }
 
-    public Order() {
-    }
-
     public String getName() {
         return name;
     }

@@ -4,7 +4,6 @@
  */
 package util;
 
-import bo.OperatorManager;
 import bo.OperatorManager.Type;
 import java.util.Scanner;
 
@@ -13,14 +12,6 @@ import java.util.Scanner;
  * @author ADMIN
  */
 public class Validation {
-
-    public static String removeUnneccessaryBlank(String input) {
-        return input.trim().replaceAll("\\s+", " ");
-    }
-
-    public static String removeAllBlank(String input) {
-        return input.trim().replaceAll("\\s+", "");
-    }
 
     public static String getStringByRegex(String msg, String regex, String err) {
         Scanner sc = new Scanner(System.in);
@@ -66,20 +57,14 @@ public class Validation {
             if (op.equalsIgnoreCase("+") || op.equalsIgnoreCase("-")
                     || op.equalsIgnoreCase("*") || op.equalsIgnoreCase("/")
                     || op.equalsIgnoreCase("^") || op.equalsIgnoreCase("=")) {
-                switch (op) {
-                    case "+":
-                        return OperatorManager.Type.SUM;
-                    case "-":
-                        return OperatorManager.Type.SUB;
-                    case "*":
-                        return OperatorManager.Type.MULTI;
-                    case "/":
-                        return OperatorManager.Type.DIV;
-                    case "^":
-                        return OperatorManager.Type.POW;
-                    default:
-                        return OperatorManager.Type.EQUAL;
-                }
+                return switch (op) {
+                    case "+" -> Type.SUM;
+                    case "-" -> Type.SUB;
+                    case "*" -> Type.MULTI;
+                    case "/" -> Type.DIV;
+                    case "^" -> Type.POW;
+                    default -> Type.EQUAL;
+                };
             }
         }
     }

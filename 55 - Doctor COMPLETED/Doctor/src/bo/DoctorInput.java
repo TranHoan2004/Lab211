@@ -29,7 +29,6 @@ public class DoctorInput {
     }
     
     public String getString() {
-        String text = Validation.getStringByRegex("Enter Code: ", "[A-Za-z0-9 ]+", "Do not have special characters");
-        return text;
+        return Validation.getStringByRegex("Enter Code: ", "[A-Za-z0-9 ]+", "Do not have special characters");
     }
 }

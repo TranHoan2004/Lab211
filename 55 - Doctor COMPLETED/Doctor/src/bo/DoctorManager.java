@@ -6,19 +6,17 @@
 package bo;
 
 import entity.Doctor;
+
 import java.util.ArrayList;
 
 /**
- *
  * @author ADMIN
  */
 public class DoctorManager {
 
-    private Doctor doctor;
-    private ArrayList<Doctor> list;
+    private final ArrayList<Doctor> list;
 
     public DoctorManager() {
-        this.doctor = new Doctor();
         this.list = new ArrayList<>();
     }
 

@@ -6,23 +6,22 @@ package bo;
 
 import entity.Expense;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 /**
  *
  * @author ADMIN
  */
-public class Manager {
+public class ExpenseManager {
 
     private ArrayList<Expense> list = new ArrayList<>();
     private static int count;
 
-    public Manager() {
+    public ExpenseManager() {
     }
 
-    public Manager(int max) {
-        Manager.count = max;
+    public ExpenseManager(int max) {
+        ExpenseManager.count = max;
     }
 
     public ArrayList<Expense> getList() {
@@ -49,8 +48,8 @@ public class Manager {
         setLastID();
     }
 
-    public int calcSummaryOfExpense() {
-        int sum = 0;
+    public double calcSummaryOfExpense() {
+        double sum = 0;
         for (Expense expense : list) {
             sum += expense.getMoney();
         }
@@ -72,7 +71,7 @@ public class Manager {
 
     private void setLastID() {
         count = 0;
-        list.forEach((_item) -> {
+        list.forEach((_) -> {
             ++count;
         });
     }
@@ -92,8 +91,7 @@ public class Manager {
 
     private ArrayList<Expense> sortByDate() {
         ArrayList<Expense> list1 = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            Expense expense = list.get(i);
+        for (Expense expense : list) {
             String date = expense.getDate();
             date = date.replace("Jan", "01")
                     .replace("Feb", "02")
@@ -114,7 +112,7 @@ public class Manager {
             e1.setId(expense.getId());
             list1.add(e1);
         }
-        Collections.sort(list1, new Comparator<Expense>() {
+        list1.sort(new Comparator<>() {
             @Override
             public int compare(Expense date1, Expense date2) {
                 String[] parts1 = date1.getDate().split("/");
@@ -137,7 +135,7 @@ public class Manager {
         return list1;
     }
 
-    private int getExpenseIndex(int id) throws Exception {
+    private int getExpenseIndex(int id) {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getId() == id) {
                 return i;

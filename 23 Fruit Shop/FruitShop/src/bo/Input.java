@@ -13,7 +13,7 @@ import utils.Validation;
  */
 public class Input {
 
-    private Fruit fruit;
+    private final Fruit fruit;
 
     public Input() {
         this.fruit = new Fruit();

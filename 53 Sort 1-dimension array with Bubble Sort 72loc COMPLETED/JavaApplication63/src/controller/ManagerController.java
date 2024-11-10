@@ -19,7 +19,7 @@ public class ManagerController {
         this.manager = new Manager();
     }
 
-    public void intputElement() throws Exception {
+    public void inputElement() {
         Input input = new Input();
         int size = input.getSizeOfArray();
         manager.addArray(input.getArray(size));

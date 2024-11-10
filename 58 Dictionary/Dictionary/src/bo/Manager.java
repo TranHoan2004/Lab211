@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Manager {
 
-    private ArrayList<Word> listOfWord;
+    private final ArrayList<Word> listOfWord;
 
     public Manager() {
         this.listOfWord = new ArrayList<>();
@@ -28,11 +28,13 @@ public class Manager {
     }
 
     public void deleteWord(String string) throws Exception {
-        for (Word word : listOfWord) {
-            if (word.getEnglishWord().equalsIgnoreCase(string)) {
-                listOfWord.remove(word);
-            }
-        }
+//        for (Word word : listOfWord) {
+//            if (word.getEnglishWord().equalsIgnoreCase(string)) {
+//                listOfWord.remove(word);
+//            }
+//        }
+        // doan code tren tuong duong voi doan code duoi
+        listOfWord.removeIf(word -> word.getEnglishWord().equalsIgnoreCase(string));
         throw new Exception("This word is not existed");
     }
 

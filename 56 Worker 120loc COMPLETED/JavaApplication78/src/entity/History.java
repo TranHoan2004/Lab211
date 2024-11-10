@@ -7,7 +7,6 @@ package entity;
 import java.time.LocalDate;
 
 /**
- *
  * @author ADMIN
  */
 public final class History {
@@ -26,7 +25,7 @@ public final class History {
     }
 
     public enum Status {
-        UP, DOWN;
+        UP, DOWN
     }
 
     public History(Status status, Worker worker, float salary) {
@@ -57,8 +56,7 @@ public final class History {
     }
 
     public void setDate() {
-        LocalDate date1 = LocalDate.now();
-        this.date = date1;
+        this.date = LocalDate.now();
     }
 
     public String displaySalaryInformation() {

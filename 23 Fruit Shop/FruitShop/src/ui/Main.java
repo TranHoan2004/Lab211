@@ -7,8 +7,6 @@ package ui;
 import controller.Controller;
 import entity.Fruit;
 import entity.Order;
-import ui.Menu;
-import java.util.ArrayList;
 import utils.Validation;
 
 /**
@@ -17,7 +15,7 @@ import utils.Validation;
  */
 public class Main {
 
-    private static Controller controller = new Controller();
+    private static final Controller controller = new Controller();
 
     public static void main(String[] args) {
         Menu menu = new Menu();

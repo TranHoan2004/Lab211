@@ -6,7 +6,6 @@
 package bo;
 
 import entity.Expense;
-import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -24,7 +23,7 @@ public class FileManager {
 
     private final File file = new File("Data.txt");
 
-    public void createText(String infor) throws Exception{
+    public void createText(String information) throws Exception{
         file.getAbsolutePath();
         try {
             boolean isEmpty = !file.exists() || isFileEmpty();
@@ -35,7 +34,7 @@ public class FileManager {
                 String string = String.format("%-12s%-15s%-15s%s\n", "ID", "Date", "Amount", "Content");
                 bw.write(string);
             }
-            bw.write(infor);
+            bw.write(information);
             bw.write("\n");
             bw.close();
             fw.close();
@@ -49,8 +48,6 @@ public class FileManager {
         int lastId = 0;
         String filePath = "Data.txt";
         try {
-            FileWriter fw = new FileWriter(filePath, true);
-            BufferedWriter bw = new BufferedWriter(fw);
             Scanner scanner = new Scanner(new File(filePath));
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
@@ -83,12 +80,6 @@ public class FileManager {
         return true;
     }
 
-    public void openFile() throws IOException {
-        if (Desktop.isDesktopSupported()) {
-            Desktop.getDesktop().open(file);
-        }
-    }
-
     public void clear() throws Exception {
         FileWriter fw = new FileWriter(file);
         fw.write("");
@@ -105,13 +96,13 @@ public class FileManager {
                 int id = Integer.parseInt(parts[0]);
                 String date = parts[1];
                 double amount = Double.parseDouble(parts[2].replace(",", "."));
-                String content = "";
+                StringBuilder content = new StringBuilder();
                 for (int i=3;i<parts.length;i++) {
-                    content += parts[i]+ " ";
+                    content.append(parts[i]).append(" ");
                 }
                 Expense expense = new Expense();
                 expense.setId(id);
-                expense.setContent(content);
+                expense.setContent(content.toString());
                 expense.setDate(date); 
                 expense.setMoney(amount); 
                 list.add(expense);

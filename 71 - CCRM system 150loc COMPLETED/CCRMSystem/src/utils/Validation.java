@@ -47,7 +47,7 @@ public class Validation {
         while (true) {
             System.out.print(msg);
             String string = removeUnneccessaryBlank(sc.nextLine());  
-            if ("".equals(string)) {
+            if (string.isEmpty()) {
                 System.err.println("Not null!");
             }
             else if (string.matches(regex)) {
@@ -60,7 +60,7 @@ public class Validation {
 
     public static boolean checkYN() {
         String input = removeUnneccessaryBlank(getStringByRegex("Y/N: ", "[YNyn]", "[YNyn]")); 
-        return input.toLowerCase().equalsIgnoreCase("y");
+        return input.equalsIgnoreCase("y");
     }
 
     public static String getDate() {

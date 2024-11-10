@@ -7,17 +7,12 @@ package utils;
 import java.util.Scanner;
 
 /**
- *
  * @author ADMIN
  */
 public class Validation {
 
-    public static String removeUnneccessaryBlank(String input) {
+    public static String removeUnnecessaryBlank(String input) {
         return input.trim().replaceAll("\\s+", " ");
-    }
-
-    public static String removeAllBlank(String input) {
-        return input.trim().replaceAll("\\s+", "");
     }
 
     public static int getInt(String mess, String errorNumberFormat, String errorOutOfRange, int min, int max) {
@@ -29,19 +24,13 @@ public class Validation {
                 return ret;
             }
         }
-
-    }
-
-    public static boolean checkYN() {
-        String input = getStringByRegex("Do you want to continue? (Y/N): ", "[YNyn]", "[YNyn]");
-        return input.toLowerCase().equalsIgnoreCase("y");
     }
 
     public static String getStringByRegex(String msg, String regex, String err) {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.print(msg);
-            String string = removeUnneccessaryBlank(sc.nextLine());
+            String string = removeUnnecessaryBlank(sc.nextLine());
             if (string.isEmpty()) {
                 System.err.println("Not null");
             } else if (string.matches(regex)) {
