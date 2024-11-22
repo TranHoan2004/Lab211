@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="LoginMD5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/LoginMD5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

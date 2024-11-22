@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="HandyExpense">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/HandyExpense.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
