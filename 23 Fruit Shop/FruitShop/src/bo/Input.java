@@ -19,7 +19,7 @@ public class Input {
         this.fruit = new Fruit();
     }
    
-    public Fruit getFruit() {
+    public Fruit getFruit() throws Exception {
         fruit.setFruitID(Validation.getStringByRegex("Enter Fruits ID: ", "[A-Za-z0-9]+", "Not empty"));
         fruit.setFruitName(Validation.getStringByRegex("Enter fruit's name: ", "[A-Za-z]+", "Not null"));
         fruit.setPrice(Validation.getDouble("Enter Fruits Price: ", "Please enter an integer number", 1, Double.MAX_VALUE));

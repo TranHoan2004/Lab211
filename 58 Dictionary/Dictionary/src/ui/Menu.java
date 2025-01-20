@@ -12,15 +12,17 @@ import utils.Validation;
  */
 public class Menu {
     public void getMenu() {
-        String menu = "\nDICTIONARY PROGRAM"
-                + "\n1. Add new word"
-                + "\n2. Delete word"
-                + "\n3. Search word"
-                + "\n4. Exit";
+        String menu = """
+                DICTIONARY PROGRAM
+                1. Add new word
+                2. Delete word
+                3. Search word
+                4. Exit
+                """;
         System.out.println(menu);
     }
 
-    public int getChoice() {
+    public int getChoice() throws Exception {
         return Validation.getInt("Your choice: ", "Only one digit", 1, 4);
     }
 }

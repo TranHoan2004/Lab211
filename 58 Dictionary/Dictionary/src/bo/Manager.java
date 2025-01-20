@@ -6,24 +6,23 @@
 package bo;
 
 import entity.Word;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
- *
  * @author ADMIN
  */
 public class Manager {
 
-    private final ArrayList<Word> listOfWord;
+    private final List<Word> listOfWord;
 
     public Manager() {
         this.listOfWord = new ArrayList<>();
     }
 
     public void addWord(Word word) throws Exception {
-        if (isExisted(word)) {
-            throw new Exception("This word is existed");
-        }
+        if (listOfWord.contains(word)) throw new Exception("This word is existed");
         listOfWord.add(word);
     }
 
@@ -39,24 +38,18 @@ public class Manager {
     }
 
     public String translate(String string) throws Exception {
-        for (Word word : listOfWord) {
-            if (word.getEnglishWord().equalsIgnoreCase(string)) {
-                return word.getVietnameseWord();
-            }
-        }
-        throw new Exception("This word is not existed");
+//        for (Word word : listOfWord) {
+//            if (word.getEnglishWord().equalsIgnoreCase(string)) {
+//                return word.getVietnameseWord();
+//            }
+//        }
+//        throw new Exception("This word is not existed");
+        // co the thay the bang doan code duoi
+        return listOfWord.stream().filter(word -> word.getEnglishWord().equalsIgnoreCase(string))
+                .findAny().orElseThrow(() -> new Exception("This word is not existed")).getVietnameseWord();
     }
 
-    public ArrayList<Word> getList() {
-        return listOfWord;
-    }
-
-    private boolean isExisted(Word word) {
-        for (Word w : listOfWord) {
-            if (w == word) {
-                return true;
-            }
-        }
-        return false;
+    public List<Word> getList() {
+        return new ArrayList<>(listOfWord);
     }
 }

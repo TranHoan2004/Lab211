@@ -84,15 +84,15 @@ public class Manager {
     }
 
     public ArrayList<Double> getOdd() {
-        return oddNumber;
+        return new ArrayList<>(oddNumber);
     }
 
     public ArrayList<Double> getEven() {
-        return evenNumber;
+        return new ArrayList<>(evenNumber);
     }
 
     public ArrayList<Double> getPerfectSquare() {
-        return perfectSquare;
+        return new ArrayList<>(perfectSquare);
     }
 
     private boolean isEven(double x) {

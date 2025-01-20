@@ -10,6 +10,8 @@ import bo.OrderManager;
 import entity.Fruit;
 import entity.Order;
 import java.util.ArrayList;
+import java.util.List;
+
 import utils.Validation;
 
 /**
@@ -33,13 +35,11 @@ public class Controller {
     }
 
     public void shopping() throws Exception {
-        ArrayList<Order> list = new ArrayList<>();
+        List<Order> list = new ArrayList<>();
         do {
             String item = Validation.getStringByRegex("Select item: ", "[A-Za-z0-9]+", "Do not have special characters");
             Fruit fruit = fruitManager.getFruit(item);
-            if (fruit == null) {
-                throw new Exception("This fruit is not existed");
-            }
+            if (fruit == null) throw new Exception("This fruit is not existed");
             int numberOfFruit = Validation.getInt("You selected: " + fruit.getFruitName() + "\nPlease input quality: ", "Only a positive number", "Out of range", 1, fruit.getQuantity());
             fruitManager.update(fruit, numberOfFruit);
             list = orderManager.createOrder(list, fruit, numberOfFruit);
@@ -49,11 +49,11 @@ public class Controller {
         orderManager.addToCart(order);
     }
 
-    public ArrayList<Fruit> getListOfFruit() {
-        return fruitManager.getListOfFruit();
+    public List<Fruit> getListOfFruit() {
+        return fruitManager.getListOfFruit(); // tao ban sao cua list de dam bao su toan ven du lieu
     }
 
-    public ArrayList<Order> getListOfOrder() {
+    public List<Order> getListOfOrder() {
         return orderManager.getListOfOrder();
     }
 }

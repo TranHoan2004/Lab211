@@ -15,33 +15,29 @@ public class Validation {
         return input.trim().replaceAll("\\s+", " ");
     }
 
-    public static int getInt(String msg, String error, int min, int max) {
-        while (true) {
-            int input = Integer.parseInt(getStringByRegex(msg, "[0-9]+", error));
-            if (input < min || input > max) {
-                System.err.println("Out of range!");
-            } else {
-                return input;
-            }
+    public static int getInt(String msg, String error, int min, int max) throws Exception {
+        int input = Integer.parseInt(getStringByRegex(msg, "[0-9]+", error));
+        if (input < min || input > max) {
+            throw new Exception("Out of range!");
+        } else {
+            return input;
         }
     }
 
-    public static String getStringByRegex(String msg, String regex, String err) {
+    public static String getStringByRegex(String msg, String regex, String err) throws Exception {
         Scanner sc = new Scanner(System.in);
-        while (true) {
-            System.out.print(msg);
-            String string = removeUnnecessaryBlank(sc.nextLine());
-            if (string.isEmpty()) {
-                System.err.println("Not null!");
-            } else if (string.matches(regex)) {
-                return string;
-            } else {
-                System.err.println(err);
-            }
+        System.out.print(msg);
+        String string = removeUnnecessaryBlank(sc.nextLine());
+        if (string.isEmpty()) {
+            throw new Exception("Not null!");
+        } else if (string.matches(regex)) {
+            return string;
+        } else {
+            throw new Exception(err);
         }
     }
 
-    public static boolean checkYN() {
+    public static boolean checkYN() throws Exception {
         String input = getStringByRegex("Do you want to continue (Y/N): ", "[YNyn]", "Y/N only!");
         return input.equalsIgnoreCase("y");
     }

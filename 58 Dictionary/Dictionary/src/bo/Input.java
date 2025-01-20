@@ -20,13 +20,13 @@ public class Input {
         this.word = new Word();
     }
 
-    public Word getWord() {
+    public Word getWord() throws Exception {
         word.setEnglishWord(Validation.getStringByRegex("Enter English: ", "[A-Za-z ]+", "Only word and space"));
         word.setVietnameseWord(Validation.getStringByRegex("Enter Vietnamese: ", "[A-Za-z ]+", "Only word and space"));
         return word;
     }
 
-    public String getEnglishWord() {
+    public String getEnglishWord() throws Exception {
         return Validation.getStringByRegex("Enter English: ", "[A-Za-z ]+", "Only word and space");
     }
 }

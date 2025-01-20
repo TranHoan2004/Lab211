@@ -1,64 +1,342 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="1555dbde-0164-423e-a052-0db4931e2839" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/.idea/libraries/CCRMSystem.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/CCRMSystem.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/LoginMD5.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/build/classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/build/classes/.netbeans_update_resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/build/classes/bo/Input.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/build/classes/bo/Manager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/build/classes/controller/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/build/classes/entity/Course.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/build/classes/entity/Student.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/build/classes/ui/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/build/classes/ui/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/build/classes/utils/Validation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/src/bo/Input.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/src/bo/Manager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/src/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/src/entity/Course.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/src/entity/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/src/ui/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/src/ui/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StudentManager/src/utils/Validation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bo/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bo/Input.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bo/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bo/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Students.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Students.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Validation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/bo/CountryInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/bo/CountryInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/bo/CountryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/bo/CountryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/entity/EastAsiaCountries.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/entity/EastAsiaCountries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/ui/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/ui/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/utils/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/utils/Validation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/src/bo/DoctorInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/src/bo/DoctorInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/src/bo/DoctorManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/src/bo/DoctorManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/src/ui/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/src/ui/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/src/utils/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/src/utils/Validation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/nbproject/private/private.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/bo/HistoryManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/bo/WorkerInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/bo/WorkerInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/bo/WorkerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/bo/WorkerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/controller/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/entity/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/entity/History.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/utils/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/utils/Validation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../58 Dictionary/Dictionary/src/bo/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../58 Dictionary/Dictionary/src/bo/Input.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../58 Dictionary/Dictionary/src/bo/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../58 Dictionary/Dictionary/src/bo/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../58 Dictionary/Dictionary/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../58 Dictionary/Dictionary/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../58 Dictionary/Dictionary/src/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../58 Dictionary/Dictionary/src/ui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../58 Dictionary/Dictionary/src/ui/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../58 Dictionary/Dictionary/src/ui/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../58 Dictionary/Dictionary/src/utils/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../58 Dictionary/Dictionary/src/utils/Validation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/bo/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/bo/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/entity/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/entity/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/ui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/utils/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/utils/Validation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/bo/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/bo/Input.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/bo/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/bo/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/entity/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/entity/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/ui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/utils/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/utils/Validation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/src/bo/AccountManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/src/bo/AccountManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/src/bo/ListAccountManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/src/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/src/controller/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/src/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/src/ui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/src/utils/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/src/utils/Validation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/nbproject/build-impl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/nbproject/build-impl.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/nbproject/genfiles.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/nbproject/genfiles.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/nbproject/private/private.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/nbproject/private/private.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../74 Matrix NOT COMPLETED/Matrix/nbproject/build-impl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../74 Matrix NOT COMPLETED/Matrix/nbproject/build-impl.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../74 Matrix NOT COMPLETED/Matrix/nbproject/genfiles.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../74 Matrix NOT COMPLETED/Matrix/nbproject/genfiles.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../74 Matrix NOT COMPLETED/Matrix/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../74 Matrix NOT COMPLETED/Matrix/nbproject/private/private.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../74 Matrix NOT COMPLETED/Matrix/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../74 Matrix NOT COMPLETED/Matrix/nbproject/private/private.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/23 Fruit Shop.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/bo/FruitManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/bo/FruitManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/bo/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/bo/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/bo/OrderManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/bo/OrderManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/entity/Fruit.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/entity/Fruit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/ui/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/ui/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/ui/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/utils/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../23 Fruit Shop/FruitShop/src/utils/Validation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/out/production/23 Fruit Shop/bo/FruitManager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/out/production/23 Fruit Shop/bo/FruitManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/out/production/23 Fruit Shop/bo/Input.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/out/production/23 Fruit Shop/bo/OrderManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/out/production/23 Fruit Shop/controller/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/out/production/23 Fruit Shop/entity/Fruit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/out/production/23 Fruit Shop/entity/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/out/production/23 Fruit Shop/ui/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/out/production/23 Fruit Shop/ui/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../23 Fruit Shop/out/production/23 Fruit Shop/utils/Validation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../50 Superlative and Quadratic Equation/Equation/src/bo/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../50 Superlative and Quadratic Equation/Equation/src/bo/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../50 Superlative and Quadratic Equation/Equation/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../50 Superlative and Quadratic Equation/Equation/src/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../50 Superlative and Quadratic Equation/Equation/src/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../50 Superlative and Quadratic Equation/Equation/src/ui/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/J1.S.P0052.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/.idea/libraries/JavaApplication102.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/JavaApplication102.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/build/built-jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/build/classes/bo/CountryInput.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/build/classes/bo/CountryManager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/build/classes/bo/CountryManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/build/classes/controller/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/build/classes/entity/Country.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/build/classes/entity/EastAsiaCountries.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/build/classes/ui/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/build/classes/ui/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/build/classes/utils/Validation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/dist/JavaApplication102.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/dist/README.TXT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/bo/CountryInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/bo/CountryManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/entity/Country.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/entity/EastAsiaCountries.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/ui/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/ui/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../52 Country COMPLETED/JavaApplication102/src/utils/Validation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/J1.S.P0053.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/.idea/libraries/JavaApplication63.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/JavaApplication63.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/build/built-jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/build/classes/bo/Input.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/build/classes/bo/Manager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/build/classes/controller/ManagerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/build/classes/gui/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/build/classes/gui/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/build/classes/utils/Validation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/dist/JavaApplication63.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/dist/README.TXT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/src/bo/Input.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/src/bo/Manager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/src/controller/ManagerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/src/gui/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/src/gui/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../53 Sort 1-dimension array with Bubble Sort 72loc COMPLETED/JavaApplication63/src/utils/Validation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/.idea/libraries/Doctor.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/Doctor.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/build/built-jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/build/classes/bo/DoctorInput.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/build/classes/bo/DoctorManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/build/classes/controller/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/build/classes/entity/Doctor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/build/classes/ui/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/build/classes/ui/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/build/classes/utils/Validation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/dist/Doctor.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/dist/README.TXT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/src/bo/DoctorInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/src/bo/DoctorManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/src/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/src/entity/Doctor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/src/ui/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/src/ui/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/Doctor/src/utils/Validation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../55 - Doctor COMPLETED/J1.S.P0055.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/J1.S.P0056.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/.idea/libraries/Worker.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/JavaApplication78.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/build/built-jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/build/classes/bo/HistoryManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/build/classes/bo/WorkerInput.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/build/classes/bo/WorkerManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/build/classes/controller/ManagerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/build/classes/entity/History$Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/build/classes/entity/History.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/build/classes/entity/Worker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/build/classes/ui/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/build/classes/utils/Validation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/dist/README.TXT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/dist/Worker.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/bo/WorkerInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/bo/WorkerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/controller/ManagerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/entity/History.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/entity/Worker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/ui/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../56 Worker 120loc COMPLETED/JavaApplication78/src/utils/Validation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/J1.S.P0061.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/JavaApplication9.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/build/built-jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/build/classes/bo/Input.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/build/classes/bo/Manager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/build/classes/entity/Circle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/build/classes/entity/Rectangle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/build/classes/entity/Shape.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/build/classes/entity/Triangle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/bo/Input.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/bo/Manager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/entity/Circle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/entity/Rectangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/entity/Shape.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/entity/Triangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/ui/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../61 Circle 61loc COMPLETED/JavaApplication9/src/utils/Validation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/.idea/libraries/CCRMSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/CCRMSystem.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/Data.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/build/built-jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/build/classes/bo/Input.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/build/classes/bo/Manager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/build/classes/controller/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/build/classes/entity/Task$Type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/build/classes/entity/Task.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/build/classes/ui/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/build/classes/utils/Validation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/dist/CCRMSystem.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/dist/README.TXT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/bo/Input.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/bo/Manager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/entity/Task.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/ui/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/CCRMSystem/src/utils/Validation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../71 - CCRM system 150loc COMPLETED/J1.S.P0071 (1).docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/J1.S.P0072.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/.idea/libraries/LoginMD5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/LoginMD5.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/build/built-jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/build/classes/bo/AccountInput.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/build/classes/bo/AccountManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/build/classes/bo/ListAccountManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/build/classes/controller/ManagerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/build/classes/entity/Account.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/build/classes/ui/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/build/classes/utils/Validation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/dist/LoginMD5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/dist/README.TXT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/out/production/LoginMD5/bo/AccountInput.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/out/production/LoginMD5/bo/AccountManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/out/production/LoginMD5/controller/ManagerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/out/production/LoginMD5/entity/Account.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/out/production/LoginMD5/ui/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/out/production/LoginMD5/utils/Validation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/src/bo/AccountInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/src/bo/AccountManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/src/controller/ManagerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/src/entity/Account.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/src/ui/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../72 Login use MD5 150loc COMPLETED/LoginMD5/src/utils/Validation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/.idea/libraries/HandyExpense.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/Data.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/HandyExpense.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/build/built-jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/build/classes/bo/FileManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/build/classes/bo/Input.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/build/classes/bo/Manager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/build/classes/bo/Manager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/build/classes/controller/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/build/classes/entity/Expense.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/build/classes/ui/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/build/classes/ui/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/build/classes/utils/Validation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/dist/HandyExpense.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/dist/README.TXT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/src/bo/ExpenseManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/src/bo/FileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/src/bo/Input.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/src/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/src/entity/Expense.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/src/ui/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/src/ui/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/HandyExpense/src/utils/Validation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../73 Handy Expense 100loc COMPLETED/J1.S.P0073.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,41 +346,51 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "TranHoan2004"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;TranHoan2004&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/TranHoan2004/Lab211.git",
-    "accountId": "b4461a90-23e9-499c-b5cf-7e9eb561c346"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TranHoan2004/Lab211.git&quot;,
+    &quot;accountId&quot;: &quot;b4461a90-23e9-499c-b5cf-7e9eb561c346&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2oemYSsSSZsh2btm3EP9zeu27ab" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/FPTU/LAB211 - Copy/21 Student/StudentsManager",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/FPTU/Lab211/21 Student/StudentsManager&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.117" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.117" />
       </set>
     </attachedChunks>
   </component>
@@ -115,6 +403,8 @@
       <option name="presentableId" value="Default" />
       <updated>1731238462976</updated>
       <workItem from="1731238464077" duration="122000" />
+      <workItem from="1737084526394" duration="2021000" />
+      <workItem from="1737098485219" duration="224000" />
     </task>
     <servers />
   </component>

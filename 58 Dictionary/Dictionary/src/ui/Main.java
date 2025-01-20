@@ -30,7 +30,6 @@ public class Main {
                             controller.createWord();
                         } while (Validation.checkYN());
                         System.out.println("Successful");
-
                         break;
                     case 2:
                         controller.delete();

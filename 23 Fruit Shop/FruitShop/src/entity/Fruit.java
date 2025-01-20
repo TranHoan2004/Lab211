@@ -5,7 +5,6 @@
 package entity;
 
 /**
- *
  * @author ADMIN
  */
 public class Fruit {
@@ -17,6 +16,14 @@ public class Fruit {
     private String origin;
 
     public Fruit() {
+    }
+
+    public Fruit(String fruitID, String fruitName, String origin, double price, int quantity) {
+        this.fruitID = fruitID;
+        this.fruitName = fruitName;
+        this.origin = origin;
+        this.price = price;
+        this.quantity = quantity;
     }
 
     public String getFruitID() {

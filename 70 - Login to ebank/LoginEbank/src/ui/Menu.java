@@ -8,7 +8,6 @@ package ui;
 import utils.Validation;
 
 /**
- *
  * @author ADMIN
  */
 public class Menu {
@@ -16,15 +15,16 @@ public class Menu {
     private int choice;
 
     public int getChoice() {
-        choice = Validation.getInt("Your choice: ", "Only one digit!", 1, 3);
-        return choice;
+        return Validation.getInt("Your choice: ", "Only one digit!", 1, 3);
     }
 
     public void displayMenu() {
-        String menu = "LOGIN PROGRAM\n"
-                + "1. Vietnamese\n"
-                + "2. English\n"
-                + "3. Exit\n";
+        String menu = """
+                LOGIN PROGRAM
+                1. Vietnamese
+                2. English
+                3. Exit
+                """;
         System.out.println(menu);
     }
 }

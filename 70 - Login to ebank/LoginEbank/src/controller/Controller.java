@@ -17,12 +17,10 @@ import entity.Account;
 public class Controller {
 
     private final AccountManager accManager;
-    private final ListOfAccountManager listManager;
     private Input input;
 
     public Controller() {
         this.accManager = new AccountManager();
-        this.listManager = new ListOfAccountManager();
     }
 
     public void createAccount(boolean type) {

@@ -22,7 +22,7 @@ public class Input {
         this.student = new Students();
     }
 
-    public Students getStudents() {
+    public Students getStudents() throws Exception {
         student.setId(Validation.getStringByRegex("Student's id: ", "SE[0-9]{6}", "Must follow the format [SE******]"));
         student.setName(Validation.getStringByRegex("Student's name: ", "^[A-Za-z ]+", "Must follow the format [SE******]"));
         student.setSemester(Validation.getInt("Student's semester: ", "Only an integer number", 0, 9));

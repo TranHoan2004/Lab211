@@ -5,10 +5,11 @@
 package entity;
 
 import entity.Course.CourseName;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
- *
  * @author ADMIN
  */
 public class Students {
@@ -16,9 +17,10 @@ public class Students {
     private String id;
     private String name;
     private int semester;
-    private ArrayList<CourseName> course;
+    private List<CourseName> course;
 
     public Students() {
+        this.course = new ArrayList<>();
     }
 
     public Students(String id, String name, int semester, ArrayList<CourseName> course) {
@@ -27,7 +29,7 @@ public class Students {
         this.semester = semester;
         this.course = course;
     }
-    
+
     public String display() {
         return String.format("%-20s%-20s%-20d%s", id, name, semester, course);
     }
@@ -61,8 +63,8 @@ public class Students {
         this.semester = semester;
     }
 
-    public ArrayList<CourseName> getCourse() {
-        return course;
+    public List<CourseName> getCourse() {
+        return new ArrayList<>(course);
     }
 
     public void setCourse(ArrayList<CourseName> course) {

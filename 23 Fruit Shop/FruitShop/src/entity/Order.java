@@ -5,9 +5,9 @@
 package entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
- *
  * @author ADMIN
  */
 public class Order {
@@ -16,7 +16,11 @@ public class Order {
     private int quantity;
     private double price;
     private String name;
-    private ArrayList<Order> listOfOrder;
+    private List<Order> listOfOrder;
+
+    public Order() {
+        this.listOfOrder = new ArrayList<>();
+    }
 
     public Order(Fruit fruit, int quantity, double price) {
         this.fruit = fruit;
@@ -26,7 +30,7 @@ public class Order {
 
     public Order(String name, ArrayList<Order> list) {
         this.name = name;
-        this.listOfOrder = list;
+        this.listOfOrder.addAll(list);
     }
 
     public String getName() {
@@ -38,11 +42,11 @@ public class Order {
     }
 
     public ArrayList<Order> getListOfOrder() {
-        return listOfOrder;
+        return new ArrayList<>(listOfOrder);
     }
 
     public void setListOfOrder(ArrayList<Order> listOfOrder) {
-        this.listOfOrder = listOfOrder;
+        this.listOfOrder.addAll(listOfOrder);
     }
 
     public Fruit getFruit() {

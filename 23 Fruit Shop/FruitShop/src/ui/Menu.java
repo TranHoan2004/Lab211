@@ -22,7 +22,7 @@ public class Menu {
         System.out.println(menu);
     }
 
-    public int getChoice() {
+    public int getChoice() throws Exception {
         return Validation.getInt("Your choice: ", "Only one digit", "Out of range!", 1, 4);
     }
 }

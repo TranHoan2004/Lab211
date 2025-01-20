@@ -5,22 +5,25 @@
 package ui;
 
 import controller.Controller;
-import java.util.ArrayList;
 import utils.Validation;
 
+import java.util.ArrayList;
+
 /**
- *
  * @author ADMIN
  */
 public class Main {
 
     public static void main(String[] args) {
         Controller c = new Controller();
+        String menu = """
+                ========= Equation Program =========
+                1. Calculate Superlative Equation
+                2. Calculate Quadratic Equation
+                3. Exit
+                """;
         while (true) {
-            System.out.println("\n========= Equation Program =========\n"
-                    + "1. Calculate Superlative Equation\n"
-                    + "2. Calculate Quadratic Equation\n"
-                    + "3. Exit\n");
+            System.out.println(menu);
             int choice = Validation.getInt("Please choice one option: ", "Must enter an integer", "Out of range!", 1, 3);
             switch (choice) {
                 case 1:
@@ -28,7 +31,7 @@ public class Main {
                     try {
                         System.out.println("Solution: " + c.calculateEquation());
                         print(c.getListOfOddNumber(), c.getListOfEvenNumber());
-                        printPerfectSquare(c.getListOfPerfectSquare()); 
+                        printPerfectSquare(c.getListOfPerfectSquare());
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }
@@ -38,7 +41,7 @@ public class Main {
                     try {
                         System.out.println("Solution: " + c.calculateQuadraticEquation());
                         print(c.getListOfOddNumber(), c.getListOfEvenNumber());
-                        printPerfectSquare(c.getListOfPerfectSquare()); 
+                        printPerfectSquare(c.getListOfPerfectSquare());
                     } catch (Exception e) {
                         System.err.println(e.getMessage());
                     }

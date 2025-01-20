@@ -10,7 +10,6 @@ import entity.Order;
 import utils.Validation;
 
 /**
- *
  * @author ADMIN
  */
 public class Main {
@@ -54,7 +53,7 @@ public class Main {
                         return;
                 }
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                System.err.println(e.getMessage());
             }
         }
     }
@@ -62,12 +61,13 @@ public class Main {
     public static void display() {
         try {
             System.out.printf("List of fruits:\n"
-                    + "%-15s%-15s%-15s%-15s%s\n", "Item", "Fruit Name", "Price", "Quantities", "Origin");
-            for (Fruit fruit : controller.getListOfFruit()) {
-                System.out.println(fruit.toString());
-            }
+                              + "%-15s%-15s%-15s%-15s%s\n", "Item", "Fruit Name", "Price", "Quantities", "Origin");
+//            for (Fruit fruit : controller.getListOfFruit()) {
+//                System.out.println(fruit.toString());
+//            }
+            controller.getListOfFruit().stream().map(Fruit::toString).forEach(System.out::println);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
     }
 }
